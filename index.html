@@ -424,46 +424,6 @@
         setTimeout(showSlides, 2000); // Change image every 2 seconds
       }
     </script>
-     <input type="text" id="searchInput" placeholder="search">
-    
-     <ul id="searchResults">
-     </ul>
- 
-     <script>
-         var products = [
-             { name: "BXD - ALEX OVERPRINT TEES/BLACK", price: 24.99 },
-             { name: "BXD - CHECKERBOARD GREEN SHIRT", price: 34.99 },
-             { name: "BXD - LOGO TEES/BLACK", price: 21.99 },
-             { name: "BXD - MONOGRAM SHIRT/BLACK", price: 30.99 },
-             { name: "BXD - SKELETON COIN TEES/BLACK", price: 29.99 },
-             { name: "BOBUI BALLOON - TEE/RED", price: 19.99 },
-             { name: "BOBUI BALLOON - TEE/BLACK", price: 33.99 },
-             { name: "BOBUI BALLOON - TEE/WHITE", price: 19.99 }
-         ];
- 
-         var searchInput = document.getElementById("searchInput");
-         var searchResults = document.getElementById("searchResults");
- 
-         searchInput.addEventListener("input", function() {
-             var searchKeyword = searchInput.value.toLowerCase();
-             searchResults.innerHTML = "";
- 
-             var matchingProducts = products.filter(function(product) {
-                 return product.name.toLowerCase().includes(searchKeyword);
-             });
- 
-             if (matchingProducts.length === 0) {
-                 searchResults.innerHTML = "No product found.";
-             } else {
-                 matchingProducts.forEach(function(product) {
-                     var listItem = document.createElement("li");
-                     listItem.textContent = product.name + " - Giá: $" + product.price;
-                     searchResults.appendChild(listItem);
-                 });
-             }
-         });
-     </script>
- 
 
     <div class="w3-container w3-text-grey" id="jeans">
       <p>8 items</p>
