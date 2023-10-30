@@ -438,7 +438,7 @@
             <img src="WEB1/T-SHIRT/1.1.jpg" style="width:100%">
             <span class="w3-tag w3-display-topleft">New</span>
             <div class="w3-display-middle w3-display-hover">
-              <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+              <button class="w3-button w3-black" onclick="addToCart('BXD - ALEX OVERPRINT TEES/BLACK', 29.44)">Buy now <i class="fa fa-shopping-cart"></i></button>
             </div>
           </div>
           <p>BXD - ALEX OVERPRINT TEES/BLACK<br><b>$24.99</b></p>
@@ -451,7 +451,7 @@
             <img src="WEB1/T-SHIRT/2.1.jpg" style="width:100%">
             <span class="w3-tag w3-display-topleft">New</span>
             <div class="w3-display-middle w3-display-hover">
-              <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+              <button class="w3-button w3-black" onclick="addToCart('BXD - CHECKERBOARD GREEN SHIRT', 34.99)">Buy now <i class="fa fa-shopping-cart"></i></button>
             </div>
           </div>
           <p>BXD - CHECKERBOARD GREEN SHIRT<br><b>$34.99</b></p>
@@ -464,7 +464,7 @@
             <img src="WEB1/T-SHIRT/3.1.jpg" style="width:100%">
             <span class="w3-tag w3-display-topleft">New</span>
             <div class="w3-display-middle w3-display-hover">
-              <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+              <button class="w3-button w3-black" onclick="addToCart('BXD - LOGO TEES/BLACK', 21.99)">Buy now <i class="fa fa-shopping-cart"></i></button>
             </div>
           </div>
           <p>BXD - LOGO TEES/BLACK<br><b>$21.99</b></p>
@@ -477,7 +477,7 @@
             <img src="WEB1/T-SHIRT/4.1.jpg" style="width:100%">
             <span class="w3-tag w3-display-topleft">New</span>
             <div class="w3-display-middle w3-display-hover">
-              <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+              <button class="w3-button w3-black" onclick="addToCart('XD - MONOGRAM SHIRT/BLACK', 30.99)">Buy now <i class="fa fa-shopping-cart"></i></button>
             </div>
           </div>
           <p>BXD - MONOGRAM SHIRT/BLACK<br><b>$30.99</b></p>
@@ -490,7 +490,7 @@
             <img src="WEB1/T-SHIRT/5.1.jpg" style="width:100%">
             <span class="w3-tag w3-display-topleft">New</span>
             <div class="w3-display-middle w3-display-hover">
-              <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+              <button class="w3-button w3-black" onclick="addToCart('BXD - SKELETON COIN TEES/BLACK', 29.99)">Buy now <i class="fa fa-shopping-cart"></i></button>
             </div>
           </div>
           <p>BXD - SKELETON COIN TEES/BLACK<br><b>$29.99</b></p>
@@ -502,7 +502,7 @@
           <div class="w3-display-container">
             <img src="WEB1/T-SHIRT/6.1.jpg" style="width:100%">
             <div class="w3-display-middle w3-display-hover">
-              <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+              <button class="w3-button w3-black" onclick="addToCart('BOBUI BALLOON - TEE/RED', 19.99)">Buy now <i class="fa fa-shopping-cart"></i></button>
             </div>
           </div>
           <p>BOBUI BALLOON - TEE/RED<br><b>$19.99</b></p>
@@ -514,7 +514,7 @@
           <div class="w3-display-container">
             <img src="WEB1/T-SHIRT/7.1.jpg" style="width:100%">
             <div class="w3-display-middle w3-display-hover">
-              <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+              <button class="w3-button w3-black" onclick="addToCart('BOBUI BALLOON - TEE/BLACK', 33.99)">Buy now <i class="fa fa-shopping-cart"></i></button>
             </div>
           </div>
           <p>BOBUI BALLOON - TEE/BLACK<br><b>$33.99</b></p>
@@ -526,7 +526,7 @@
           <div class="w3-display-container">
             <img src="WEB1/T-SHIRT/8.1.jpg" style="width:100%">
             <div class="w3-display-middle w3-display-hover">
-              <button class="w3-button w3-black">Buy now <i class="fa fa-shopping-cart"></i></button>
+              <button class="w3-button w3-black" onclick="addToCart('BOBUI BALLOON - TEE/WHITE', 19.99)">Buy now <i class="fa fa-shopping-cart"></i></button>
             </div>
           </div>
           <p>BOBUI BALLOON - TEE/WHITE<br><b>$19.99</b></p>
@@ -534,6 +534,61 @@
       </div>
 
     </div>
+    <ul id="cart">
+    </ul>
+    
+    <script>
+      // Khai báo biến cho sản phẩm trong giỏ hàng
+      var cartItems = [];
+
+      // Hàm thêm sản phẩm vào giỏ hàng
+      function addToCart(productName, price) {
+          // Tạo một đối tượng sản phẩm
+          var product = {
+              name: productName,
+              price: price
+          };
+
+          // Thêm sản phẩm vào mảng cartItems
+          cartItems.push(product);
+
+          // Cập nhật giỏ hàng trên giao diện
+          updateCartDisplay();
+      }
+
+      // Hàm cập nhật giao diện giỏ hàng
+      function updateCartDisplay() {
+          var cartItemsContainer = document.querySelector('.cart-items');
+
+          // Xóa nội dung hiện tại của giỏ hàng
+          cartItemsContainer.innerHTML = '';
+
+          // Thêm sản phẩm vào giỏ hàng
+          cartItems.forEach(function(product) {
+              var cartRow = document.createElement('div');
+              cartRow.classList.add('cart-row');
+              var cartRowContents = `
+                  <div class="cart-item cart-column">
+                      <span class="cart-item-title">${product.name}</span>
+                  </div>
+                  <span class="cart-price cart-column">${product.price}$</span>
+                  <div class="cart-quantity cart-column">
+                      <input class="cart-quantity-input" type="number" value="1">
+                      <button class="btn btn-danger" type="button">Delete</button>
+                  </div>
+              `;
+              cartRow.innerHTML = cartRowContents;
+              cartItemsContainer.appendChild(cartRow);
+          });
+
+          // Cập nhật tổng giá trị
+          var totalPrice = cartItems.reduce(function(total, product) {
+              return total + product.price;
+          }, 0);
+          document.querySelector('.cart-total-price').textContent = totalPrice.toFixed(2) + '$';
+      }
+  </script>
+    
     <!-- Subscribe section -->
     <div class="w3-container w3-black w3-padding-32">
       <h1>Subscribe</h1>
