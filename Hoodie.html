@@ -530,62 +530,6 @@ function w3_close() {
   document.getElementById("myOverlay").style.display = "none";
 }
 </script>
-<title>Tìm kiếm sản phẩm</title>
-</head>
-<body>
-    <h1>Danh sách sản phẩm</h1>
-    <ul>
-        <li>{ name: "BXD - ALEX OVERPRINT TEES/BLACK", price: $24.99 }</li>
-        <li>{ name: "BXD - CHECKERBOARD GREEN SHIRT", price: $34.99 }</li>
-        <li>{ name: "BXD - LOGO TEES/BLACK", price: $21.99 }</li>
-        <li>{ name: "BXD - MONOGRAM SHIRT/BLACK", price: $30.99 }</li>
-        <li>{ name: "BXD - SKELETON COIN TEES/BLACK", price: $29.99 }</li>
-        <li>{ name: "BOBUI BALLOON - TEE/RED", price: $19.99 }</li>
-        <li>{ name: "BOBUI BALLOON - TEE/BLACK", price: $33.99 }</li>
-        <li>{ name: "BOBUI BALLOON - TEE/WHITE", price: $19.99 }</li>
-    </ul>
-
-    <h2>Tìm kiếm sản phẩm</h2>
-    <input type="text" id="searchInput" placeholder="Tìm sản phẩm">
-    
-    <ul id="searchResults">
-    </ul>
-
-    <script>
-        var products = [
-            { name: "BXD - ALEX OVERPRINT TEES/BLACK", price: 24.99 },
-            { name: "BXD - CHECKERBOARD GREEN SHIRT", price: 34.99 },
-            { name: "BXD - LOGO TEES/BLACK", price: 21.99 },
-            { name: "BXD - MONOGRAM SHIRT/BLACK", price: 30.99 },
-            { name: "BXD - SKELETON COIN TEES/BLACK", price: 29.99 },
-            { name: "BOBUI BALLOON - TEE/RED", price: 19.99 },
-            { name: "BOBUI BALLOON - TEE/BLACK", price: 33.99 },
-            { name: "BOBUI BALLOON - TEE/WHITE", price: 19.99 }
-        ];
-
-        var searchInput = document.getElementById("searchInput");
-        var searchResults = document.getElementById("searchResults");
-
-        searchInput.addEventListener("input", function() {
-            var searchKeyword = searchInput.value.toLowerCase();
-            searchResults.innerHTML = "";
-
-            var matchingProducts = products.filter(function(product) {
-                return product.name.toLowerCase().includes(searchKeyword);
-            });
-
-            if (matchingProducts.length === 0) {
-                searchResults.innerHTML = "Không tìm thấy sản phẩm nào.";
-            } else {
-                matchingProducts.forEach(function(product) {
-                    var listItem = document.createElement("li");
-                    listItem.textContent = product.name + " - Giá: $" + product.price;
-                    searchResults.appendChild(listItem);
-                });
-            }
-        });
-    </script>
-
 <script src="IMGDEMO/jquery-2.1.4.min.js"></script>
 </body>
 </html>
