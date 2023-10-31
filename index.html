@@ -534,41 +534,9 @@
       </div>
 
     </div>
-  <!-- Phần tìm kiếm -->
-<input type="text" id="searchInput" placeholder="Tìm kiếm sản phẩm...">
-
-<ul id="cart">
-</ul>
-
-<script>
-function addToCart(productName, price) {
-  // Thêm sản phẩm vào giỏ hàng
-  var cart = document.getElementById("cart");
-  var li = document.createElement("li");
-  li.appendChild(document.createTextNode(productName + " - $" + price));
-  cart.appendChild(li);
-}
-
-function searchProducts() {
-  var input, filter, grid, items, title, i;
-  input = document.getElementById("searchInput");
-  filter = input.value.toUpperCase();
-  grid = document.getElementById("productGrid");
-  items = grid.getElementsByClassName("w3-col");
-
-  for (i = 0; i < items.length; i++) {
-    title = items[i].getElementsByTagName("p")[0];
-    if (title.innerText.toUpperCase().indexOf(filter) > -1) {
-      items[i].style.display = "";
-    } else {
-      items[i].style.display = "none";
-    }
-  }
-}
-
-document.getElementById("searchInput").addEventListener("keyup", searchProducts);
-</script>
-  
+    <ul id="cart">
+    </ul>
+    
     <script>
       // Khai báo biến cho sản phẩm trong giỏ hàng
       var cartItems = [];
