@@ -429,14 +429,7 @@
       <p>8 items</p>
     </div>
 
-    <ul id="cart">
-    </ul>
-    <!-- Add search input -->
-<input type="text" id="searchInput" placeholder="Search products...">
-
-<!-- Product grid -->  
-<div id="productGrid" class="w3-row">
-  <!-- Product grid -->
+    <!-- Product grid -->
     <div class="w3-row w3-whitescale">
 
       <div class="w3-col l3 s6">
@@ -541,51 +534,9 @@
       </div>
 
     </div>
-</div>
-
-<script>
-// Array of products 
-const products = [
-  {name: 'ALEX OVERPRINT TEES/BLACK', img: 'WEB1/T-SHIRT/1.1.jpg', price: 24.99},
-  {name: 'CHECKERBOARD GREEN SHIRT', img: 'WEB1/T-SHIRT/2.1.jpg', price: 34.99},  
-  {name: 'LOGO TEES/BLACK', img: 'WEB1/T-SHIRT/3.1.jpg', price: 21.99}
-  {name: 'MONOGRAM SHIRT/BLACK', img: 'WEB1/T-SHIRT/4.1.jpg', price: 30.99}
-  {name: 'SKELETON COIN TEES/BLACK', img: 'WEB1/T-SHIRT/5.1.jpg', price: 29.99}
-  {name: 'BOBUI BALLOON - TEE/RED', img: 'WEB1/T-SHIRT/6.1.jpg', price: 19.99}
-  {name: 'BOBUI BALLOON - TEE/BLACK', img: 'WEB1/T-SHIRT/7.1.jpg', price: 19.99}
-  {name: 'BOBUI BALLOON - TEE/WHITE', img: 'WEB1/T-SHIRT/8.1.jpg', price: 19.99}
-  
-];
-
-// Display products
-function displayProducts() {
-  const productGrid = document.getElementById('productGrid');
-  productGrid.innerHTML = '';
-  products.forEach(product => {
-    const column = document.createElement('div');
-    column.classList.add('w3-col');
-    column.innerHTML = `
-        <div class="w3-container">
-          <img src="${product.img}" style="width:100%">
-          <p>${product.name}<br><b>$${product.price}</b></p>  
-        </div>
-    `;
-    productGrid.appendChild(column); 
-  });
-}
-
-displayProducts();
-
-// Search products
-const searchInput = document.getElementById('searchInput');
-searchInput.addEventListener('keyup', e => {
-  const searchTerm = e.target.value.toLowerCase();
-  const filteredProducts = products.filter(product => {
-    return product.name.toLowerCase().includes(searchTerm);
-  });
-  displayProducts(filteredProducts);
-});
-</script>
+    <ul id="cart">
+    </ul>
+    
     <script>
       // Khai báo biến cho sản phẩm trong giỏ hàng
       var cartItems = [];
