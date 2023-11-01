@@ -319,22 +319,32 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
             { name: "BOBUI BALLOON - TEE/WHITE", price: 19.99 }
         ];
 
-        function searchProduct() {
-            var searchInput = document.getElementById("searchInput").value.toLowerCase();
-            var searchResults = document.getElementById("searchResults");
-            searchResults.innerHTML = "";
+/ JavaScript
+function searchProducts() {
+    var searchInput = document.getElementById('searchInput');
+    var searchQuery = searchInput.value.toLowerCase();
 
-            var matchingProducts = products.filter(function(product) {
-                return product.name.toLowerCase().includes(searchInput);
-            });
+    // Làm sạch kết quả tìm kiếm trước khi tìm kiếm lại
+    document.getElementById('searchResults').innerHTML = '';
 
-            if (matchingProducts.length === 0) {
-                searchResults.innerHTML = "Không tìm thấy sản phẩm nào.";
-            } else {
-                matchingProducts.forEach(function(product) {
-                    var listItem = document.createElement("li");
-                    listItem.textContent = product.name + " - Giá: $" + product.price;
-                    searchResults.appendChild(listItem);
+    // Tìm kiếm sản phẩm dựa trên từ khóa và hiển thị kết quả
+    cartItems.forEach(function (product) {
+        var productName = product.name.toLowerCase();
+        if (productName.includes(searchQuery)) {
+            var searchResult = document.createElement('div');
+            searchResult.classList.add('cart-row');
+            searchResult.innerHTML = `
+                <div class="cart-item cart-column">
+                    <span class="cart-item-title">${product.name}</span>
+                </div>
+                <span class="cart-price cart-column">${product.price}$</span>
+            `;
+            document.getElementById('searchResults').appendChild(searchResult);
+        }
+    });
+}
+
+// Chú ý: cartItems là danh sách sản phẩm trong giỏ hàng
                 });
             }
         }
