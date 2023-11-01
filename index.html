@@ -304,7 +304,7 @@
                 }
             
                 function showSuccessPage() {
-                    // Đổi nội dung trang web để hiển thị trang "thanh toán thành công".
+      
                     document.body.innerHTML =`
                         <div class="success-page">
                         <h1 style="text-align: center;display: flex;align-items: center;justify-content: center; height: 80vh">THANH TOÁN THÀNH CÔNG!!!</h1>
@@ -558,25 +558,16 @@
     </ul>
     
     <script>
-      // Khai báo biến cho sản phẩm trong giỏ hàng
+      
       var cartItems = [];
-
-      // Hàm thêm sản phẩm vào giỏ hàng
       function addToCart(productName, price) {
-          // Tạo một đối tượng sản phẩm
           var product = {
               name: productName,
               price: price
           };
-
-          // Thêm sản phẩm vào mảng cartItems
           cartItems.push(product);
-
-          // Cập nhật giỏ hàng trên giao diện
           updateCartDisplay();
       }
-
-      // Hàm cập nhật giao diện giỏ hàng
       function updateCartDisplay() {
           var cartItemsContainer = document.querySelector('.cart-items');
 
@@ -601,7 +592,7 @@
               cartItemsContainer.appendChild(cartRow);
           });
 
-          // Cập nhật tổng giá trị
+          // Update total
           var totalPrice = cartItems.reduce(function(total, product) {
               return total + product.price;
           }, 0);
