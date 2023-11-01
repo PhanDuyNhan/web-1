@@ -292,6 +292,19 @@
               <div class="w3-container w3-border-top w3-padding-24 ">
                 <button onclick="document.getElementById('shoppingcart').style.display='none'" type="button"
                   class="w3-button w3-red w3-transparent w3-right">Buy</button>
+                <div id="thanhCongMessage" style="display: none">
+                    <h1 style="text-align: center;display: flex;align-items: center;justify-content: center; height: 80vh">THANH TOÁN THÀNH CÔNG!</h1>
+                </div>
+            
+                <script>
+                    // Lắng nghe sự kiện click trên nút thanh toán
+                    document.getElementById("thanhToanButton").addEventListener("click", function() {
+                        // Ẩn nút thanh toán
+                        this.style.display = "none";
+                        // Hiển thị thông báo thành công
+                        document.getElementById("thanhCongMessage").style.display = "block";
+                    });
+                </script>
               </div>
 
             </div>
