@@ -58,6 +58,10 @@
     width: 35%;
   }
 
+  .success-page {
+    background-color:#333;
+    color:#eee;
+  }
   .cart-item-title {
     color: #333;
     margin-left: .5em;
@@ -289,10 +293,26 @@
 
               </div>
 
-              <div class="w3-container w3-border-top w3-padding-24 ">
-                <button onclick="document.getElementById('shoppingcart').style.display='none'" type="button"
-                  class="w3-button w3-red w3-transparent w3-right">Buy</button>
-              </div>
+              <div class="w3-container w3-border-top w3-padding-24">
+                <button onclick="completePurchase()" type="button" class="w3-button w3-red w3-transparent w3-right">Buy</button>
+            </div>
+            
+            <script>
+            
+                function completePurchase() {
+                    showSuccessPage();
+                }
+            
+                function showSuccessPage() {
+                    // Đổi nội dung trang web để hiển thị trang "thanh toán thành công".
+                    document.body.innerHTML =`
+                        <div class="success-page">
+                        <h1 style="text-align: center;display: flex;align-items: center;justify-content: center; height: 80vh">THANH TOÁN THÀNH CÔNG!!!</h1>
+                            <h2 style="text-align: center;display: flex;align-items: center;justify-content: center">Cảm ơn bạn đã mua hàng!</h2>
+                        </div>
+                    ;`
+                }
+            </script>
 
             </div>
           </div>
