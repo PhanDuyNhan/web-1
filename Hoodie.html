@@ -408,15 +408,11 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 
   </div>
      </script>
-  // JavaScript
 function searchProducts() {
     var searchInput = document.getElementById('searchInput');
     var searchQuery = searchInput.value.toLowerCase();
 
-    // Làm sạch kết quả tìm kiếm trước khi tìm kiếm lại
     document.getElementById('searchResults').innerHTML = '';
-
-    // Tìm kiếm sản phẩm dựa trên từ khóa và hiển thị kết quả
     cartItems.forEach(function (product) {
         var productName = product.name.toLowerCase();
         if (productName.includes(searchQuery)) {
@@ -432,7 +428,7 @@ function searchProducts() {
         }
     });
 }
-
+   </script>
                                           <!-------------- Phan trang--------------->
  <div class="container">
   
