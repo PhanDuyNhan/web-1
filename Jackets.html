@@ -281,7 +281,68 @@
 
         </div>
       </div>
-
+<ul id="cart">
+    </ul>
+    
+    <script>
+      var cartItems = [];
+  
+      function addToCart(productName, price) {
+          var product = {
+              name: productName,
+              price: price
+          };
+          cartItems.push(product);
+          updateCartDisplay();
+      }
+  
+      function updateCartDisplay() {
+          var cartItemsContainer = document.querySelector('.cart-items');
+  
+          // Xóa nội dung hiện tại của giỏ hàng
+          cartItemsContainer.innerHTML = '';
+  
+          // Thêm sản phẩm vào giỏ hàng
+          cartItems.forEach(function (product) {
+              var cartRow = document.createElement('div');
+              cartRow.classList.add('cart-row');
+              var cartRowContents = `
+                  <div class="cart-item cart-column">
+                      <span class="cart-item-title">${product.name}</span>
+                  </div>
+                  <span class="cart-price cart-column">${product.price}$</span>
+                  <div class="cart-quantity cart-column">
+                      <input class="cart-quantity-input" type="number" value="1">
+                      <button class="btn btn-danger" type="button" onclick="deleteCartItem(this)">Delete</button>
+                  </div>
+              `;
+              cartRow.innerHTML = cartRowContents;
+              cartItemsContainer.appendChild(cartRow);
+          });
+  
+          // Update total
+          var totalPrice = cartItems.reduce(function (total, product) {
+              return total + product.price;
+          }, 0);
+          document.querySelector('.cart-total-price').textContent = totalPrice.toFixed(2) + '$';
+      }
+  
+      function deleteCartItem(button) {
+          var cartRow = button.parentElement.parentElement;
+          var productName = cartRow.querySelector('.cart-item-title').textContent;
+  
+          // Tìm sản phẩm cần xóa trong danh sách giỏ hàng và loại bỏ nó
+          for (var i = 0; i < cartItems.length; i++) {
+              if (cartItems[i].name === productName) {
+                  cartItems.splice(i, 1);
+                  break;
+              }
+          }
+  
+          // Cập nhật hiển thị giỏ hàng sau khi xóa sản phẩm
+          updateCartDisplay();
+      }
+  </script>
       <!-- Account -->
       <div id="id01" class="w3-modal">
         <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
