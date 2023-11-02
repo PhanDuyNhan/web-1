@@ -295,60 +295,6 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
     
         </div>
       </div>
-      
-  </p>
-  </header>
-  <ul id="searchResults">
-    </ul>
-<h2>Tìm kiếm sản phẩm</h2>
-    <input type="text" id="searchInput" placeholder="Tìm sản phẩm">
-    <button onclick="searchProduct()">Tìm kiếm</button>
-    
-    <ul id="searchResults">
-    </ul>
-
-    <script>
-        var products = [
-            { name: "BXD - ALEX OVERPRINT TEES/BLACK", price: 24.99 },
-            { name: "BXD - CHECKERBOARD GREEN SHIRT", price: 34.99 },
-            { name: "BXD - LOGO TEES/BLACK", price: 21.99 },
-            { name: "BXD - MONOGRAM SHIRT/BLACK", price: 30.99 },
-            { name: "BXD - SKELETON COIN TEES/BLACK", price: 29.99 },
-            { name: "BOBUI BALLOON - TEE/RED", price: 19.99 },
-            { name: "BOBUI BALLOON - TEE/BLACK", price: 33.99 },
-            { name: "BOBUI BALLOON - TEE/WHITE", price: 19.99 }
-        ];
-
-/ JavaScript
-function searchProducts() {
-    var searchInput = document.getElementById('searchInput');
-    var searchQuery = searchInput.value.toLowerCase();
-
-    // Làm sạch kết quả tìm kiếm trước khi tìm kiếm lại
-    document.getElementById('searchResults').innerHTML = '';
-
-    // Tìm kiếm sản phẩm dựa trên từ khóa và hiển thị kết quả
-    cartItems.forEach(function (product) {
-        var productName = product.name.toLowerCase();
-        if (productName.includes(searchQuery)) {
-            var searchResult = document.createElement('div');
-            searchResult.classList.add('cart-row');
-            searchResult.innerHTML = `
-                <div class="cart-item cart-column">
-                    <span class="cart-item-title">${product.name}</span>
-                </div>
-                <span class="cart-price cart-column">${product.price}$</span>
-            `;
-            document.getElementById('searchResults').appendChild(searchResult);
-        }
-    });
-}
-
-// Chú ý: cartItems là danh sách sản phẩm trong giỏ hàng
-                });
-            }
-        }
-    </script>
    
   <!-- Product grid -->
 <div class="w3-row w3-whitescale">
