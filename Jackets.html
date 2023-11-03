@@ -223,6 +223,57 @@
 
 
         </a>
+         <!-- Find icon -->
+          <a href="javascript:void(0)" class="w3-bar-item w3-button  w3-right" onclick="w3_open()">
+            <i onclick="document.getElementById('findcart').style.display='block'" class="fa fa-search"></i>
+            <!-- Bottom Bar Start -->
+            <div class="w3-bar-item bottom-bar">
+              <div id="findcart" class="w3-modal-find">
+                  <div class="search" class="w3-container w3-padding-16 ">
+                      <input type="text" id="searchInput" placeholder="Search" oninput="searchProducts()">
+                      <span onclick="document.getElementById('findcart').style.display='none'"
+                          class="w3-button w3-xlarge w3-transparent w3-display-container" title="Close Modal">×</span>
+                  </div>
+                  <div id="searchResults" class="w3-container w3-padding-16">
+                      <!-- Kết quả tìm kiếm sẽ được hiển thị ở đây -->
+                  </div>
+              </div>
+          </div>
+      
+          <script>
+              var products = [
+            { name: "BXD - ALEX OVERPRINT TEES/BLACK", price: 24.99 },
+            { name: "BXD - CHECKERBOARD GREEN SHIRT", price: 34.99 },
+            { name: "BXD - LOGO TEES/BLACK", price: 21.99 },
+            { name: "BXD - MONOGRAM SHIRT/BLACK", price: 30.99 },
+            { name: "BXD - SKELETON COIN TEES/BLACK", price: 29.99 },
+            { name: "BOBUI BALLOON - TEE/RED", price: 19.99 },
+            { name: "BOBUI BALLOON - TEE/BLACK", price: 33.99 },
+            { name: "BOBUI BALLOON - TEE/WHITE", price: 19.99 }
+        ];
+      
+              function searchProducts() {
+                  var searchInput = document.getElementById('searchInput');
+                  var searchQuery = searchInput.value.toLowerCase();
+                  var searchResultsContainer = document.getElementById('searchResults');
+                  searchResultsContainer.innerHTML = ''; // Xóa kết quả tìm kiếm trước đó
+      
+                  // Tìm kiếm sản phẩm dựa trên từ khóa
+                  products.forEach(function (product) {
+                      if (product.name.toLowerCase().includes(searchQuery)) {
+                          var searchResult = document.createElement('div');
+                          searchResult.classList.add('cart-row');
+                          searchResult.innerHTML = `
+                              <div class="cart-item cart-column">
+                                  <span class="cart-item-title">${product.name}</span>
+                              </div>
+                              <span class="cart-price cart-column">${product.price}$</span>
+                          `;
+                          searchResultsContainer.appendChild(searchResult);
+                      }
+                  });
+              }
+          </script>
         <!-- Shopping -->
       <div id="shoppingcart" class="w3-modal">
         <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width: 900px">
@@ -281,68 +332,7 @@
 
         </div>
       </div>
-<ul id="cart">
-    </ul>
-    
-    <script>
-      var cartItems = [];
-  
-      function addToCart(productName, price) {
-          var product = {
-              name: productName,
-              price: price
-          };
-          cartItems.push(product);
-          updateCartDisplay();
-      }
-  
-      function updateCartDisplay() {
-          var cartItemsContainer = document.querySelector('.cart-items');
-  
-          // Xóa nội dung hiện tại của giỏ hàng
-          cartItemsContainer.innerHTML = '';
-  
-          // Thêm sản phẩm vào giỏ hàng
-          cartItems.forEach(function (product) {
-              var cartRow = document.createElement('div');
-              cartRow.classList.add('cart-row');
-              var cartRowContents = `
-                  <div class="cart-item cart-column">
-                      <span class="cart-item-title">${product.name}</span>
-                  </div>
-                  <span class="cart-price cart-column">${product.price}$</span>
-                  <div class="cart-quantity cart-column">
-                      <input class="cart-quantity-input" type="number" value="1">
-                      <button class="btn btn-danger" type="button" onclick="deleteCartItem(this)">Delete</button>
-                  </div>
-              `;
-              cartRow.innerHTML = cartRowContents;
-              cartItemsContainer.appendChild(cartRow);
-          });
-  
-          // Update total
-          var totalPrice = cartItems.reduce(function (total, product) {
-              return total + product.price;
-          }, 0);
-          document.querySelector('.cart-total-price').textContent = totalPrice.toFixed(2) + '$';
-      }
-  
-      function deleteCartItem(button) {
-          var cartRow = button.parentElement.parentElement;
-          var productName = cartRow.querySelector('.cart-item-title').textContent;
-  
-          // Tìm sản phẩm cần xóa trong danh sách giỏ hàng và loại bỏ nó
-          for (var i = 0; i < cartItems.length; i++) {
-              if (cartItems[i].name === productName) {
-                  cartItems.splice(i, 1);
-                  break;
-              }
-          }
-  
-          // Cập nhật hiển thị giỏ hàng sau khi xóa sản phẩm
-          updateCartDisplay();
-      }
-  </script>
+
       <!-- Account -->
       <div id="id01" class="w3-modal">
         <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
