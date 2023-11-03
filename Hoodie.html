@@ -89,6 +89,14 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 .cart-row:last-child {
   border-bottom: 1px solid black;
 }
+ .cart-item-title {
+  margin-right: 500px; /* Thêm khoảng cách phía bên phải của tiêu đề */
+}
+  .cart-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
 .cart-row:last-child .cart-column {
   border: none;
@@ -247,6 +255,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
                       if (product.name.toLowerCase().includes(searchQuery)) {
                           var searchResult = document.createElement('div');
                           searchResult.classList.add('cart-row');
+                          searchResult.style.fontSize = "19px";
                           searchResult.innerHTML = `
                               <div class="cart-item cart-column">
                                   <span class="cart-item-title">${product.name}</span>
