@@ -355,20 +355,34 @@
           <div id="id01" class="w3-modal">
             <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
               <div class="w3-center"><br>
-                <span onclick="document.getElementById('id01').style.display='none'"
-                  class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
+                <!-- Thay đổi sự kiện onclick cho nút x -->
+                <span onclick="closeAndRedirect('id01', 'index_user.html')" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
                 <img src="WEB1/ANHNEN/logocheck.jpg" alt="Avatar" style="width:30%" class="w3-margin-top">
               </div>
           
-              <form class="w3-container" action="/action_page.php">
+              <!-- Modal "Bạn đã đăng ký thành công" -->
+              <div id="successModal" class="w3-modal">
+                <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+                  <div class="w3-center"><br>
+                    <!-- Thay đổi sự kiện onclick cho nút x trong modal "Bạn đã đăng ký thành công" -->
+                    <span onclick="closeAndRedirect('successModal', 'index_user.html')" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
+                    <img src="WEB1/ANHNEN/logocheck.jpg" alt="Avatar" style="width:30%" class="w3-margin-top">
+                    <p>Bạn đã đăng ký thành công!</p>
+                  </div>
+                </div>
+              </div>
+          
+              <form class="w3-container">
                 <div class="w3-section">
                   <label><b>Username</b></label>
                   <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required>
                   <label><b>Password</b></label>
                   <input class="w3-input w3-border" type="text" placeholder="Enter Password" name="psw" required>
-                  <button class="w3-button w3-block w3-black w3-section w3-padding" type="submit" onclick="openUserPage()">Login</button>
+                  <!-- Thay đổi type của nút Sign up thành button -->
+                  <button class="w3-button w3-block w3-black w3-section w3-padding" type="button" onclick="signUp()">Sign up</button>
+                  <button class="w3-button w3-block w3-black w3-section w3-padding" type="button" onclick="openUserPage()">Login</button>
                   <button class="w3-button w3-block w3-black w3-section w3-padding" type="button" onclick="openAdminPage()">Admin</button>
-                  <input class="w3-check w3-margin-top " type="checkbox" checked="checked"> Remember me
+                  <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
                 </div>
               </form>
           
@@ -376,20 +390,40 @@
                 <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-black">Cancel</button>
                 <span class="w3-right w3-padding w3-hide-small">Forgot <a href="#">password?</a></span>
               </div>
-          
             </div>
           </div>
+          
           <script>
+            // Function to open the success modal
+            function openSuccessModal() {
+              var successModal = document.getElementById('successModal');
+              successModal.style.display = 'block';
+            }
+          
+            // Function to close the modal and redirect
+            function closeAndRedirect(modalId, redirectPage) {
+              var modal = document.getElementById(modalId);
+              modal.style.display = 'none';
+              window.location.href = redirectPage;
+            }
+          
+            // Function to handle the sign-up button click
+            function signUp() {
+              // Perform sign-up logic here
+              // Assuming sign-up is successful, open the success modal
+              openSuccessModal();
+            }
+          
+            // Function to handle the login button click
             function openUserPage() {
               window.location.href = "index_user.html";
             }
-          </script>
-          <script>
+          
+            // Function to handle the admin button click
             function openAdminPage() {
               window.location.href = "admin.html";
             }
           </script>
-          
 
       </p>
     </header>
@@ -761,6 +795,7 @@
       document.getElementById("mySidebar").style.display = "none";
       document.getElementById("myOverlay").style.display = "none";
     }
+
   </script>
 
   <script src="IMGDEMO/jquery-2.1.4.min.js"></script>
