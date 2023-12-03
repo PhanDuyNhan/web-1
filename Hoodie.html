@@ -233,40 +233,73 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
           </div>
       
           <script>
-              var products = [
-            { name: "BXD - ALEX OVERPRINT TEES/BLACK", price: 24.99 },
-            { name: "BXD - CHECKERBOARD GREEN SHIRT", price: 34.99 },
-            { name: "BXD - LOGO TEES/BLACK", price: 21.99 },
-            { name: "BXD - MONOGRAM SHIRT/BLACK", price: 30.99 },
-            { name: "BXD - SKELETON COIN TEES/BLACK", price: 29.99 },
-            { name: "BOBUI BALLOON - TEE/RED", price: 19.99 },
-            { name: "BOBUI BALLOON - TEE/BLACK", price: 33.99 },
-            { name: "BOBUI BALLOON - TEE/WHITE", price: 19.99 }
-        ];
-      
-              function searchProducts() {
-                  var searchInput = document.getElementById('searchInput');
-                  var searchQuery = searchInput.value.toLowerCase();
-                  var searchResultsContainer = document.getElementById('searchResults');
-                  searchResultsContainer.innerHTML = ''; // Xóa kết quả tìm kiếm trước đó
-      
-                  // Tìm kiếm sản phẩm dựa trên từ khóa
-                  products.forEach(function (product) {
-                      if (product.name.toLowerCase().includes(searchQuery)) {
-                          var searchResult = document.createElement('div');
-                          searchResult.classList.add('cart-row');
-                          searchResult.style.fontSize = "19px";
-                          searchResult.innerHTML = `
-                              <div class="cart-item cart-column">
-                                  <span class="cart-item-title">${product.name}</span>
-                              </div>
-                              <span class="cart-price cart-column">${product.price}$</span>
-                          `;
-                          searchResultsContainer.appendChild(searchResult);
-                      }
-                  });
-              }
+            function searchProducts() {
+    var searchTerm = document.getElementById("search-input").value.toLowerCase();
+    var products = document.querySelectorAll('.products li');
+    var slsp = 0;
+
+    products.forEach(function(product) {
+        var productName = product.getAttribute('data-name').toLowerCase();
+        var productPrice = product.getAttribute('data-price');
+
+        if (productName.includes(searchTerm)) {
+            product.style.display = 'block'; // Hiển thị sản phẩm nếu tìm thấy
+            slsp++;
+        } else {
+            product.style.display = 'none'; // Ẩn sản phẩm nếu không tìm thấy
+        }
+    });
+
+    if (slsp === 0) {
+        var search_result = document.querySelector(".headline");
+        search_result.innerHTML = "Không có Sản Phẩm bạn vừa tìm!!";
+        search_result.style.float = "left";
+        search_result.style.fontSize = "28px";
+
+        var footer = document.querySelector("#footer");
+        footer.style.position = "absolute";
+        footer.style.bottom = "0";
+        footer.style.width = "100%";
+    }
+}
+
+document.getElementById("search-input").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        searchProducts();
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Lấy thông tin từ query string
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchTerm = urlParams.get('search');
+
+    // Hiển thị thông tin tìm kiếm
+    const searchResultsDiv = document.getElementById('search-results');
+    searchResultsDiv.innerHTML = `<p>Kết quả tìm kiếm cho: <strong>${searchTerm}</strong></p>`;
+    // Thêm code để hiển thị sản phẩm dựa trên kết quả tìm kiếm
+});
+
+let thisPage = 1;
+let limit = 6;
+let list = document.querySelectorAll('.list .item');
+
+function loadItem() {
+    let beginGet = limit * (thisPage - 1);
+    let endGet = limit * thisPage - 1;
+    list.forEach((item, key) => {
+        if (key >= beginGet && key <= endGet) {
+            item.style.display = 'block';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+    listPage();
+}
+
+loadItem();
           </script>
+
        
       </a> 
 <!-- Shopping -->
