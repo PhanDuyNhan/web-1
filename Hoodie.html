@@ -495,7 +495,43 @@ loadItem();
     </div>
   <ul id="cart">
     </ul>
-    
+    <script>
+      function searchProduct(grid, productName) {
+  for (let row of grid) {
+    for (let product of row) {
+      if (product.name === productName) {
+        return product;
+      }
+    }
+  }
+  return null;
+}
+      const product = searchProduct(productGrid, 'Product C');
+
+if (product) 
+  console.log('Thông tin sản phẩm:');
+  console.log('BXD - ALEX OVERPRINT TEES/BLACK', product.name);
+  console.log('$24.99', product.price)
+  console.log('BXD - CHECKERBOARD GREEN SHIRT', product.name);
+  console.log('$34.99', product.price);
+  console.log('BXD - LOGO TEES/BLACK', product.name);
+  console.log('$21.99', product.price);
+  console.log('BXD - MONOGRAM SHIRT/BLACK', product.name);
+  console.log('$30.99', product.price);
+  console.log('BXD - SKELETON COIN TEES/BLACK', product.name);
+  console.log('$29.99', product.price);
+  console.log('BOBUI BALLOON - TEE/BLACK', product.name);
+  console.log('$33.99', product.price);
+  console.log('BOBUI BALLOON - TEE/WHITE', product.name);
+  console.log('$19.99', product.price);
+
+
+
+
+} else {
+  console.log('Không tìm thấy sản phẩm');
+}
+    </script>
     <script>
       var cartItems = [];
   
