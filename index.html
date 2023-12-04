@@ -57,19 +57,7 @@
   .cart-quantity {
     width: 35%;
   }
-  #orderConfirmation {
-      display: none;
-    }
 
-    /* Hiển thị ô nhập liệu */
-    .order-form {
-      display: block;
-    }
-
-    /* Ẩn ô nhập liệu khi hiển thị trang xác nhận đặt hàng */
-    .order-confirmation {
-      display: none;
-    }
   .success-page {
     background-color:#333;
     color:#eee;
@@ -342,55 +330,25 @@
               </div>
 
               <div class="w3-container w3-border-top w3-padding-24">
-                <button onclick="showOrderConfirmation()" type="button" class="w3-button w3-red w3-transparent w3-right">Buy</button>
+                <button onclick="completePurchase()" type="button" class="w3-button w3-red w3-transparent w3-right">Buy</button>
             </div>
             
-            <div id="orderConfirmation" class="order-confirmation">
-              <h2>Thông tin đặt hàng</h2>
+            <script>
+            
+                function completePurchase() {
+                    showSuccessPage();
+                }
+            
+                function showSuccessPage() {
       
-              <form id="orderForm" class="order-form">
-                  <label for="fullName">Họ và tên:</label>
-                  <input type="text" id="fullName" name="fullName" required><br>
-      
-                  <label for="phoneNumber">Số điện thoại:</label>
-                  <input type="tel" id="phoneNumber" name="phoneNumber" required pattern="[0-9]{10}"><br>
-      
-                  <label for="address">Địa chỉ giao hàng:</label>
-                  <textarea id="address" name="address" required></textarea><br>
-      
-                  <!-- Gọi hàm để chuyển từ form đặt hàng sang trang thông tin đặt hàng -->
-            <button type="button" onclick="submitOrder()">Đặt hàng</button>
-        </form>
-    </div>
-</div>
-
-<script>
-    function showOrderConfirmation() {
-        // Ẩn giỏ hàng và hiển thị trang thông tin đặt hàng
-        document.getElementById('shoppingcart').style.display = 'block';
-        document.getElementById('orderConfirmation').style.display = 'block';
-    }
-
-    function submitOrder() {
-        // Lấy thông tin từ form
-        var fullName = document.getElementById('fullName').value;
-        var phoneNumber = document.getElementById('phoneNumber').value;
-        var address = document.getElementById('address').value;
-
-        // Kiểm tra xem các trường thông tin có được nhập không
-        if (fullName && phoneNumber && address) {
-            // Ẩn form và hiển thị trang thanh toán thành công
-            document.getElementById('orderForm').style.display = 'none';
-            document.getElementById('orderConfirmationContent').style.display = 'block';
-            document.getElementById('successPage').style.display = 'block';
-
-            var confirmationMessage = 'Đơn hàng của bạn đã được đặt. Chúng tôi sẽ liên hệ với bạn qua số điện thoại: ' + phoneNumber;
-            document.getElementById('confirmationMessage').innerText = confirmationMessage;
-        } else {
-            alert('Vui lòng nhập đầy đủ thông tin.');
-        }
-    }
-</script>
+                    document.body.innerHTML =`
+                        <div class="success-page">
+                        <h1 style="text-align: center;display: flex;align-items: center;justify-content: center; height: 80vh">THANH TOÁN THÀNH CÔNG!!!</h1>
+                            <h2 style="text-align: center;display: flex;align-items: center;justify-content: center">Cảm ơn bạn đã mua hàng!</h2>
+                        </div>
+                    ;`
+                }
+            </script>
 
             </div>
           </div>
