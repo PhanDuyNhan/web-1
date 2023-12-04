@@ -230,16 +230,52 @@
             <!-- Bottom Bar Start -->
             <div class="w3-bar-item bottom-bar">
               <div id="findcart" class="w3-modal-find">
-                <div class="search" class="w3-container w3-padding-16 ">
-                  <input type="text" placeholder="Search">
-                  <span onclick="document.getElementById('findcart').style.display='none'"
-                    class="w3-button w3-xlarge w3-transparent w3-display-container" title="Close Modal">×</span>
-                </div>
-                <div class="w3-container w3-padding-16 ">
-
-                </div>
+                  <div class="search" class="w3-container w3-padding-16 ">
+                      <input type="text" id="searchInput" placeholder="Search" oninput="searchProducts()">
+                      <span onclick="document.getElementById('findcart').style.display='none'"
+                          class="w3-button w3-xlarge w3-transparent w3-display-container" title="Close Modal">×</span>
+                  </div>
+                  <div id="searchResults" class="w3-container w3-padding-16">
+                      <!-- Kết quả tìm kiếm sẽ được hiển thị ở đây -->
+                  </div>
               </div>
-            </div>
+          </div>
+      
+          <script>
+              var products = [
+            { name: "BXD - ALEX OVERPRINT TEES/BLACK", price: 24.99 },
+            { name: "BXD - CHECKERBOARD GREEN SHIRT", price: 34.99 },
+            { name: "BXD - LOGO TEES/BLACK", price: 21.99 },
+            { name: "BXD - MONOGRAM SHIRT/BLACK", price: 30.99 },
+            { name: "BXD - SKELETON COIN TEES/BLACK", price: 29.99 },
+            { name: "BOBUI BALLOON - TEE/RED", price: 19.99 },
+            { name: "BOBUI BALLOON - TEE/BLACK", price: 33.99 },
+            { name: "BOBUI BALLOON - TEE/WHITE", price: 19.99 }
+        ];
+      
+              function searchProducts() {
+                  var searchInput = document.getElementById('searchInput');
+                  var searchQuery = searchInput.value.toLowerCase();
+                  var searchResultsContainer = document.getElementById('searchResults');
+                  searchResultsContainer.innerHTML = ''; // Xóa kết quả tìm kiếm trước đó
+      
+                  // Tìm kiếm sản phẩm dựa trên từ khóa
+                  products.forEach(function (product) {
+                      if (product.name.toLowerCase().includes(searchQuery)) {
+                          var searchResult = document.createElement('div');
+                          searchResult.classList.add('cart-row');
+                          searchResult.style.fontSize = "10px";
+                          searchResult.innerHTML = `
+                              <div class="cart-item cart-column">
+                                  <span class="cart-item-title">${product.name}</span>
+                              </div>
+                              <span class="cart-price cart-column">${product.price}$</span>
+                          `;
+                          searchResultsContainer.appendChild(searchResult);
+                      }
+                  });
+              }
+          </script>
                 <!-- Bottom Bar End -->
           </a>      
           <!-- Shopping -->
@@ -297,43 +333,21 @@
                 <button onclick="completePurchase()" type="button" class="w3-button w3-red w3-transparent w3-right">Buy</button>
             </div>
             
-            <form id="orderForm">
-              <label for="fullName">Họ và tên:</label>
-              <input type="text" id="fullName" name="fullName" required><br>
-            
-              <label for="phoneNumber">Số điện thoại:</label>
-              <input type="tel" id="phoneNumber" name="phoneNumber" required pattern="[0-9]{10}"><br>
-            
-              <label for="address">Địa chỉ giao hàng:</label>
-              <textarea id="address" name="address" required></textarea><br>
-            
-              <button type="button" onclick="placeOrder()">Đặt hàng</button>
-            </form>
-            
-            <div id="confirmation" style="display: none;">
-              <h3>Xác nhận đặt hàng</h3>
-              <p id="confirmationMessage"></p>
-            </div>
             <script>
             
-            function placeOrder() {
-    // Lấy thông tin từ form
-    var fullName = document.getElementById('fullName').value;
-    var phoneNumber = document.getElementById('phoneNumber').value;
-    var address = document.getElementById('address').value;
-
-    // Kiểm tra xem các trường thông tin có được nhập không
-    if (fullName && phoneNumber && address) {
-      // Ẩn form và hiển thị xác nhận
-      document.getElementById('orderForm').style.display = 'none';
-
-      var confirmationMessage = 'Đơn hàng của bạn đã được đặt. Chúng tôi sẽ liên hệ với bạn qua số điện thoại: ' + phoneNumber;
-      document.getElementById('confirmationMessage').innerText = confirmationMessage;
-      document.getElementById('confirmation').style.display = 'block';
-    } else {
-      alert('Vui lòng nhập đầy đủ thông tin.');
-    }
-  }
+                function completePurchase() {
+                    showSuccessPage();
+                }
+            
+                function showSuccessPage() {
+      
+                    document.body.innerHTML =`
+                        <div class="success-page">
+                        <h1 style="text-align: center;display: flex;align-items: center;justify-content: center; height: 80vh">THANH TOÁN THÀNH CÔNG!!!</h1>
+                            <h2 style="text-align: center;display: flex;align-items: center;justify-content: center">Cảm ơn bạn đã mua hàng!</h2>
+                        </div>
+                    ;`
+                }
             </script>
 
             </div>
