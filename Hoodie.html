@@ -231,7 +231,51 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
                   </div>
               </div>
           </div>
-      
+      <!-- Thêm mã JavaScript -->
+<script>
+  function searchProducts() {
+    var searchTerm = document.getElementById("searchInput").value.toLowerCase();
+    var products = document.querySelectorAll('.products li');
+    var slsp = 0;
+
+    products.forEach(function(product) {
+        var productName = product.getAttribute('data-name').toLowerCase();
+        var productPrice = product.getAttribute('data-price');
+
+        if (productName.includes(searchTerm)) {
+            product.style.display = 'block'; // Hiển thị sản phẩm nếu tìm thấy
+            slsp++;
+        } else {
+            product.style.display = 'none'; // Ẩn sản phẩm nếu không tìm thấy
+        }
+    });
+
+    if (slsp === 0) {
+        var searchResult = document.getElementById("searchResults");
+        searchResult.innerHTML = "Không có sản phẩm bạn vừa tìm!!";
+        // Xử lý hiển thị thông báo khi không tìm thấy sản phẩm
+    }
+  }
+
+  document.getElementById("searchInput").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        searchProducts();
+    }
+  });
+</script>
+
+<!-- Thêm phần tìm kiếm và kết quả -->
+<div class="w3-bar-item bottom-bar">
+  <div id="findcart" class="w3-modal-find">
+    <div class="search" class="w3-container w3-padding-16">
+      <input type="text" id="searchInput" placeholder="Search" oninput="searchProducts()">
+      <span onclick="document.getElementById('findcart').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-container" title="Close Modal">×</span>
+    </div>
+    <div id="searchResults" class="w3-container w3-padding-16">
+      <!-- Kết quả tìm kiếm sẽ được hiển thị ở đây -->
+    </div>
+  </div>
+</div>
           <script>
             function searchProducts() {
     var searchTerm = document.getElementById("search-input").value.toLowerCase();
