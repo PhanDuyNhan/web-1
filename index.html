@@ -1,4 +1,4 @@
-;<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <title>CHECKERVIET</title>
 <meta charset="UTF-8">
@@ -73,6 +73,7 @@
     height: auto;
     border-radius: 10px;
   }
+
   .btn-danger {
     color: white;
     background-color: #EB5757;
@@ -229,51 +230,16 @@
             <!-- Bottom Bar Start -->
             <div class="w3-bar-item bottom-bar">
               <div id="findcart" class="w3-modal-find">
-                  <div class="search" class="w3-container w3-padding-16 ">
-                      <input type="text" id="searchInput" placeholder="Search" oninput="searchProducts()">
-                      <span onclick="document.getElementById('findcart').style.display='none'"
-                          class="w3-button w3-xlarge w3-transparent w3-display-container" title="Close Modal">×</span>
-                  </div>
-                  <div id="searchResults" class="w3-container w3-padding-16">
-                      <!-- Kết quả tìm kiếm sẽ được hiển thị ở đây -->
-                  </div>
+                <div class="search" class="w3-container w3-padding-16 ">
+                  <input type="text" placeholder="Search">
+                  <span onclick="document.getElementById('findcart').style.display='none'"
+                    class="w3-button w3-xlarge w3-transparent w3-display-container" title="Close Modal">×</span>
+                </div>
+                <div class="w3-container w3-padding-16 ">
+
+                </div>
               </div>
-          </div>
-      
-          <script>
-              var products = [
-            { name: "BXD - ALEX OVERPRINT TEES/BLACK", price: 24.99 },
-            { name: "BXD - CHECKERBOARD GREEN SHIRT", price: 34.99 },
-            { name: "BXD - LOGO TEES/BLACK", price: 21.99 },
-            { name: "BXD - MONOGRAM SHIRT/BLACK", price: 30.99 },
-            { name: "BXD - SKELETON COIN TEES/BLACK", price: 29.99 },
-            { name: "BOBUI BALLOON - TEE/RED", price: 19.99 },
-            { name: "BOBUI BALLOON - TEE/BLACK", price: 33.99 },
-            { name: "BOBUI BALLOON - TEE/WHITE", price: 19.99 }
-        ];
-      
-              function searchProducts() {
-                  var searchInput = document.getElementById('searchInput');
-                  var searchQuery = searchInput.value.toLowerCase();
-                  var searchResultsContainer = document.getElementById('searchResults');
-                  searchResultsContainer.innerHTML = ''; // Xóa kết quả tìm kiếm trước đó
-      
-                  // Tìm kiếm sản phẩm dựa trên từ khóa
-                  products.forEach(function (product) {
-                      if (product.name.toLowerCase().includes(searchQuery)) {
-                          var searchResult = document.createElement('div');
-                          searchResult.classList.add('cart-row');
-                          searchResult.innerHTML = `
-                              <div class="cart-item cart-column">
-                                  <span class="cart-item-title">${product.name}</span>
-                              </div>
-                              <span class="cart-price cart-column">${product.price}$</span>
-                          `;
-                          searchResultsContainer.appendChild(searchResult);
-                      }
-                  });
-              }
-          </script>
+            </div>
                 <!-- Bottom Bar End -->
           </a>      
           <!-- Shopping -->
@@ -331,21 +297,43 @@
                 <button onclick="completePurchase()" type="button" class="w3-button w3-red w3-transparent w3-right">Buy</button>
             </div>
             
+            <form id="orderForm">
+              <label for="fullName">Họ và tên:</label>
+              <input type="text" id="fullName" name="fullName" required><br>
+            
+              <label for="phoneNumber">Số điện thoại:</label>
+              <input type="tel" id="phoneNumber" name="phoneNumber" required pattern="[0-9]{10}"><br>
+            
+              <label for="address">Địa chỉ giao hàng:</label>
+              <textarea id="address" name="address" required></textarea><br>
+            
+              <button type="button" onclick="placeOrder()">Đặt hàng</button>
+            </form>
+            
+            <div id="confirmation" style="display: none;">
+              <h3>Xác nhận đặt hàng</h3>
+              <p id="confirmationMessage"></p>
+            </div>
             <script>
             
-                function completePurchase() {
-                    showSuccessPage();
-                }
-            
-                function showSuccessPage() {
-      
-                    document.body.innerHTML =`
-                        <div class="success-page">
-                        <h1 style="text-align: center;display: flex;align-items: center;justify-content: center; height: 80vh">THANH TOÁN THÀNH CÔNG!!!</h1>
-                            <h2 style="text-align: center;display: flex;align-items: center;justify-content: center">Cảm ơn bạn đã mua hàng!</h2>
-                        </div>
-                    ;`
-                }
+            function placeOrder() {
+    // Lấy thông tin từ form
+    var fullName = document.getElementById('fullName').value;
+    var phoneNumber = document.getElementById('phoneNumber').value;
+    var address = document.getElementById('address').value;
+
+    // Kiểm tra xem các trường thông tin có được nhập không
+    if (fullName && phoneNumber && address) {
+      // Ẩn form và hiển thị xác nhận
+      document.getElementById('orderForm').style.display = 'none';
+
+      var confirmationMessage = 'Đơn hàng của bạn đã được đặt. Chúng tôi sẽ liên hệ với bạn qua số điện thoại: ' + phoneNumber;
+      document.getElementById('confirmationMessage').innerText = confirmationMessage;
+      document.getElementById('confirmation').style.display = 'block';
+    } else {
+      alert('Vui lòng nhập đầy đủ thông tin.');
+    }
+  }
             </script>
 
             </div>
@@ -355,30 +343,20 @@
           <div id="id01" class="w3-modal">
             <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
               <div class="w3-center"><br>
-                <span onclick="closeAndRedirect('id01', 'index_user.html')" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
+                <span onclick="document.getElementById('id01').style.display='none'"
+                  class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
                 <img src="WEB1/ANHNEN/logocheck.jpg" alt="Avatar" style="width:30%" class="w3-margin-top">
               </div>
-              <div id="successModal" class="w3-modal">
-                <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
-                  <div class="w3-center"><br>
-                    <span onclick="closeAndRedirect('successModal', 'index_user.html')" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
-                    <img src="WEB1/ANHNEN/logocheck.jpg" alt="Avatar" style="width:30%" class="w3-margin-top">
-                    <p>Bạn đã đăng ký thành công!</p>
-                  </div>
-                </div>
-              </div>
           
-              <form class="w3-container">
+              <form class="w3-container" action="/action_page.php">
                 <div class="w3-section">
                   <label><b>Username</b></label>
                   <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required>
                   <label><b>Password</b></label>
                   <input class="w3-input w3-border" type="text" placeholder="Enter Password" name="psw" required>
-                  <!-- Thay đổi type của nút Sign up thành button -->
-                  <button class="w3-button w3-block w3-black w3-section w3-padding" type="button" onclick="signUp()">Sign up</button>
-                  <button class="w3-button w3-block w3-black w3-section w3-padding" type="button" onclick="openUserPage()">Login</button>
+                  <button class="w3-button w3-block w3-black w3-section w3-padding" type="submit" onclick="openUserPage()">Login</button>
                   <button class="w3-button w3-block w3-black w3-section w3-padding" type="button" onclick="openAdminPage()">Admin</button>
-                  <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
+                  <input class="w3-check w3-margin-top " type="checkbox" checked="checked"> Remember me
                 </div>
               </form>
           
@@ -386,40 +364,20 @@
                 <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-black">Cancel</button>
                 <span class="w3-right w3-padding w3-hide-small">Forgot <a href="#">password?</a></span>
               </div>
+          
             </div>
           </div>
-          
           <script>
-            // Function to open the success modal
-            function openSuccessModal() {
-              var successModal = document.getElementById('successModal');
-              successModal.style.display = 'block';
-            }
-          
-            // Function to close the modal and redirect
-            function closeAndRedirect(modalId, redirectPage) {
-              var modal = document.getElementById(modalId);
-              modal.style.display = 'none';
-              window.location.href = redirectPage;
-            }
-          
-            // Function to handle the sign-up button click
-            function signUp() {
-              // Perform sign-up logic here
-              // Assuming sign-up is successful, open the success modal
-              openSuccessModal();
-            }
-          
-            // Function to handle the login button click
             function openUserPage() {
               window.location.href = "index_user.html";
             }
-          
-            // Function to handle the admin button click
+          </script>
+          <script>
             function openAdminPage() {
               window.location.href = "admin.html";
             }
           </script>
+          
 
       </p>
     </header>
@@ -791,7 +749,6 @@
       document.getElementById("mySidebar").style.display = "none";
       document.getElementById("myOverlay").style.display = "none";
     }
-
   </script>
 
   <script src="IMGDEMO/jquery-2.1.4.min.js"></script>
