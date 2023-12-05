@@ -98,14 +98,7 @@
     font-size: 1.2em;
     margin-right: 25px;
   }
- .cart-item-title {
-  margin-right: 500px; /* Thêm khoảng cách phía bên phải của tiêu đề */
-}
-  .cart-row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+
   .cart-row:last-child {
     border-bottom: 1px solid black;
   }
@@ -131,7 +124,6 @@
     color: #333;
     font-size: 1.1em;
   }
-  
 
   /* Paging */
   .pagination>li>a {
@@ -231,7 +223,7 @@
 
 
        
-         <!-- Find icon -->
+          <!-- Find icon -->
           <a href="javascript:void(0)" class="w3-bar-item w3-button  w3-right" onclick="w3_open()">
             <i onclick="document.getElementById('findcart').style.display='block'" class="fa fa-search"></i>
             <!-- Bottom Bar Start -->
@@ -248,34 +240,7 @@
               </div>
           </div>
       
-          <script>
-              var products = [
-            { name: "BOBUI BALLOON - TEE/WHITE", price: 19.99 }
-        ];
-      
-              function searchProducts() {
-                  var searchInput = document.getElementById('searchInput');
-                  var searchQuery = searchInput.value.toLowerCase();
-                  var searchResultsContainer = document.getElementById('searchResults');
-                  searchResultsContainer.innerHTML = ''; // Xóa kết quả tìm kiếm trước đó
-      
-                  // Tìm kiếm sản phẩm dựa trên từ khóa
-                  products.forEach(function (product) {
-                      if (product.name.toLowerCase().includes(searchQuery)) {
-                          var searchResult = document.createElement('div');
-                          searchResult.classList.add('cart-row');
-                        searchResult.style.fontSize = "19px";
-                          searchResult.innerHTML = `
-                              <div class="cart-item cart-column">
-                                  <span class="cart-item-title">${product.name}</span>
-                              </div>
-                              <span class="cart-price cart-column">${product.price}$</span>
-                          `;
-                          searchResultsContainer.appendChild(searchResult);
-                      }
-                  });
-              }
-          </script> 
+          
           </a>
         <!-- Shopping -->
       <div id="shoppingcart" class="w3-modal">
@@ -374,36 +339,107 @@
 
     <!-- Product grid -->
     <div class="w3-row w3-whitescale">
-
-
-
-            <div class="w3-col l3 s6">
+      <div class="w3-col l3 s6">
         <div class="w3-container">
           <div class="w3-display-container">
-            <img src="WEB1/T-SHIRT/8.1.jpg" style="width:100%">
+            <img src="WEB1/T-SHIRT/23.1.jpg" style="width:100%">
             <div class="w3-display-middle w3-display-hover">
-              <button class="w3-button w3-whitescale" onclick="addToCart('BOBUI BALLOON - TEE/WHITE', 19.99)">Buy now <i class="fa fa-shopping-cart"></i></button>
+              <a href="javascript:void(0)" class="w3-bar-item  w3-right w3-white"
+                onclick="w3_open(), document.getElementById('detail3').style.display='block'">
+                <button class="w3-button w3-black"> Detail <i class=" fa fa-info-circle"></i></button>
+              </a>
             </div>
           </div>
-          <p>BOBUI BALLOON - TEE/WHITE<br><b>$19.99</b></p>
+          <p>BOBUI T-SHIRT/BLACK<br><br>₫250.000</br></p>
         </div>
       </div>
-
+      <!--BBOBUI T-SHIRT/BLACK detail-->
+      <div id="detail3" class="w3-modal  ">
+        <div class="w3-modal-content  w3-card-4 w3-animate-zoom" style="max-width: 900px">
+  
+          <div class="w3-container w3-padding-16 w3-light-grey">
+            <span class=" cart-header ">BOBUI T-SHIRT/BLACK</span>
+            <span onclick="document.getElementById('detail3').style.display='none'"
+              class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
+          </div>
+  
+          <div class="cart-row w3-container">
+            <span class="cart-item cart-header cart-column">Items</span>
+            <span class="cart-price cart-header cart-column">Price</span>
+            <span class="cart-quantity cart-header cart-column">Infor</span>
+          </div>
+  
+          <div class="cart-items w3-container">
+  
+            <div class="cart-row">
+  
+              <div class="cart-item cart-column">
+                <img class="cart-item-image1" src="WEB1/T-SHIRT/23.1.jpg" width="100" height="100">
+              </div>
+              <span class="cart-price cart-column">₫250.000</span>
+              <div class="cart-quantity cart-column">
+                <p>+Material: Thick cotton.
+  
+                   +Relaxed Fit.
+                   +The print on the front of the shirt uses high printing technology (BLACK color products have silver emulsion effect).</p>
+  
+              </div>
+  
+            </div>
+  
+            <div class="cart-total">
+  
+            </div>
+  
+          </div>
+  
+          <div class="w3-container w3-border-top w3-padding-24 ">
+            <button class="w3-button w3-red w3-transparent w3-right">Add to cart <i
+                class="fa fa-shopping-cart"></i></button>
+          </div>
+  
+        </div>
+      </div>
+    
     </div>
-    <ul id="cart">
-    </ul>
+    <div id="noResultsMsg" style="display: none;">Không tìm thấy sản phẩm</div>
+
+<script>
+    function searchProducts() {
+        var searchTerm = document.getElementById("searchInput").value.toLowerCase();
+        var products = document.querySelectorAll('.w3-row .w3-col'); // Chọn tất cả các cột trong grid sản phẩm
+        var foundProducts = false; // Biến kiểm tra xem có sản phẩm được tìm thấy hay không
+
+        products.forEach(function(product) {
+            var productName = product.querySelector('p').innerText.toLowerCase();
+
+            if (productName.includes(searchTerm)) {
+                product.style.display = 'block'; // Hiển thị sản phẩm nếu tìm thấy
+                foundProducts = true; // Cập nhật biến foundProducts thành true
+            } else {
+                product.style.display = 'none'; // Ẩn sản phẩm nếu không tìm thấy
+            }
+        });
+
+        if (!foundProducts) {
+            // Hiển thị thông báo khi không tìm thấy sản phẩm
+            var noResultsMsg = document.getElementById("noResultsMsg");
+            noResultsMsg.style.display = 'block';
+        } else {
+            // Ẩn thông báo khi tìm thấy sản phẩm
+            var noResultsMsg = document.getElementById("noResultsMsg");
+            noResultsMsg.style.display = 'none';
+        }
+    }
+</script>
     <!-------------- Phan trang--------------->
     <div class="container">
 
       <ul class="pagination justify-content-center">
         <ul class="pagination"></ul>
-        <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+      
         <li class="page-item disabled"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#">4</a></li>
-        <li class="page-item"><a class="page-link" href="#">5</a></li>
-        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+       
       </ul>
       </ul>
 
