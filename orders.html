@@ -1,236 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <title>Order List</title>
-  <style>
-    /* Add your CSS styles here */
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      margin: 0;
-      padding: 0;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 20px auto;
-      padding: 20px;
-      background-color: #fff;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-    }
-
-    th, td {
-      border: 1px solid #ddd;
-      padding: 10px;
-      text-align: left;
-    }
-
-    th {
-      background-color: #f2f2f2;
-    }
-
-    .unprocessed {
-      color: red;
-      font-weight: bold;
-    }
-
-    .processed {
-      color: green;
-      font-weight: bold;
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.5);
-    }
-
-    .modal-content {
-      background-color: #fefefe;
-      margin: 15% auto;
-      padding: 20px;
-      border: 1px solid #888;
-      width: 80%;
-    }
-
-    .close {
-      color: #aaa;
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
-    }
-
-    .close:hover,
-    .close:focus {
-      color: black;
-      text-decoration: none;
-      cursor: pointer;
-    }
-  </style>
-</head>
+<html>
+<title>Orders</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <body>
-  <div class="w3-bar w3-black" style="padding-left: 250px;">
-    <a href="admin.html" target="_blank">
-      <button class="w3-bar-item w3-hover-grey w3-button" style="color: white;">Return to Admin URL</button>
+  <div class="w3-bar w3-black">
+
+    <a href="admin.html">
+      <button class="w3-bar-item w3-hover-grey w3-button">Return to Admin URL</button>
     </a>
   </div>
-<div class="container">
-  <h1>CHECKERVIET's Order list</h1>
-  <h2>Order Management</h2>
-  <p>Manage customer orders:</p>
 
-  <div>
-    <label for="startDate">Start Date:</label>
-    <input type="date" id="startDate">
+<div class="w3-container">
+  <h1>CHECKERVIET's Order List</h1>
+  <h2></h2>
+  <p> </p>
+  <ul class="w3-ul w3-card-4">
+    <li class="w3-bar">
+      <span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">&#10003;</span>
+      <img src="WEB1/ANHNEN/img_avatar2.png" class="w3-bar-item w3-circle w3-hide-small" style="width:85px">
+      <div class="w3-bar-item">
+        <span class="w3-large"> 10 tỷ áo hoodie</span><br>
+        <span>User: Hmmm</span>
+      </div>
+    </li>
 
-    <label for="endDate">End Date:</label>
-    <input type="date" id="endDate">
+    <li class="w3-bar">
+      <span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">&#10003;</span>
+      <img src="WEB1/ANHNEN/img_avatar5.png" class="w3-bar-item w3-circle w3-hide-small" style="width:85px">
+      <div class="w3-bar-item">
+        <span class="w3-large">10 tỷ áo Sweater</span><br>
+        <span>User: Hmmmm</span>
+      </div>
+    </li>
 
-    <button onclick="filterOrders()">Filter</button>
-  </div>
-
-  <table>
-    <tr>
-      <th>Order ID</th>
-      <th>Customer Name</th>
-      <th>Order Date</th>
-      <th>Status</th>
-      <th>Details</th>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>John Doe</td>
-      <td>2023-01-01</td>
-      <td>
-        <span id="status1" class="unprocessed">Unprocessed</span>
-        <input type="checkbox" onchange="toggleStatus('status1')">
-      </td>
-      <td><button onclick="viewOrderDetails(1)">View Details</button></td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Jane Smith</td>
-      <td>2023-02-15</td>
-      <td>
-        <span id="status2" class="processed">Processed</span>
-        <input type="checkbox" checked onchange="toggleStatus('status2')">
-      </td>
-      <td><button onclick="viewOrderDetails(2)">View Details</button></td>
-    </tr>
-    <!-- Add other rows as needed -->
-  </table>
+    <li class="w3-bar">
+      <span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>
+      <img src="WEB1/ANHNEN/img_avatar6.png" class="w3-bar-item w3-circle w3-hide-small" style="width:85px">
+      <div class="w3-bar-item">
+        <span class="w3-large">Hmmmm</span><br>
+        <span>ádasdnand</span>
+      </div>
+    </li>
+  </ul>
 </div>
-
-<!-- Order Details Modal -->
-<div id="orderDetailsModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeOrderDetailsModal()">&times;</span>
-    <h2>Order Details</h2>
-    <p>Order ID: <span id="orderID"></span></p>
-    <p>Customer Name: <span id="customerName"></span></p>
-    <p>Order Date: <span id="orderDate"></span></p>
-    <p>Status: <span id="orderStatus"></span></p>
-    <p>Phone Number: <span id="phoneNumber"></span></p>
-    <p>Address: <span id="address"></span></p>
-
-    <!-- New section for displaying products -->
-    <h3>Products</h3>
-    <ul id="productList"></ul>
-  </div>
-</div>
-
-<script>
-  // Functions to handle filtering orders
-  function filterOrders() {
-    // Implement filtering logic here
-    alert('Filtering orders...');
-  }
-
-  // Functions to handle viewing order details
-  function viewOrderDetails(orderID) {
-  // Fetch order details based on orderID and display in modal
-  document.getElementById('orderID').innerText = orderID;
-  document.getElementById('customerName').innerText = (orderID === 1) ? 'John Doe' : 'Jane Smith';
-  document.getElementById('orderDate').innerText = (orderID === 1) ? '2023-01-01' : '2023-02-15';
-  document.getElementById('orderStatus').innerText = (orderID === 1) ? 'Unprocessed' : 'Processed';
-  document.getElementById('phoneNumber').innerText = (orderID === 1) ? '0909090909' : '0808080808';
-  document.getElementById('address').innerText = (orderID === 1) ? '123 Main St, City' : '456 Oak St, Town';
-
-  // Fetch and display products
-  var productListElement = document.getElementById('productList');
-  productListElement.innerHTML = ""; // Clear previous entries
-
-  if (orderID === 1) {
-    // Replace with actual product data
-    addProductToList(productListElement, 'BOBUI T-SHIRT/Black');
-    addProductToList(productListElement, 'BOBUI T-SHIRT/White');
-    addProductToList(productListElement, 'BOBUI SAIGON - TEE/ORANGE');
-  }
-  // Add more conditions for other order IDs
-  if (orderID === 2) {
-    // Replace with actual product data
-    addProductToList(productListElement, 'BOBUI T-SHIRT/Black');
-    addProductToList(productListElement, 'BOBUI T-SHIRT/White');
-    addProductToList(productListElement, 'BOBUI SAIGON - TEE/ORANGE');
-  }
-  if (orderID === 3) {
-    // Replace with actual product data
-    addProductToList(productListElement, 'BOBUI T-SHIRT/Black');
-    addProductToList(productListElement, 'BOBUI T-SHIRT/White');
-    addProductToList(productListElement, 'BOBUI SAIGON - TEE/ORANGE');
-  }
-  document.getElementById('orderDetailsModal').style.display = 'block';
-}
-
-function addProductToList(parentElement, productName) {
-  var listItem = document.createElement('li');
-  listItem.textContent = productName;
-  parentElement.appendChild(listItem);
-}
-  function closeOrderDetailsModal() {
-    document.getElementById('orderDetailsModal').style.display = 'none';
-  }
-
-  // Function to toggle order status
-  function toggleStatus(statusElementId) {
-    var statusElement = document.getElementById(statusElementId);
-    var checkbox = statusElement.nextElementSibling;
-
-    if (checkbox.checked) {
-      statusElement.innerText = 'Processed';
-      statusElement.classList.remove('unprocessed');
-      statusElement.classList.add('processed');
-    } else {
-      statusElement.innerText = 'Unprocessed';
-      statusElement.classList.remove('processed');
-      statusElement.classList.add('unprocessed');
-    }
-  }
-
-  // Close the modal if the user clicks outside of it
-  window.onclick = function (event) {
-    var modal = document.getElementById('orderDetailsModal');
-    if (event.target === modal) {
-      closeOrderDetailsModal();
-    }
-  };
-</script>
 
 </body>
 </html>

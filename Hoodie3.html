@@ -172,18 +172,12 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
       <a href="Jackets.html" class="w3-bar-item w3-button">Jackets</a>
     </div>
     <a onclick="myAccFunc1()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" >
-      Item <i class="fa fa-caret-down"></i>
+
     </a>
     <div id="demoAcc1" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-      <a href="#" class="w3-bar-item w3-button">Chain</a>
-      <a href="#" class="w3-bar-item w3-button">Socks</a>
-      <a href="#" class="w3-bar-item w3-button">Wallet</a>
     </div>
-    <a href="#" class="w3-bar-item w3-button w3-white">Pants</a>
+ 
   </div>
-  <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a> 
-  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a> 
-  <a href="#footer"  class="w3-bar-item w3-button w3-padding">Subscribe</a>
 </nav>
 
 <!-- Top menu on small screens -->
@@ -218,17 +212,22 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
             <!-- Bottom Bar Start -->
             <div class="w3-bar-item bottom-bar">
               <div id="findcart" class="w3-modal-find">
-                  <div class="search" class="w3-container w3-padding-16 ">
-                      <input type="text" id="searchInput" placeholder="Search" oninput="searchProducts()">
-                      <span onclick="document.getElementById('findcart').style.display='none'"
-                          class="w3-button w3-xlarge w3-transparent w3-display-container" title="Close Modal">×</span>
-                  </div>
-                  <div id="searchResults" class="w3-container w3-padding-16">
-                      <!-- Kết quả tìm kiếm sẽ được hiển thị ở đây -->
-                  </div>
+                <div class="search" class="w3-container w3-padding-16 ">
+                  <input type="text" id="searchInput" placeholder="Search" oninput="searchProducts()">
+                  <select id="priceCategory" onchange="searchProducts()">
+                    <option value="all">ALL</option>
+                    <option value="below-350"> Less 350.000</option>
+                    <option value="above-500"> More 500.000</option>
+                  </select>
+                  <span onclick="document.getElementById('findcart').style.display='none'"
+                    class="w3-button w3-xlarge w3-transparent w3-display-container" title="Close Modal">×</span>
+                </div>
+                <div id="searchResults" class="w3-container w3-padding-16">
+                  <!-- Kết quả tìm kiếm sẽ được hiển thị ở đây -->
+                </div>
               </div>
-          </div>
-    
+            </div>
+          </a>
         </a> 
   <!-- Shopping -->
         <div id="shoppingcart" class="w3-modal">
@@ -288,35 +287,48 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
         </div>
         
   <!-- Account -->
-        <div id="id01" class="w3-modal">
-          <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
-        
-            <div class="w3-center"><br>
-              <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
-              <img src="img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
-            </div>
-      
-            <form class="w3-container" action="/action_page.php">
-              <div class="w3-section">
-                <label><b>Username</b></label>
-                <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required>
-                <label><b>Password</b></label>
-                <input class="w3-input w3-border" type="text" placeholder="Enter Password" name="psw" required>
-                <button class="w3-button w3-block w3-black w3-section w3-padding" type="submit">Login</button>
-                <input class="w3-check w3-margin-top " type="checkbox" checked="checked" > Remember me
-              </div>
-            </form>
-      
-            <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
-              <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-black">Cancel</button>
-              <span class="w3-right w3-padding w3-hide-small">Forgot <a href="#">password?</a></span>
-            </div>
-      
-          </div>
+  <div id="id01" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+      <div class="w3-center"><br>
+        <span onclick="document.getElementById('id01').style.display='none'"
+          class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
+        <img src="WEB1/ANHNEN/logocheck.jpg" alt="Avatar" style="width:30%" class="w3-margin-top">
+      </div>
+  
+      <form class="w3-container" action="/action_page.php">
+        <div class="w3-section">
+          <label><b>Username</b></label>
+          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required>
+          <label><b>Password</b></label>
+          <input class="w3-input w3-border" type="text" placeholder="Enter Password" name="psw" required>
+          <button class="w3-button w3-block w3-black w3-section w3-padding" type="submit" onclick="openUserPage()">Login</button>
+          <button class="w3-button w3-block w3-black w3-section w3-padding" type="button" onclick="openAdminPage()">Admin</button>
+          <input class="w3-check w3-margin-top " type="checkbox" checked="checked"> Remember me
         </div>
-        
-    </p>
-    </header>
+      </form>
+  
+      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+        <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-black">Cancel</button>
+        <span class="w3-right w3-padding w3-hide-small">Forgot <a href="#">password?</a></span>
+      </div>
+  
+    </div>
+  </div>
+  <script>
+    function openUserPage() {
+      window.location.href = "hoodie_user.html";
+    }
+  </script>
+  <script>
+    function openAdminPage() {
+      window.location.href = "admin.html";
+    }
+  </script>
+  
+
+</p>
+</header>
+
 
   <!-- Image header -->
 

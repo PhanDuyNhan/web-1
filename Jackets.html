@@ -160,37 +160,29 @@
 <body class="w3-content" style="max-width:1200px">
 
   <!-- Sidebar/menu -->
-  <nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
-    <div class="w3-container w3-display-container w3-padding-16">
-      <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
-      <a href="index.html"><img src="WEB1/ANHNEN/logocheck.jpg" alt="LOGO" width="40%"></a>
+<nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
+  <div class="w3-container w3-display-container w3-padding-16">
+    <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
+    <a href="index.html" ><img src="WEB1/ANHNEN/logocheck.jpg" alt="LOGO" width="40%"></a>
+  </div>
+  <div class="w3-padding-64 w3-large w3-text-gray" style="font-weight:bold">
+    <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+      Shirt <i class="fa fa-caret-down"></i>
+    </a>
+    <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+     <a href="Hoodie.html" class="w3-bar-item w3-button">Hoodie</a>
+      <a href="Sweater.html" class="w3-bar-item w3-button">Sweater</a>
+      <a href="T-shirt.html" class="w3-bar-item w3-button ">T-Shirt</a>      
+      <a href="Jackets.html" class="w3-bar-item w3-button w3-light-grey"><i class="fa fa-caret-right w3-margin-right"></i>Jackets</a>
     </div>
-    <div class="w3-padding-64 w3-large w3-text-gray" style="font-weight:bold">
-      <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
-        Shirt <i class="fa fa-caret-down"></i>
-      </a>
-      <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-        <a href="Hoodie.html" class="w3-bar-item w3-button ">Hoodie</a>
-        <a href="Sweater.html" class="w3-bar-item w3-button">Sweater</a>
-        <a href="T-shirt.html" class="w3-bar-item w3-button">T-Shirt</a>
-        <a href="Jackets.html" class="w3-bar-item w3-button w3-light-grey"><i
-            class="fa fa-caret-right w3-margin-right"></i>Jackets</a>
-      </div>
-      <a onclick="myAccFunc1()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align">
-        Item <i class="fa fa-caret-down"></i>
-      </a>
-      <div id="demoAcc1" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-        <a href="#" class="w3-bar-item w3-button">Chain</a>
-        <a href="#" class="w3-bar-item w3-button">Socks</a>
-        <a href="#" class="w3-bar-item w3-button">Wallet</a>
-      </div>
-      <a href="#" class="w3-bar-item w3-button w3-white">Pants</a>
+    <a onclick="myAccFunc1()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" >
+
+    </a>
+    <div id="demoAcc1" class="w3-bar-block w3-hide w3-padding-large w3-medium">
     </div>
-    <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a>
-    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding"
-      onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a>
-    <a href="#footer" class="w3-bar-item w3-button w3-padding">Subscribe</a>
-  </nav>
+ 
+  </div>
+</nav>
 
   <!-- Top menu on small screens -->
   <header class="w3-bar w3-top w3-hide-large w3-black w3-xlarge">
@@ -229,16 +221,22 @@
             <!-- Bottom Bar Start -->
             <div class="w3-bar-item bottom-bar">
               <div id="findcart" class="w3-modal-find">
-                  <div class="search" class="w3-container w3-padding-16 ">
-                      <input type="text" id="searchInput" placeholder="Search" oninput="searchProducts()">
-                      <span onclick="document.getElementById('findcart').style.display='none'"
-                          class="w3-button w3-xlarge w3-transparent w3-display-container" title="Close Modal">×</span>
-                  </div>
-                  <div id="searchResults" class="w3-container w3-padding-16">
-                      <!-- Kết quả tìm kiếm sẽ được hiển thị ở đây -->
-                  </div>
+                <div class="search" class="w3-container w3-padding-16 ">
+                  <input type="text" id="searchInput" placeholder="Search" oninput="searchProducts()">
+                  <select id="priceCategory" onchange="searchProducts()">
+                    <option value="all">ALL</option>
+                    <option value="below-350"> Less 350.000</option>
+                    <option value="above-500"> More 500.000</option>
+                  </select>
+                  <span onclick="document.getElementById('findcart').style.display='none'"
+                    class="w3-button w3-xlarge w3-transparent w3-display-container" title="Close Modal">×</span>
+                </div>
+                <div id="searchResults" class="w3-container w3-padding-16">
+                  <!-- Kết quả tìm kiếm sẽ được hiển thị ở đây -->
+                </div>
               </div>
-          </div>
+            </div>
+          </a>
       
           
           </a>
@@ -301,39 +299,49 @@
         </div>
       </div>
 
-      <!-- Account -->
-      <div id="id01" class="w3-modal">
-        <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
-
-          <div class="w3-center"><br>
-            <span onclick="document.getElementById('id01').style.display='none'"
-              class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
-            <img src="img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
-          </div>
-
-          <form class="w3-container" action="/action_page.php">
-            <div class="w3-section">
-              <label><b>Username</b></label>
-              <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname"
-                required>
-              <label><b>Password</b></label>
-              <input class="w3-input w3-border" type="text" placeholder="Enter Password" name="psw" required>
-              <button class="w3-button w3-block w3-black w3-section w3-padding" type="submit">Login</button>
-              <input class="w3-check w3-margin-top " type="checkbox" checked="checked"> Remember me
-            </div>
-          </form>
-
-          <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
-            <button onclick="document.getElementById('id01').style.display='none'" type="button"
-              class="w3-button w3-black">Cancel</button>
-            <span class="w3-right w3-padding w3-hide-small">Forgot <a href="#">password?</a></span>
-          </div>
-
+     <!-- Account -->
+     <div id="id01" class="w3-modal">
+      <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+        <div class="w3-center"><br>
+          <span onclick="document.getElementById('id01').style.display='none'"
+            class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
+          <img src="WEB1/ANHNEN/logocheck.jpg" alt="Avatar" style="width:30%" class="w3-margin-top">
         </div>
+    
+        <form class="w3-container" action="/action_page.php">
+          <div class="w3-section">
+            <label><b>Username</b></label>
+            <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required>
+            <label><b>Password</b></label>
+            <input class="w3-input w3-border" type="text" placeholder="Enter Password" name="psw" required>
+            <button class="w3-button w3-block w3-black w3-section w3-padding" type="submit" onclick="openUserPage()">Login</button>
+            <button class="w3-button w3-block w3-black w3-section w3-padding" type="button" onclick="openAdminPage()">Admin</button>
+            <input class="w3-check w3-margin-top " type="checkbox" checked="checked"> Remember me
+          </div>
+        </form>
+    
+        <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+          <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-black">Cancel</button>
+          <span class="w3-right w3-padding w3-hide-small">Forgot <a href="#">password?</a></span>
+        </div>
+    
       </div>
+    </div>
+    <script>
+      function openUserPage() {
+        window.location.href = "Jackets_user.html";
+      }
+    </script>
+    <script>
+      function openAdminPage() {
+        window.location.href = "admin.html";
+      }
+    </script>
+    
 
+</p>
+</header>
 
-    </header>
     <!-- Image header -->
 
 
@@ -342,7 +350,7 @@
       <div class="w3-col l3 s6">
         <div class="w3-container">
           <div class="w3-display-container">
-            <img src="WEB1/T-SHIRT/23.1.jpg" style="width:100%">
+            <img src="WEB1/T-SHIRT/GAO..jpg" style="width:100%">
             <div class="w3-display-middle w3-display-hover">
               <a href="javascript:void(0)" class="w3-bar-item  w3-right w3-white"
                 onclick="w3_open(), document.getElementById('detail3').style.display='block'">
@@ -350,7 +358,7 @@
               </a>
             </div>
           </div>
-          <p>BOBUI T-SHIRT/BLACK<br><br>₫250.000</br></p>
+          <p>SIÊU NHÂN GAO COSPLAY<br><br>₫100.000.000</br></p>
         </div>
       </div>
       <!--BBOBUI T-SHIRT/BLACK detail-->
@@ -358,7 +366,7 @@
         <div class="w3-modal-content  w3-card-4 w3-animate-zoom" style="max-width: 900px">
   
           <div class="w3-container w3-padding-16 w3-light-grey">
-            <span class=" cart-header ">BOBUI T-SHIRT/BLACK</span>
+            <span class=" cart-header ">SIÊU NHÂN GAO COSPLAY</span>
             <span onclick="document.getElementById('detail3').style.display='none'"
               class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
           </div>
@@ -366,7 +374,7 @@
           <div class="cart-row w3-container">
             <span class="cart-item cart-header cart-column">Items</span>
             <span class="cart-price cart-header cart-column">Price</span>
-            <span class="cart-quantity cart-header cart-column">Infor</span>
+            <span class="cart-quantity cart-header cart-column">Info</span>
           </div>
   
           <div class="cart-items w3-container">
@@ -374,14 +382,13 @@
             <div class="cart-row">
   
               <div class="cart-item cart-column">
-                <img class="cart-item-image1" src="WEB1/T-SHIRT/23.1.jpg" width="100" height="100">
+                <img class="cart-item-image1" src="WEB1/T-SHIRT/gao2.jpeg" width="356" height="350">
               </div>
-              <span class="cart-price cart-column">₫250.000</span>
+              <span class="cart-price cart-column">₫100.000.000</span>
               <div class="cart-quantity cart-column">
-                <p>+Material: Thick cotton.
-  
-                   +Relaxed Fit.
-                   +The print on the front of the shirt uses high printing technology (BLACK color products have silver emulsion effect).</p>
+                <p>Quần áo Siêu Nhân Gao mang đến một diện mạo siêu ngầu và mạnh mẽ. Thiết kế của nó kết hợp giữa hiện đại và yếu tố truyền thống Nhật Bản, với bộ đồ bảo hộ màu sắc nổi bật và sự pha trộn giữa các yếu tố hình học và họa tiết đặc trưng. Đây là bộ trang phục đặc biệt dành cho siêu anh hùng Siêu Nhân Gao, thể hiện sức mạnh và sự bảo vệ của nhân vật trong cuộc chiến chống lại các thế lực đen tối.
+                   
+                </p>
   
               </div>
   

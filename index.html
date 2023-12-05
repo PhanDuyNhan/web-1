@@ -161,40 +161,29 @@
 
 
   <!-- Sidebar/menu -->
-  <nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
-    <div class="w3-container w3-display-container w3-padding-16">
-      <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
-      <a href="index.html"><img src="WEB1/ANHNEN/logocheck.jpg" alt="LOGO" width="40%"></a>
+<nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
+  <div class="w3-container w3-display-container w3-padding-16">
+    <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
+    <a href="index.html" ><img src="WEB1/ANHNEN/logocheck.jpg" alt="LOGO" width="40%"></a>
+  </div>
+  <div class="w3-padding-64 w3-large w3-text-gray" style="font-weight:bold">
+    <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+      Shirt <i class="fa fa-caret-down"></i>
+    </a>
+    <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
+      <a href="Hoodie.html" class="w3-bar-item w3-button">Hoodie</a>
+      <a href="Sweater.html" class="w3-bar-item w3-button">Sweater</a>
+      <a href="Tshirt.html" class="w3-bar-item w3-button">T-Shirt</a>
+      <a href="Jackets.html" class="w3-bar-item w3-button">Jackets</a>
     </div>
-    <div class="w3-padding-64 w3-large w3-text-gray" style="font-weight:bold">
+    <a onclick="myAccFunc1()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" >
 
-      <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align">
-        Shirt <i class="fa fa-caret-down"></i>
-      </a>
-      <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-        <a href="Hoodie.html" class="w3-bar-item w3-button">Hoodie</a>
-        <a href="Sweater.html" class="w3-bar-item w3-button">Sweater</a>
-        <a href="T-shirt.html" class="w3-bar-item w3-button">T-Shirt</a>
-        <a href="Jackets.html" class="w3-bar-item w3-button">Jackets</a>
-      </div>
-
-      <a onclick="myAccFunc1()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align">
-        Item <i class="fa fa-caret-down"></i>
-      </a>
-      <div id="demoAcc1" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-        <a href="#" class="w3-bar-item w3-button">Chain</a>
-        <a href="#" class="w3-bar-item w3-button">Socks</a>
-        <a href="#" class="w3-bar-item w3-button">Wallet</a>
-      </div>
-
-      <a href="#" class="w3-bar-item w3-white w3-button ">Pants</a>
-
+    </a>
+    <div id="demoAcc1" class="w3-bar-block w3-hide w3-padding-large w3-medium">
     </div>
-    <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a>
-    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding"
-      onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a>
-    <a href="#footer" class="w3-bar-item w3-button w3-padding">Subscribe</a>
-  </nav>
+ 
+  </div>
+</nav>
 
   <!-- Top menu on small screens -->
   <header class="w3-bar w3-top w3-hide-large w3-black w3-xlarge">
@@ -230,16 +219,22 @@
               <!-- Bottom Bar Start -->
               <div class="w3-bar-item bottom-bar">
                 <div id="findcart" class="w3-modal-find">
-                    <div class="search" class="w3-container w3-padding-16 ">
-                        <input type="text" id="searchInput" placeholder="Search" oninput="searchProducts()">
-                        <span onclick="document.getElementById('findcart').style.display='none'"
-                            class="w3-button w3-xlarge w3-transparent w3-display-container" title="Close Modal">×</span>
-                    </div>
-                    <div id="searchResults" class="w3-container w3-padding-16">
-                        <!-- Kết quả tìm kiếm sẽ được hiển thị ở đây -->
-                    </div>
+                  <div class="search" class="w3-container w3-padding-16 ">
+                    <input type="text" id="searchInput" placeholder="Search" oninput="searchProducts()">
+                    <select id="priceCategory" onchange="searchProducts()">
+                      <option value="all">ALL</option>
+                      <option value="below-350"> Less 350.000</option>
+                      <option value="above-500"> More 500.000</option>
+                    </select>
+                    <span onclick="document.getElementById('findcart').style.display='none'"
+                      class="w3-button w3-xlarge w3-transparent w3-display-container" title="Close Modal">×</span>
+                  </div>
+                  <div id="searchResults" class="w3-container w3-padding-16">
+                    <!-- Kết quả tìm kiếm sẽ được hiển thị ở đây -->
+                  </div>
                 </div>
-            </div>
+              </div>
+            </a>
         
             
       
@@ -484,7 +479,7 @@
           <div class="cart-row w3-container">
             <span class="cart-item cart-header cart-column">Items</span>
             <span class="cart-price cart-header cart-column">Price</span>
-            <span class="cart-quantity cart-header cart-column">Infor</span>
+            <span class="cart-quantity cart-header cart-column">Info</span>
           </div>
 
           <div class="cart-items w3-container">
@@ -547,7 +542,7 @@
           <div class="cart-row w3-container">
             <span class="cart-item cart-header cart-column">Items</span>
             <span class="cart-price cart-header cart-column">Price</span>
-            <span class="cart-quantity cart-header cart-column">Infor</span>
+            <span class="cart-quantity cart-header cart-column">Info</span>
           </div>
 
           <div class="cart-items w3-container">
@@ -613,7 +608,7 @@
           <div class="cart-row w3-container">
             <span class="cart-item cart-header cart-column">Items</span>
             <span class="cart-price cart-header cart-column">Price</span>
-            <span class="cart-quantity cart-header cart-column">Infor</span>
+            <span class="cart-quantity cart-header cart-column">Info</span>
           </div>
 
           <div class="cart-items w3-container">
@@ -678,7 +673,7 @@
         <div class="cart-row w3-container">
           <span class="cart-item cart-header cart-column">Items</span>
           <span class="cart-price cart-header cart-column">Price</span>
-          <span class="cart-quantity cart-header cart-column">Infor</span>
+          <span class="cart-quantity cart-header cart-column">Info</span>
         </div>
 
         <div class="cart-items w3-container">
@@ -741,7 +736,7 @@
         <div class="cart-row w3-container">
           <span class="cart-item cart-header cart-column">Items</span>
           <span class="cart-price cart-header cart-column">Price</span>
-          <span class="cart-quantity cart-header cart-column">Infor</span>
+          <span class="cart-quantity cart-header cart-column">Info</span>
         </div>
 
         <div class="cart-items w3-container">
@@ -806,7 +801,7 @@
           <div class="cart-row w3-container">
             <span class="cart-item cart-header cart-column">Items</span>
             <span class="cart-price cart-header cart-column">Price</span>
-            <span class="cart-quantity cart-header cart-column">Infor</span>
+            <span class="cart-quantity cart-header cart-column">Info</span>
           </div>
 
           <div class="cart-items w3-container">
@@ -872,7 +867,7 @@
           <div class="cart-row w3-container">
             <span class="cart-item cart-header cart-column">Items</span>
             <span class="cart-price cart-header cart-column">Price</span>
-            <span class="cart-quantity cart-header cart-column">Infor</span>
+            <span class="cart-quantity cart-header cart-column">Info</span>
           </div>
 
           <div class="cart-items w3-container">
@@ -936,7 +931,7 @@
           <div class="cart-row w3-container">
             <span class="cart-item cart-header cart-column">Items</span>
             <span class="cart-price cart-header cart-column">Price</span>
-            <span class="cart-quantity cart-header cart-column">Infor</span>
+            <span class="cart-quantity cart-header cart-column">Info</span>
           </div>
 
           <div class="cart-items w3-container">
