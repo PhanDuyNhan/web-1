@@ -172,18 +172,12 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
       <a href="Jackets_user.html" class="w3-bar-item w3-button">Jackets</a>
     </div>
     <a onclick="myAccFunc1()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" >
-      Item <i class="fa fa-caret-down"></i>
+
     </a>
     <div id="demoAcc1" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-      <a href="#" class="w3-bar-item w3-button">Chain</a>
-      <a href="#" class="w3-bar-item w3-button">Socks</a>
-      <a href="#" class="w3-bar-item w3-button">Wallet</a>
     </div>
-    <a href="#" class="w3-bar-item w3-button w3-white">Pants</a>
+ 
   </div>
-  <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a> 
-  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a> 
-  <a href="#footer"  class="w3-bar-item w3-button w3-padding">Subscribe</a>
 </nav>
 
 <!-- Top menu on small screens -->
@@ -212,7 +206,29 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
         <!-- Shopping icon -->
         <a href="javascript:void(0)" class="w3-bar-item w3-button  w3-right" onclick="w3_open()">
           <i onclick="document.getElementById('shoppingcart').style.display='block'" class="fa fa-shopping-cart "></i>
-
+          <!-- Find icon -->
+          <a href="javascript:void(0)" class="w3-bar-item w3-button  w3-right" onclick="w3_open()">
+            <i onclick="document.getElementById('findcart').style.display='block'" class="fa fa-search"></i>
+            <!-- Bottom Bar Start -->
+            <div class="w3-bar-item bottom-bar">
+              <div id="findcart" class="w3-modal-find">
+                <div class="search" class="w3-container w3-padding-16 ">
+                  <input type="text" id="searchInput" placeholder="Search" oninput="searchProducts()">
+                  <select id="priceCategory" onchange="searchProducts()">
+                    <option value="all">ALL</option>
+                    <option value="below-350"> Less 350.000</option>
+                    <option value="above-500"> More 500.000</option>
+                  </select>
+                  <span onclick="document.getElementById('findcart').style.display='none'"
+                    class="w3-button w3-xlarge w3-transparent w3-display-container" title="Close Modal">×</span>
+                </div>
+                <div id="searchResults" class="w3-container w3-padding-16">
+                  <!-- Kết quả tìm kiếm sẽ được hiển thị ở đây -->
+                </div>
+              </div>
+            </div>
+          </a>
+    
         </a> 
   <!-- Shopping -->
         <div id="shoppingcart" class="w3-modal">
@@ -271,522 +287,594 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
           </div>
         </div>
         
-  <!-- Account -->
-  <div id="id01" class="w3-modal">
-    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
-      <div class="w3-center"><br>
-        <span onclick="document.getElementById('id01').style.display='none'"
-          class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
-        <img src="WEB1/ANHNEN/logocheck.jpg" alt="Avatar" style="width:30%" class="w3-margin-top">
+ <!-- Account -->
+ <div id="id01" class="w3-modal">
+  <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+    <div class="w3-center"><br>
+      <span onclick="document.getElementById('id01').style.display='none'"
+        class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
+      <img src="WEB1/T-SHIRT/meme.1.jpg" alt="Avatar" style="width:30%" class="w3-margin-top">
+    </div>
+
+    <form class="w3-container" action="/action_page.php">
+      <div class="w3-section">
+        <div class="customer-info">
+    THE ROCK
       </div>
-  
-      <form class="w3-container" action="/action_page.php">
-        <div class="w3-section">
-          <div class="customer-info">
-            Tên Khách Hàng
-        </div>
-          <a href="Hoodie.html" class="w3-button w3-black"> Lịch sử mua hàng</a>
-        </div>
-      </form>
-  
-      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
-        <button onclick="redirectToIndex()" class="w3-button w3-black">log out</button>
-    </div>
-    
-    <script>
-        function redirectToIndex() {
-            window.location.href = "index.html";
-        }
-    </script>
-    
-    
-  
-    </div>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="w3-button w3-black"> Lịch sử mua hàng</a>
+      </div>
+    </form>
+
+    <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+      <button onclick="redirectToIndex()" class="w3-button w3-black">log out</button>
   </div>
-    </p>
-    </header>
+  
+  <script>
+      function redirectToIndex() {
+          window.location.href = "index.html";
+      }
+  </script>
+  
+  </div>
+</div>
+    
+</p>
+</header>
 
   <!-- Image header -->
 
 
   <!-- Product grid -->
   <div class="w3-row w3-whitescale">
-    
-        <div class="w3-col l3 s6">
-            <div class="w3-container">
-                <div class="w3-display-container">
-                    <img src="WEB1/T-SHIRT/9.1.jpg" style="width:100%">
-                    <span class="w3-tag w3-display-topleft">New</span>
-                    <div class="w3-display-middle w3-display-hover">
-                         <a href="javascript:void(0)" class="w3-bar-item  w3-right w3-white" onclick="w3_open(), document.getElementById('detail1').style.display='block'">
-                         <button class="w3-button w3-black"> Detail <i class=" fa fa-info-circle"></i></button>
-                         </a>
-                    </div>
-                </div>
-             <p>BXD - ALEX OVERPRINT TEES/BLACK <br><b>$24.99</b></p>
-           </div>
+
+
+    <div class="w3-col l3 s6">
+      <div class="w3-container">
+        <div class="w3-display-container">
+          <img src="WEB1/T-SHIRT/17.1.jpg" style="width:100%">
+          <span class="w3-tag w3-display-topleft">New</span>
+          <div class="w3-display-middle w3-display-hover">
+            <a href="javascript:void(0)" class="w3-bar-item  w3-right w3-white"
+              onclick="w3_open(), document.getElementById('detail5').style.display='block'">
+              <button class="w3-button w3-black"> Detail <i class=" fa fa-info-circle"></i></button>
+            </a>
+          </div>
         </div>
-<!--BXD - ALEX OVERPRINT TEES/BLACK detail-->
-           <div id="detail1" class="w3-modal  ">
-            <div class="w3-modal-content  w3-card-4 w3-animate-zoom" style="max-width: 900px">
-            
-              <div class="w3-container w3-padding-16 w3-light-grey">
-                <span class=" cart-header ">BXD - ALEX OVERPRINT TEES/BLACK</span>
-                <span onclick="document.getElementById('detail1').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
-              </div>
-    
-              <div class="cart-row w3-container">
-                <span class="cart-item cart-header cart-column">Items</span>
-                <span class="cart-price cart-header cart-column">Price</span>
-                <span class="cart-quantity cart-header cart-column">Infor</span>
-              </div>
-    
-              <div  class="cart-items w3-container">
-                
-              <div class="cart-row">
-                
-                <div class="cart-item cart-column">
-                    <img class="cart-item-image1" src="WEB1/T-SHIRT/3.1.jpg" width="100" height="100">
-                </div>
-                <span class="cart-price cart-column">21.99$</span>
-                <div class="cart-quantity cart-column">
-                    <p>gsdvdsvava</p>
-                    
-                </div>
-    
-              </div>
-    
-              <div class="cart-total"> 
-            
-              </div>
-    
+        <p>BOBUI SAIGON - TEE/BLUE <br><b>₫350.000</b></p>
+      </div>
+    </div>
+    <!--BOBUI SAIGON - TEE/BLUE detail-->
+    <div id="detail5" class="w3-modal  ">
+      <div class="w3-modal-content  w3-card-4 w3-animate-zoom" style="max-width: 900px">
+
+        <div class="w3-container w3-padding-16 w3-light-grey">
+          <span class=" cart-header ">BOBUI SAIGON - TEE/BLUE </span>
+          <span onclick="document.getElementById('detail5').style.display='none'"
+            class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
+        </div>
+
+        <div class="cart-row w3-container">
+          <span class="cart-item cart-header cart-column">Items</span>
+          <span class="cart-price cart-header cart-column">Price</span>
+          <span class="cart-quantity cart-header cart-column">Infor</span>
+        </div>
+
+        <div class="cart-items w3-container">
+
+          <div class="cart-row">
+
+            <div class="cart-item cart-column">
+              <img class="cart-item-image1" src="WEB1/T-SHIRT/17.1.jpg" width="100" height="100">
             </div>
-    
-            <div class="w3-container w3-border-top w3-padding-24 ">
-              <button class="w3-button w3-red w3-transparent w3-right">Add to cart <i class="fa fa-shopping-cart"></i></button>
+            <span class="cart-price cart-column">₫350.000</span>
+            <div class="cart-quantity cart-column">
+              <p>+BOBUI SAIGON Unisex blue Logo T-shirt for both men and women 
+                +100% cotton 4-way stretch fabric
+                 +Full desert BOBUI tag 
+                 +Extremely durable large format print AL42</p>
+
             </div>
-    
+
+          </div>
+
+          <div class="cart-total">
+
+          </div>
+
+        </div>
+
+        <div class="w3-container w3-border-top w3-padding-24 ">
+          <button class="w3-button w3-red w3-transparent w3-right">Add to cart <i
+              class="fa fa-shopping-cart"></i></button>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!---->
+
+    <div class="w3-col l3 s6">
+      <div class="w3-container">
+        <div class="w3-display-container">
+          <img src="WEB1/T-SHIRT/18.1.jpg" style="width:100%">
+          <span class="w3-tag w3-display-topleft">New</span>
+          <div class="w3-display-middle w3-display-hover">
+            <a href="javascript:void(0)" class="w3-bar-item  w3-right w3-white"
+              onclick="w3_open(), document.getElementById('detail6').style.display='block'">
+              <button class="w3-button w3-black"> Detail <i class=" fa fa-info-circle"></i></button>
+            </a>
+          </div>
+        </div>
+        <p>BOBUI SAIGON - TEE/PURPLE<br><b>₫350.000</b></p>
+      </div>
+    </div>
+    <!--BOBUI SAIGON - TEE/PURPLEdetail-->
+    <div id="detail6" class="w3-modal  ">
+      <div class="w3-modal-content  w3-card-4 w3-animate-zoom" style="max-width: 900px">
+
+        <div class="w3-container w3-padding-16 w3-light-grey">
+          <span class=" cart-header ">BOBUI SAIGON - TEE/PURPLE</span>
+          <span onclick="document.getElementById('detail6').style.display='none'"
+            class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
+        </div>
+
+        <div class="cart-row w3-container">
+          <span class="cart-item cart-header cart-column">Items</span>
+          <span class="cart-price cart-header cart-column">Price</span>
+          <span class="cart-quantity cart-header cart-column">Infor</span>
+        </div>
+
+        <div class="cart-items w3-container">
+
+          <div class="cart-row">
+
+            <div class="cart-item cart-column">
+              <img class="cart-item-image1" src="WEB1/T-SHIRT/18.1.jpg" width="100" height="100">
             </div>
-          </div>
-        
-        
-<!---->
+            <span class="cart-price cart-column">₫350.000</span>
+            <div class="cart-quantity cart-column">
+              <p>+BOBUI SAIGON Unisex PURPLE Logo T-shirt for both men and women 
+                +100% cotton 4-way stretch fabric
+                 +Full desert BOBUI tag 
+                 +Extremely durable large format print AL42</p>
 
-<div class="w3-col l3 s6">
-  <div class="w3-container">
-      <div class="w3-display-container">
-          <img src="WEB1/T-SHIRT/11.1.jpg" style="width:100%">
+            </div>
+
+          </div>
+
+          <div class="cart-total">
+
+          </div>
+
+        </div>
+
+        <div class="w3-container w3-border-top w3-padding-24 ">
+          <button class="w3-button w3-red w3-transparent w3-right">Add to cart <i
+              class="fa fa-shopping-cart"></i></button>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!---->
+
+    <div class="w3-col l3 s6">
+      <div class="w3-container">
+        <div class="w3-display-container">
+          <img src="WEB1/T-SHIRT/19.1.jpg" style="width:100%">
           <span class="w3-tag w3-display-topleft">New</span>
           <div class="w3-display-middle w3-display-hover">
-               <a href="javascript:void(0)" class="w3-bar-item  w3-right w3-white" onclick="w3_open(), document.getElementById('detail1').style.display='block'">
-               <button class="w3-button w3-black"> Detail <i class=" fa fa-info-circle"></i></button>
-               </a>
+            <a href="javascript:void(0)" class="w3-bar-item  w3-right w3-white"
+              onclick="w3_open(), document.getElementById('detail7').style.display='block'">
+              <button class="w3-button w3-black"> Detail <i class=" fa fa-info-circle"></i></button>
+            </a>
           </div>
+        </div>
+        <p>BOBUI SAIGON - TEE/ORANGE<br><b>₫350.000</b></p>
       </div>
-   <p>BXD - ALEX OVERPRINT TEES/BLACK <br><b>$24.99</b></p>
- </div>
-</div>
-<!--BXD - ALEX OVERPRINT TEES/BLACK detail-->
- <div id="detail1" class="w3-modal  ">
-  <div class="w3-modal-content  w3-card-4 w3-animate-zoom" style="max-width: 900px">
-  
-    <div class="w3-container w3-padding-16 w3-light-grey">
-      <span class=" cart-header ">BXD - ALEX OVERPRINT TEES/BLACK</span>
-      <span onclick="document.getElementById('detail1').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
     </div>
+    <!--BOBUI SAIGON - TEE/ORANGE detail-->
+    <div id="detail7" class="w3-modal  ">
+      <div class="w3-modal-content  w3-card-4 w3-animate-zoom" style="max-width: 900px">
 
-    <div class="cart-row w3-container">
-      <span class="cart-item cart-header cart-column">Items</span>
-      <span class="cart-price cart-header cart-column">Price</span>
-      <span class="cart-quantity cart-header cart-column">Infor</span>
-    </div>
+        <div class="w3-container w3-padding-16 w3-light-grey">
+          <span class=" cart-header ">BOBUI SAIGON - TEE/ORANGE</span>
+          <span onclick="document.getElementById('detail7').style.display='none'"
+            class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
+        </div>
 
-    <div  class="cart-items w3-container">
-      
-    <div class="cart-row">
-      
-      <div class="cart-item cart-column">
-          <img class="cart-item-image1" src="WEB1/T-SHIRT/3.1.jpg" width="100" height="100">
+        <div class="cart-row w3-container">
+          <span class="cart-item cart-header cart-column">Items</span>
+          <span class="cart-price cart-header cart-column">Price</span>
+          <span class="cart-quantity cart-header cart-column">Infor</span>
+        </div>
+
+        <div class="cart-items w3-container">
+
+          <div class="cart-row">
+
+            <div class="cart-item cart-column">
+              <img class="cart-item-image1" src="WEB1/T-SHIRT/19.1.jpg" width="100" height="100">
+            </div>
+            <span class="cart-price cart-column">₫350.000</span>
+            <div class="cart-quantity cart-column">
+              <p>+BOBUI SAIGON Unisex ORANGE Logo T-shirt for both men and women 
+                +100% cotton 4-way stretch fabric
+                 +Full desert BOBUI tag 
+                 +Extremely durable large format print AL42</p>
+
+            </div>
+
+          </div>
+
+          <div class="cart-total">
+
+          </div>
+
+        </div>
+
+        <div class="w3-container w3-border-top w3-padding-24 ">
+          <button class="w3-button w3-red w3-transparent w3-right">Add to cart <i
+              class="fa fa-shopping-cart"></i></button>
+        </div>
+
       </div>
-      <span class="cart-price cart-column">21.99$</span>
-      <div class="cart-quantity cart-column">
-          <p>gsdvdsvava</p>
-          
-      </div>
-
     </div>
 
-    <div class="cart-total"> 
-  
-    </div>
 
-  </div>
+    <!---->
 
-  <div class="w3-container w3-border-top w3-padding-24 ">
-    <button class="w3-button w3-red w3-transparent w3-right">Add to cart <i class="fa fa-shopping-cart"></i></button>
-  </div>
-
-  </div>
-</div>
-
-
-<!---->
-
-<div class="w3-col l3 s6">
-  <div class="w3-container">
-      <div class="w3-display-container">
-          <img src="WEB1/T-SHIRT/12.1.jpg" style="width:100%">
+    <div class="w3-col l3 s6">
+      <div class="w3-container">
+        <div class="w3-display-container">
+          <img src="WEB1/T-SHIRT/20.1.jpg" style="width:100%">
           <span class="w3-tag w3-display-topleft">New</span>
           <div class="w3-display-middle w3-display-hover">
-               <a href="javascript:void(0)" class="w3-bar-item  w3-right w3-white" onclick="w3_open(), document.getElementById('detail1').style.display='block'">
-               <button class="w3-button w3-black"> Detail <i class=" fa fa-info-circle"></i></button>
-               </a>
+            <a href="javascript:void(0)" class="w3-bar-item  w3-right w3-white"
+              onclick="w3_open(), document.getElementById('detail8').style.display='block'">
+              <button class="w3-button w3-black"> Detail <i class=" fa fa-info-circle"></i></button>
+            </a>
           </div>
+        </div>
+        <p>BOBUI SAIGON - TEE/YELLOW<br><b>₫350.000</b></p>
       </div>
-   <p>BXD - ALEX OVERPRINT TEES/BLACK <br><b>$24.99</b></p>
- </div>
-</div>
-<!--BXD - ALEX OVERPRINT TEES/BLACK detail-->
- <div id="detail1" class="w3-modal  ">
-  <div class="w3-modal-content  w3-card-4 w3-animate-zoom" style="max-width: 900px">
-  
-    <div class="w3-container w3-padding-16 w3-light-grey">
-      <span class=" cart-header ">BXD - ALEX OVERPRINT TEES/BLACK</span>
-      <span onclick="document.getElementById('detail1').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
-    </div>
+    </div> 
+    <!--Bdetail-->
+    <div id="detail8" class="w3-modal  ">
+      <div class="w3-modal-content  w3-card-4 w3-animate-zoom" style="max-width: 900px">
 
-    <div class="cart-row w3-container">
-      <span class="cart-item cart-header cart-column">Items</span>
-      <span class="cart-price cart-header cart-column">Price</span>
-      <span class="cart-quantity cart-header cart-column">Infor</span>
-    </div>
+        <div class="w3-container w3-padding-16 w3-light-grey">
+          <span class=" cart-header ">BOBUI SAIGON - TEE/YELLOW</span>
+          <span onclick="document.getElementById('detail8').style.display='none'"
+            class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
+        </div>
 
-    <div  class="cart-items w3-container">
-      
-    <div class="cart-row">
-      
-      <div class="cart-item cart-column">
-          <img class="cart-item-image1" src="WEB1/T-SHIRT/3.1.jpg" width="100" height="100">
+        <div class="cart-row w3-container">
+          <span class="cart-item cart-header cart-column">Items</span>
+          <span class="cart-price cart-header cart-column">Price</span>
+          <span class="cart-quantity cart-header cart-column">Infor</span>
+        </div>
+
+        <div class="cart-items w3-container">
+
+          <div class="cart-row">
+
+            <div class="cart-item cart-column">
+              <img class="cart-item-image1" src="WEB1/T-SHIRT/20.1.jpg" width="100" height="100">
+            </div>
+            <span class="cart-price cart-column">₫350.000</span>
+            <div class="cart-quantity cart-column">
+              <p>+BOBUI SAIGON Unisex yellow Logo T-shirt for both men and women
+                +100% cotton 4-way stretch fabric 
+                +Full desert BOBUI tag
+                +Extremely durable large format print AL42</p>
+
+            </div>
+
+          </div>
+
+          <div class="cart-total">
+
+          </div>
+
+        </div>
+
+        <div class="w3-container w3-border-top w3-padding-24 ">
+          <button class="w3-button w3-red w3-transparent w3-right">Add to cart <i
+              class="fa fa-shopping-cart"></i></button>
+        </div>
+
       </div>
-      <span class="cart-price cart-column">21.99$</span>
-      <div class="cart-quantity cart-column">
-          <p>gsdvdsvava</p>
-          
-      </div>
-
     </div>
 
-    <div class="cart-total"> 
-  
-    </div>
-
-  </div>
-
-  <div class="w3-container w3-border-top w3-padding-24 ">
-    <button class="w3-button w3-red w3-transparent w3-right">Add to cart <i class="fa fa-shopping-cart"></i></button>
-  </div>
-
-  </div>
-</div>
-
-
-<!---->
-
-<div class="w3-col l3 s6">
-  <div class="w3-container">
-      <div class="w3-display-container">
-          <img src="WEB1/T-SHIRT/13.1.jpg" style="width:100%">
-          <span class="w3-tag w3-display-topleft">New</span>
+    <div class="w3-col l3 s6">
+      <div class="w3-container">
+        <div class="w3-display-container">
+          <img src="WEB1/T-SHIRT/21.1.jpg" style="width:100%">
           <div class="w3-display-middle w3-display-hover">
-               <a href="javascript:void(0)" class="w3-bar-item  w3-right w3-white" onclick="w3_open(), document.getElementById('detail1').style.display='block'">
-               <button class="w3-button w3-black"> Detail <i class=" fa fa-info-circle"></i></button>
-               </a>
+            <a href="javascript:void(0)" class="w3-bar-item  w3-right w3-white"
+              onclick="w3_open(), document.getElementById('detail1').style.display='block'">
+              <button class="w3-button w3-black"> Detail <i class=" fa fa-info-circle"></i></button>
+            </a>
           </div>
+        </div>
+        <p>BXD - BARBOSSA MYSON/BLACK <br><b>₫750.000</b></p>
       </div>
-   <p>BXD - ALEX OVERPRINT TEES/BLACK <br><b>$24.99</b></p>
- </div>
-</div>
-<!--BXD - ALEX OVERPRINT TEES/BLACK detail-->
- <div id="detail1" class="w3-modal  ">
-  <div class="w3-modal-content  w3-card-4 w3-animate-zoom" style="max-width: 900px">
-  
-    <div class="w3-container w3-padding-16 w3-light-grey">
-      <span class=" cart-header ">BXD - ALEX OVERPRINT TEES/BLACK</span>
-      <span onclick="document.getElementById('detail1').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
     </div>
+    <!--BXD - BARBOSSA MYSON/BLACK detail-->
+    <div id="detail1" class="w3-modal  ">
+      <div class="w3-modal-content  w3-card-4 w3-animate-zoom" style="max-width: 900px">
 
-    <div class="cart-row w3-container">
-      <span class="cart-item cart-header cart-column">Items</span>
-      <span class="cart-price cart-header cart-column">Price</span>
-      <span class="cart-quantity cart-header cart-column">Infor</span>
-    </div>
+        <div class="w3-container w3-padding-16 w3-light-grey">
+          <span class=" cart-header ">BXD - BARBOSSA MYSON/BLACK</span>
+          <span onclick="document.getElementById('detail1').style.display='none'"
+            class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
+        </div>
 
-    <div  class="cart-items w3-container">
-      
-    <div class="cart-row">
-      
-      <div class="cart-item cart-column">
-          <img class="cart-item-image1" src="WEB1/T-SHIRT/3.1.jpg" width="100" height="100">
+        <div class="cart-row w3-container">
+          <span class="cart-item cart-header cart-column">Items</span>
+          <span class="cart-price cart-header cart-column">Price</span>
+          <span class="cart-quantity cart-header cart-column">Infor</span>
+        </div>
+
+        <div class="cart-items w3-container">
+
+          <div class="cart-row">
+
+            <div class="cart-item cart-column">
+              <img class="cart-item-image1" src="WEB1/T-SHIRT/21.1.jpg" width="100" height="100">
+            </div>
+            <span class="cart-price cart-column">₫750.000</span>
+            <div class="cart-quantity cart-column">
+              <p>+2020 collab product between BOBUI & DIRTY COINS
+                +100% cotton</p>
+
+            </div>
+
+          </div>
+
+          <div class="cart-total">
+
+          </div>
+
+        </div>
+
+        <div class="w3-container w3-border-top w3-padding-24 ">
+          <button class="w3-button w3-red w3-transparent w3-right">Add to cart <i
+              class="fa fa-shopping-cart"></i></button>
+        </div>
+
       </div>
-      <span class="cart-price cart-column">21.99$</span>
-      <div class="cart-quantity cart-column">
-          <p>gsdvdsvava</p>
-          
-      </div>
-
     </div>
 
-    <div class="cart-total"> 
-  
-    </div>
 
-  </div>
+    <!---->
 
-  <div class="w3-container w3-border-top w3-padding-24 ">
-    <button class="w3-button w3-red w3-transparent w3-right">Add to cart <i class="fa fa-shopping-cart"></i></button>
-  </div>
-
-  </div>
-</div>
-
-
-<!---->
-<div class="w3-col l3 s6">
-  <div class="w3-container">
-      <div class="w3-display-container">
-          <img src="WEB1/T-SHIRT/14.1.jpg" style="width:100%">
-          <span class="w3-tag w3-display-topleft">New</span>
+    <div class="w3-col l3 s6">
+      <div class="w3-container">
+        <div class="w3-display-container">
+          <img src="WEB1/T-SHIRT/22.1.jpg" style="width:100%">
+          <span class="w3-tag w3-display-topleft">Limited</span>
           <div class="w3-display-middle w3-display-hover">
-               <a href="javascript:void(0)" class="w3-bar-item  w3-right w3-white" onclick="w3_open(), document.getElementById('detail1').style.display='block'">
-               <button class="w3-button w3-black"> Detail <i class=" fa fa-info-circle"></i></button>
-               </a>
+            <a href="javascript:void(0)" class="w3-bar-item  w3-right w3-white"
+              onclick="w3_open(), document.getElementById('detail2').style.display='block'">
+              <button class="w3-button w3-black"> Detail <i class=" fa fa-info-circle"></i></button>
+            </a>
           </div>
+        </div>
+        <p>BXD - GANGGANG SHIRT <br><br>₫800.000</br></p>
       </div>
-   <p>BXD - ALEX OVERPRINT TEES/BLACK <br><b>$24.99</b></p>
- </div>
-</div>
-<!--BXD - ALEX OVERPRINT TEES/BLACK detail-->
- <div id="detail1" class="w3-modal  ">
-  <div class="w3-modal-content  w3-card-4 w3-animate-zoom" style="max-width: 900px">
-  
-    <div class="w3-container w3-padding-16 w3-light-grey">
-      <span class=" cart-header ">BXD - ALEX OVERPRINT TEES/BLACK</span>
-      <span onclick="document.getElementById('detail1').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
     </div>
+    <!--BXD - GANGGANG SHIRT detail-->
+    <div id="detail2" class="w3-modal  ">
+      <div class="w3-modal-content  w3-card-4 w3-animate-zoom" style="max-width: 900px">
 
-    <div class="cart-row w3-container">
-      <span class="cart-item cart-header cart-column">Items</span>
-      <span class="cart-price cart-header cart-column">Price</span>
-      <span class="cart-quantity cart-header cart-column">Infor</span>
-    </div>
+        <div class="w3-container w3-padding-16 w3-light-grey">
+          <span class=" cart-header ">BXD - GANGGANG SHIRT</span>
+          <span onclick="document.getElementById('detail2').style.display='none'"
+            class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
+        </div>
 
-    <div  class="cart-items w3-container">
-      
-    <div class="cart-row">
-      
-      <div class="cart-item cart-column">
-          <img class="cart-item-image1" src="WEB1/T-SHIRT/3.1.jpg" width="100" height="100">
+        <div class="cart-row w3-container">
+          <span class="cart-item cart-header cart-column">Items</span>
+          <span class="cart-price cart-header cart-column">Price</span>
+          <span class="cart-quantity cart-header cart-column">Infor</span>
+        </div>
+
+        <div class="cart-items w3-container">
+
+          <div class="cart-row">
+
+            <div class="cart-item cart-column">
+              <img class="cart-item-image1" src="WEB1/T-SHIRT/22.1.jpg" width="100" height="100">
+            </div>
+            <span class="cart-price cart-column">₫800.000</span>
+            <div class="cart-quantity cart-column">
+              <p>+TEE BOBUI COLAB DRITY COINS 2020( BXD - CHECKERBOARD GREEN SHIRT BOBUI SAIGON × DIRTY COINS )
+               + LIMITED 
+               + 100% Cotton
+              </p>
+
+            </div>
+
+          </div>
+
+          <div class="cart-total">
+
+          </div>
+
+        </div>
+
+        <div class="w3-container w3-border-top w3-padding-24 ">
+          <button class="w3-button w3-red w3-transparent w3-right">Add to cart <i
+              class="fa fa-shopping-cart"></i></button>
+        </div>
+
       </div>
-      <span class="cart-price cart-column">21.99$</span>
-      <div class="cart-quantity cart-column">
-          <p>gsdvdsvava</p>
-          
-      </div>
-
     </div>
 
-    <div class="cart-total"> 
-  
-    </div>
 
-  </div>
+    <!---->
 
-  <div class="w3-container w3-border-top w3-padding-24 ">
-    <button class="w3-button w3-red w3-transparent w3-right">Add to cart <i class="fa fa-shopping-cart"></i></button>
-  </div>
-
-  </div>
-</div>
-
-
-<!---->
-
-<div class="w3-col l3 s6">
-  <div class="w3-container">
-      <div class="w3-display-container">
-          <img src="WEB1/T-SHIRT/15.1.jpg" style="width:100%">
-          <span class="w3-tag w3-display-topleft">New</span>
+    <div class="w3-col l3 s6">
+      <div class="w3-container">
+        <div class="w3-display-container">
+          <img src="WEB1/T-SHIRT/23.1.jpg" style="width:100%">
           <div class="w3-display-middle w3-display-hover">
-               <a href="javascript:void(0)" class="w3-bar-item  w3-right w3-white" onclick="w3_open(), document.getElementById('detail1').style.display='block'">
-               <button class="w3-button w3-black"> Detail <i class=" fa fa-info-circle"></i></button>
-               </a>
+            <a href="javascript:void(0)" class="w3-bar-item  w3-right w3-white"
+              onclick="w3_open(), document.getElementById('detail3').style.display='block'">
+              <button class="w3-button w3-black"> Detail <i class=" fa fa-info-circle"></i></button>
+            </a>
           </div>
+        </div>
+        <p>BOBUI T-SHIRT/BLACK<br><br>₫250.000</br></p>
       </div>
-   <p>BXD - ALEX OVERPRINT TEES/BLACK <br><b>$24.99</b></p>
- </div>
-</div>
-<!--BXD - ALEX OVERPRINT TEES/BLACK detail-->
- <div id="detail1" class="w3-modal  ">
-  <div class="w3-modal-content  w3-card-4 w3-animate-zoom" style="max-width: 900px">
-  
-    <div class="w3-container w3-padding-16 w3-light-grey">
-      <span class=" cart-header ">BXD - ALEX OVERPRINT TEES/BLACK</span>
-      <span onclick="document.getElementById('detail1').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
     </div>
+    <!--BBOBUI T-SHIRT/BLACK detail-->
+    <div id="detail3" class="w3-modal  ">
+      <div class="w3-modal-content  w3-card-4 w3-animate-zoom" style="max-width: 900px">
 
-    <div class="cart-row w3-container">
-      <span class="cart-item cart-header cart-column">Items</span>
-      <span class="cart-price cart-header cart-column">Price</span>
-      <span class="cart-quantity cart-header cart-column">Infor</span>
-    </div>
+        <div class="w3-container w3-padding-16 w3-light-grey">
+          <span class=" cart-header ">BOBUI T-SHIRT/BLACK</span>
+          <span onclick="document.getElementById('detail3').style.display='none'"
+            class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
+        </div>
 
-    <div  class="cart-items w3-container">
-      
-    <div class="cart-row">
-      
-      <div class="cart-item cart-column">
-          <img class="cart-item-image1" src="WEB1/T-SHIRT/3.1.jpg" width="100" height="100">
+        <div class="cart-row w3-container">
+          <span class="cart-item cart-header cart-column">Items</span>
+          <span class="cart-price cart-header cart-column">Price</span>
+          <span class="cart-quantity cart-header cart-column">Infor</span>
+        </div>
+
+        <div class="cart-items w3-container">
+
+          <div class="cart-row">
+
+            <div class="cart-item cart-column">
+              <img class="cart-item-image1" src="WEB1/T-SHIRT/23.1.jpg" width="100" height="100">
+            </div>
+            <span class="cart-price cart-column">₫250.000</span>
+            <div class="cart-quantity cart-column">
+              <p>+Material: Thick cotton.
+
+                 +Relaxed Fit.
+                 +The print on the front of the shirt uses high printing technology (BLACK color products have silver emulsion effect).</p>
+
+            </div>
+
+          </div>
+
+          <div class="cart-total">
+
+          </div>
+
+        </div>
+
+        <div class="w3-container w3-border-top w3-padding-24 ">
+          <button class="w3-button w3-red w3-transparent w3-right">Add to cart <i
+              class="fa fa-shopping-cart"></i></button>
+        </div>
+
       </div>
-      <span class="cart-price cart-column">21.99$</span>
-      <div class="cart-quantity cart-column">
-          <p>gsdvdsvava</p>
-          
-      </div>
-
     </div>
 
-    <div class="cart-total"> 
-  
-    </div>
 
-  </div>
+    <!---->
 
-  <div class="w3-container w3-border-top w3-padding-24 ">
-    <button class="w3-button w3-red w3-transparent w3-right">Add to cart <i class="fa fa-shopping-cart"></i></button>
-  </div>
-
-  </div>
-</div>
-
-
-<!---->
-
-<div class="w3-col l3 s6">
-  <div class="w3-container">
-      <div class="w3-display-container">
-          <img src="WEB1/T-SHIRT/16.1.jpg" style="width:100%">
-          <span class="w3-tag w3-display-topleft">New</span>
+    <div class="w3-col l3 s6">
+      <div class="w3-container">
+        <div class="w3-display-container">
+          <img src="WEB1/T-SHIRT/24.1.jpg" style="width:100%">
           <div class="w3-display-middle w3-display-hover">
-               <a href="javascript:void(0)" class="w3-bar-item  w3-right w3-white" onclick="w3_open(), document.getElementById('detail1').style.display='block'">
-               <button class="w3-button w3-black"> Detail <i class=" fa fa-info-circle"></i></button>
-               </a>
+            <a href="javascript:void(0)" class="w3-bar-item  w3-right w3-white"
+              onclick="w3_open(), document.getElementById('detail4').style.display='block'">
+              <button class="w3-button w3-black"> Detail <i class=" fa fa-info-circle"></i></button>
+            </a>
           </div>
+        </div>
+        <p>BOBUI T-SHIRT/WHITE <br><br>₫300.000</br></p>
       </div>
-   <p>BXD - ALEX OVERPRINT TEES/BLACK <br><b>$24.99</b></p>
- </div>
-</div>
-<!--BXD - ALEX OVERPRINT TEES/BLACK detail-->
- <div id="detail1" class="w3-modal  ">
-  <div class="w3-modal-content  w3-card-4 w3-animate-zoom" style="max-width: 900px">
-  
-    <div class="w3-container w3-padding-16 w3-light-grey">
-      <span class=" cart-header ">BXD - ALEX OVERPRINT TEES/BLACK</span>
-      <span onclick="document.getElementById('detail1').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
     </div>
+    <!--BOBUI T-SHIRT/WHITE detail-->
+    <div id="detail4" class="w3-modal  ">
+      <div class="w3-modal-content  w3-card-4 w3-animate-zoom" style="max-width: 900px">
 
-    <div class="cart-row w3-container">
-      <span class="cart-item cart-header cart-column">Items</span>
-      <span class="cart-price cart-header cart-column">Price</span>
-      <span class="cart-quantity cart-header cart-column">Infor</span>
-    </div>
+        <div class="w3-container w3-padding-16 w3-light-grey">
+          <span class=" cart-header ">BOBUI T-SHIRT/WHITE</span>
+          <span onclick="document.getElementById('detail4').style.display='none'"
+            class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
+        </div>
 
-    <div  class="cart-items w3-container">
-      
-    <div class="cart-row">
-      
-      <div class="cart-item cart-column">
-          <img class="cart-item-image1" src="WEB1/T-SHIRT/3.1.jpg" width="100" height="100">
-      </div>
-      <span class="cart-price cart-column">21.99$</span>
-      <div class="cart-quantity cart-column">
-          <p>gsdvdsvava</p>
-          
-      </div>
+        <div class="cart-row w3-container">
+          <span class="cart-item cart-header cart-column">Items</span>
+          <span class="cart-price cart-header cart-column">Price</span>
+          <span class="cart-quantity cart-header cart-column">Infor</span>
+        </div>
 
-    </div>
+        <div class="cart-items w3-container">
 
-    <div class="cart-total"> 
-  
-    </div>
+          <div class="cart-row">
 
-  </div>
+            <div class="cart-item cart-column">
+              <img class="cart-item-image1" src="WEB1/T-SHIRT/24.1.jpg" width="100" height="100">
+            </div>
+            <span class="cart-price cart-column">₫300.000</span>
+            <div class="cart-quantity cart-column">
+              <p>Material: Thick cotton.
+                +Relaxed Fit.
+                +The print on the front of the shirt uses high printing technology (BLACK color products have silver emulsion effect).</p>
+</p>
 
-  <div class="w3-container w3-border-top w3-padding-24 ">
-    <button class="w3-button w3-red w3-transparent w3-right">Add to cart <i class="fa fa-shopping-cart"></i></button>
-  </div>
+            </div>
 
-  </div>
-</div>
-
-
-<!---->
-
-<div class="w3-col l3 s6">
-  <div class="w3-container">
-      <div class="w3-display-container">
-          <img src="WEB1/T-SHIRT/10.1.jpg" style="width:100%">
-          <span class="w3-tag w3-display-topleft">New</span>
-          <div class="w3-display-middle w3-display-hover">
-               <a href="javascript:void(0)" class="w3-bar-item  w3-right w3-white" onclick="w3_open(), document.getElementById('detail1').style.display='block'">
-               <button class="w3-button w3-black"> Detail <i class=" fa fa-info-circle"></i></button>
-               </a>
           </div>
+
+          <div class="cart-total">
+
+          </div>
+
+        </div>
+
+        <div class="w3-container w3-border-top w3-padding-24 ">
+          <button class="w3-button w3-red w3-transparent w3-right">Add to cart <i
+              class="fa fa-shopping-cart"></i></button>
+        </div>
+
       </div>
-   <p>BXD - ALEX OVERPRINT TEES/BLACK <br><b>$24.99</b></p>
- </div>
-</div>
-<!--BXD - ALEX OVERPRINT TEES/BLACK detail-->
- <div id="detail1" class="w3-modal  ">
-  <div class="w3-modal-content  w3-card-4 w3-animate-zoom" style="max-width: 900px">
-  
-    <div class="w3-container w3-padding-16 w3-light-grey">
-      <span class=" cart-header ">BXD - ALEX OVERPRINT TEES/BLACK</span>
-      <span onclick="document.getElementById('detail1').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
     </div>
+<div id="noResultsMsg" style="display: none;">Không tìm thấy sản phẩm</div>
 
-    <div class="cart-row w3-container">
-      <span class="cart-item cart-header cart-column">Items</span>
-      <span class="cart-price cart-header cart-column">Price</span>
-      <span class="cart-quantity cart-header cart-column">Infor</span>
-    </div>
+<script>
+    function searchProducts() {
+        var searchTerm = document.getElementById("searchInput").value.toLowerCase();
+        var products = document.querySelectorAll('.w3-row .w3-col'); // Chọn tất cả các cột trong grid sản phẩm
+        var foundProducts = false; // Biến kiểm tra xem có sản phẩm được tìm thấy hay không
 
-    <div  class="cart-items w3-container">
-      
-    <div class="cart-row">
-      
-      <div class="cart-item cart-column">
-          <img class="cart-item-image1" src="WEB1/T-SHIRT/3.1.jpg" width="100" height="100">
-      </div>
-      <span class="cart-price cart-column">21.99$</span>
-      <div class="cart-quantity cart-column">
-          <p>gsdvdsvava</p>
-          
-      </div>
+        products.forEach(function(product) {
+            var productName = product.querySelector('p').innerText.toLowerCase();
 
-    </div>
+            if (productName.includes(searchTerm)) {
+                product.style.display = 'block'; // Hiển thị sản phẩm nếu tìm thấy
+                foundProducts = true; // Cập nhật biến foundProducts thành true
+            } else {
+                product.style.display = 'none'; // Ẩn sản phẩm nếu không tìm thấy
+            }
+        });
 
-    <div class="cart-total"> 
-  
-    </div>
+        if (!foundProducts) {
+            // Hiển thị thông báo khi không tìm thấy sản phẩm
+            var noResultsMsg = document.getElementById("noResultsMsg");
+            noResultsMsg.style.display = 'block';
+        } else {
+            // Ẩn thông báo khi tìm thấy sản phẩm
+            var noResultsMsg = document.getElementById("noResultsMsg");
+            noResultsMsg.style.display = 'none';
+        }
+    }
+</script>
 
-  </div>
-
-  <div class="w3-container w3-border-top w3-padding-24 ">
-    <button class="w3-button w3-red w3-transparent w3-right">Add to cart <i class="fa fa-shopping-cart"></i></button>
-  </div>
-
-  </div>
-</div>
 
 
 <!---->
