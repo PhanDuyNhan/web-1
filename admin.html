@@ -174,26 +174,38 @@
   </div>
 </div>
 <!--them sp-->
-<div id="themsp" class="w3-modal  ">
-  <div     class="w3-modal-content  w3-card-4 w3-animate-zoom" style="max-width: 650px ; margin-left: 40%;" >
+<div id="themsp" class="w3-modal">
+  <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width: 650px; margin-left: 40%;">
     <div class="w3-container w3-padding-16 w3-light-grey">
       <span onclick="document.getElementById('themsp').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
       <h2>Add Product</h2>
       <form id="productForm">
-          <label for="productName">Product Name:</label>
-          <input type="text" id="productName" required>
-          <label for="productPrice">Price:</label>
-          <input type="number" id="productPrice" required>
-          <div>
-          <label for="productImage">Image:</label>
-          <input type="file" id="productImage" accept="image/*">
-          <button class="w3-right" type="submit" id="saveProduct">Save</button>
-          </div>
+        <label for="productName">Product Name:</label>
+        <input type="text" id="productName" required>
+        <label for="productPrice">Price:</label>
+        <input type="number" id="productPrice" required>
+
+        <div>
+          <label for="productType">Product Type:</label>
+          <select id="productType" onchange="showSubtypes()">
+            <option value="shirt">Shirt</option>
+            <option value="item">Item</option>
+            <option value="pant">Pant</option>
+          </select>
+        </div>
+
+        <div id="subtypeDiv" style="display: none;">
+          <label for="productSubtype">Subtype:</label>
+          <select id="productSubtype"></select>
+        </div>
+
+        <label for="productImage">Image:</label>
+        <input type="file" id="productImage" accept="image/*">
+        <button class="w3-right" type="submit" id="saveProduct">Save</button>
       </form>
+    </div>
   </div>
 </div>
-
-
 
 
 </div>
@@ -598,6 +610,36 @@
   function w3_close() {
     document.getElementById("mySidebar").style.display = "none";
     document.getElementById("myOverlay").style.display = "none";
+  }
+  // them sp
+  function showSubtypes() {
+    var productType = document.getElementById("productType").value;
+    var subtypeDiv = document.getElementById("subtypeDiv");
+    var subtypeSelect = document.getElementById("productSubtype");
+
+    // Clear previous options
+    subtypeSelect.innerHTML = "";
+
+    if (productType === "shirt") {
+      var shirtSubtypes = ["Hoodie", "T-shirt", "Sweater", "Jacket"];
+      populateSubtypes(shirtSubtypes);
+    } else if (productType === "item") {
+      var itemSubtypes = ["Chain", "Shock", "Wallet"];
+      populateSubtypes(itemSubtypes);
+    }
+
+    // Display or hide the subtypeDiv based on the product type
+    subtypeDiv.style.display = productType === "pant" ? "none" : "block";
+  }
+
+  function populateSubtypes(subtypes) {
+    var subtypeSelect = document.getElementById("productSubtype");
+    for (var i = 0; i < subtypes.length; i++) {
+      var option = document.createElement("option");
+      option.value = subtypes[i];
+      option.text = subtypes[i];
+      subtypeSelect.add(option);
+    }
   }
 </script>
 
