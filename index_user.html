@@ -496,7 +496,10 @@
           </div>
 
           <div class="w3-container w3-border-top w3-padding-24 ">
-            <button class="w3-button w3-red w3-transparent w3-right">Add to cart <i
+            <button id="addToCartBtn1" class="w3-button w3-red w3-transparent w3-right" 
+            data-product-name="BXD - ALEX OVERPRINT TEES/BLACK"
+            data-product-price="700.000đ"
+            onclick="addToCart(productName, price)">Add to cart <i
                 class="fa fa-shopping-cart"></i></button>
           </div>
 
@@ -561,7 +564,10 @@
           </div>
 
           <div class="w3-container w3-border-top w3-padding-24 ">
-            <button class="w3-button w3-red w3-transparent w3-right">Add to cart <i
+            <button id="addToCartBtn2" class="w3-button w3-red w3-transparent w3-right" 
+            data-product-name="BXD - ALEX OVERPRINT TEES/BLACK"
+            data-product-price="800.000đ"
+            onclick="addToCart(productName, price)">Add to cart <i
                 class="fa fa-shopping-cart"></i></button>
           </div>
 
@@ -626,7 +632,10 @@
           </div>
 
           <div class="w3-container w3-border-top w3-padding-24 ">
-            <button class="w3-button w3-red w3-transparent w3-right">Add to cart <i
+            <button id="addToCartBtn3" class="w3-button w3-red w3-transparent w3-right" 
+            data-product-name="BXD - ALEX OVERPRINT TEES/BLACK"
+            data-product-price="300.000đ"
+            onclick="addToCart(thproductName, priceis)">Add to cart <i
                 class="fa fa-shopping-cart"></i></button>
           </div>
 
@@ -693,7 +702,10 @@
         </div>
 
         <div class="w3-container w3-border-top w3-padding-24 ">
-          <button class="w3-button w3-red w3-transparent w3-right">Add to cart <i
+          <button id="addToCartBtn4" class="w3-button w3-red w3-transparent w3-right"
+          data-product-name="BXD - MONOGRAM SHIRT/BLACK"
+            data-product-price="400.000đ"
+            onclick="addToCart(productName, price)">Add to cart <i
               class="fa fa-shopping-cart"></i></button>
         </div>
 
@@ -755,7 +767,10 @@
         </div>
 
         <div class="w3-container w3-border-top w3-padding-24 ">
-          <button class="w3-button w3-red w3-transparent w3-right">Add to cart <i
+          <button id="addToCartBtn5" class="w3-button w3-red w3-transparent w3-right"
+          data-product-name="BOBUI BALLOON - TEE/PINK"
+            data-product-price="250.000đ"
+            onclick="addToCart(productName, price)">Add to cart <i
               class="fa fa-shopping-cart"></i></button>
         </div>
 
@@ -820,7 +835,10 @@
           </div>
 
           <div class="w3-container w3-border-top w3-padding-24 ">
-            <button class="w3-button w3-red w3-transparent w3-right">Add to cart <i
+            <button id="addToCartBtn6" class="w3-button w3-red w3-transparent w3-right"
+            data-product-name="BOBUI BALLOON - TEE/RED"
+            data-product-price="250.000đ"
+            onclick="addToCart(productName, price)">Add to cart <i
                 class="fa fa-shopping-cart"></i></button>
           </div>
 
@@ -886,7 +904,10 @@
           </div>
 
           <div class="w3-container w3-border-top w3-padding-24 ">
-            <button class="w3-button w3-red w3-transparent w3-right">Add to cart <i
+            <button id="addToCartBtn7" class="w3-button w3-red w3-transparent w3-right"
+            data-product-name="BOBUI BALLOON - TEE/BLACK"
+            data-product-price="250.000đ"
+            onclick="addToCart(thiproductName, prices)">Add to cart <i
                 class="fa fa-shopping-cart"></i></button>
           </div>
 
@@ -950,7 +971,10 @@
           </div>
 
           <div class="w3-container w3-border-top w3-padding-24 ">
-            <button class="w3-button w3-red w3-transparent w3-right">Add to cart <i
+            <button id="addToCartBtn8" class="w3-button w3-red w3-transparent w3-right"
+            data-product-name="BOBUI BALLOON - TEE/WHITE"
+            data-product-price="250.000đ"
+            onclick="addToCart(productName, price)">Add to cart <i
                 class="fa fa-shopping-cart"></i></button>
           </div>
 
@@ -958,6 +982,108 @@
       </div>
 
     </div>
+    <script>
+        var cartItems = [];
+      
+        function addToCart(productName, price) {
+          var product = {
+            name: productName,
+            price: price
+          };
+          cartItems.push(product);
+          updateCartDisplay();
+        }
+      
+        function updateCartDisplay() {
+          var cartItemsContainer = document.querySelector('.cart-items');
+      
+          // Xóa nội dung hiện tại của giỏ hàng
+          cartItemsContainer.innerHTML = '';
+      
+          // Thêm sản phẩm vào giỏ hàng
+          cartItems.forEach(function (product) {
+            var cartRow = document.createElement('div');
+            cartRow.classList.add('cart-row');
+            var cartRowContents = `
+                <div class="cart-item cart-column">
+                    <span class="cart-item-title">${product.name}</span>
+                </div>
+                <span class="cart-price cart-column">${product.price}</span>
+                <div class="cart-quantity cart-column">
+                    <input class="cart-quantity-input" type="number" value="1">
+                    <button class="btn btn-danger" type="button" onclick="deleteCartItem(this)">Delete</button>
+                </div>
+            `;
+            cartRow.innerHTML = cartRowContents;
+            cartItemsContainer.appendChild(cartRow);
+          });
+      
+          // Update total
+          var totalPrice = cartItems.reduce(function (total, product) {
+            return total + parseFloat(product.price);
+          }, 0);
+          document.querySelector('.cart-total-price').textContent = totalPrice.toFixed(2) + '$';
+        }
+      
+        // Thêm sự kiện click cho nút "Add to cart"
+        var addToCartBtn1 = document.getElementById('addToCartBtn1');
+        addToCartBtn1.addEventListener('click', function() {
+          var productName = addToCartBtn1.dataset.productName;
+          var productPrice = addToCartBtn1.dataset.productPrice;
+          addToCart(productName, productPrice);
+          alert('Product added to cart!');
+        });
+        var addToCartBtn2 = document.getElementById('addToCartBtn2');
+        addToCartBtn2.addEventListener('click', function() {
+          var productName = addToCartBtn2.dataset.productName;
+          var productPrice = addToCartBtn2.dataset.productPrice;
+          addToCart(productName, productPrice);
+          alert('Product added to cart!');
+        });
+        var addToCartBtn3 = document.getElementById('addToCartBtn3');
+        addToCartBtn3.addEventListener('click', function() {
+          var productName = addToCartBtn3.dataset.productName;
+          var productPrice = addToCartBtn3.dataset.productPrice;
+          addToCart(productName, productPrice);
+          alert('Product added to cart!');
+        });
+        var addToCartBtn4 = document.getElementById('addToCartBtn4');
+        addToCartBtn4.addEventListener('click', function() {
+          var productName = addToCartBtn4.dataset.productName;
+          var productPrice = addToCartBtn4.dataset.productPrice;
+          addToCart(productName, productPrice);
+          alert('Product added to cart!');
+        });
+        var addToCartBtn5 = document.getElementById('addToCartBtn5');
+        addToCartBtn5.addEventListener('click', function() {
+          var productName = addToCartBtn5.dataset.productName;
+          var productPrice = addToCartBtn5.dataset.productPrice;
+          addToCart(productName, productPrice);
+          alert('Product added to cart!');
+        });
+        var addToCartBtn6 = document.getElementById('addToCartBtn6');
+        addToCartBtn6.addEventListener('click', function() {
+          var productName = addToCartBtn6.dataset.productName;
+          var productPrice = addToCartBtn6.dataset.productPrice;
+          addToCart(productName, productPrice);
+          alert('Product added to cart!');
+        });
+        var addToCartBtn7 = document.getElementById('addToCartBtn7');
+        addToCartBtn7.addEventListener('click', function() {
+          var productName = addToCartBtn7.dataset.productName;
+          var productPrice = addToCartBtn7.dataset.productPrice;
+          addToCart(productName, productPrice);
+          alert('Product added to cart!');
+        });
+        var addToCartBtn8 = document.getElementById('addToCartBtn8');
+        addToCartBtn8.addEventListener('click', function() {
+          var productName = addToCartBtn8.dataset.productName;
+          var productPrice = addToCartBtn8.dataset.productPrice;
+          addToCart(productName, productPrice);
+          alert('Product added to cart!');
+        });
+      
+      </script>
     <ul id="cart">
     </ul>
     <div id="noResultsMsg" style="display: none;">Không tìm thấy sản phẩm</div>
