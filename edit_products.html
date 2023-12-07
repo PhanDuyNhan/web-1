@@ -248,7 +248,7 @@
             <div class="w3-display-middle w3-display-hover">
               <a href="javascript:void(0)" class="w3-bar-item  w3-right w3-white"
                 onclick="w3_open(), document.getElementById('detail5').style.display='block'">
-                <button class="w3-button w3-black"> Detail <i class=" fa fa-info-circle"></i></button>
+                <button class="w3-button w3-black"> Edit <i class=" fa fa-info-circle"></i></button>
               </a>
             </div>
           </div>
@@ -258,62 +258,58 @@
       <!--BXD - ALEX OVERPRINT TEES/BLACK detail-->
       <div id="detail5" class="w3-modal">
         <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width: 900px">
-      
-          <div class="w3-container w3-padding-16 w3-light-grey">
-            <span id="productNameHeader" class="cart-header" onclick="editProductName()">BXD - ALEX OVERPRINT TEES/BLACK</span>
-            <span onclick="document.getElementById('detail5').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
-          </div>
-          <div class="cart-row w3-container">
-            <span class="cart-item cart-header cart-column">Inmage</span>
-            <span class="cart-price cart-header cart-column">Price</span>
-            <span class="cart-quantity cart-header cart-column">Info</span>
-          </div>
-      
-          <div class="cart-row w3-container">
-            <div class="cart-item cart-column">
-              <label for="fileInput1">
-                <img class="cart-item-image1" id="image5" src="WEB1/T-SHIRT/5.2.jpg" width="100" height="100" onclick="changeImage('image5')">
-              </label>
-              <input type="file" id="fileInput1" style="display:none" onchange="updateImage(event, 'image5')">
-              <button onclick="deleteImage('image5')">Xóa ảnh</button>
+            <div class="w3-container w3-padding-16 w3-light-grey">
+                <span id="productNameHeader5" class="cart-header" onclick="editProductName('productNameHeader5')">BXD - ALEX OVERPRINT TEES/BLACK</span>
+                <span onclick="document.getElementById('detail5').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
             </div>
-            <input type="text" class="cart-price cart-column" style="margin-right: 80px" required>
-            <input type="text" class="cart-price cart-column" style="margin-right: 100px" required>
-          </div>
-      
-          <div class="w3-container w3-margin-top">
-            <label for="productType">Chọn loại sản phẩm:</label>
-            <select id="productType5" onchange="showSubtypes('5')">
-              <option value="shirt">Shirt</option>
-              <option value="item">Item</option>
-              <option value="pant">Pant</option>
-            </select>
-          </div>
-      
-          <div id="subtypeDiv" style="display: none;" class="w3-container w3-margin-top">
-            <label for="productSubtype5">Chọn loại con:</label>
-            <select id="productSubtype"></select>
-          </div>
-      
-          <div class="cart-total"></div>
-      
-          <div class="w3-container w3-border-top w3-padding-24 ">
-            <button class="w3-button w3-red w3-transparent w3-left" onclick="openModal('deleteModal5')">Xóa sản phẩm</button>
-            <button class="w3-button w3-red w3-transparent w3-right" onclick="redirectToEdit()"> Save</button>
-            <div id="deleteModal5" class="modal">
-              <div class="modal-content">
-                <span onclick="closeModal('deleteModal')" style="float: right; cursor: pointer;">&times;</span>
-                <p>Bạn có chắc chắn muốn xóa sản phẩm này?</p>
-                <div class="modal-buttons">
-                  <button onclick="redirectToEdit()">Xóa sản phẩm</button>
-                  <button onclick="closeModal('deleteModal5')">Hủy bỏ</button>
+            <div class="cart-row w3-container">
+                <span class="cart-item cart-header cart-column">Image</span>
+                <span class="cart-price cart-header cart-column">Price</span>
+                <span class="cart-quantity cart-header cart-column">Info</span>
+            </div>
+            <div class="cart-row w3-container">
+                <div class="cart-item cart-column">
+                    <label for="fileInput5">
+                        <img class="cart-item-image1" id="image5" src="WEB1/T-SHIRT/5.2.jpg" width="100" height="100" onclick="changeImage('image5')">
+                    </label>
+                    <input type="file" id="fileInput5" style="display:none" onchange="updateImage(event, 'image5')">
+                    <button onclick="deleteImage('image5')">Xóa ảnh</button>
                 </div>
-              </div>
+                <input type="text" class="cart-price cart-column" style="margin-right: 80px" required>
+                <input type="text" class="cart-price cart-column" style="margin-right: 100px" required>
             </div>
-          </div>
-      
+            <div class="w3-container w3-margin-top">
+                <label for="productType5">Chọn loại sản phẩm:</label>
+                <select id="productType5" onchange="showSubtypes('5')">
+                    <option value="shirt">Shirt</option>
+                </select>
+            </div>
+            <div id="subtypeDiv5" class="w3-container w3-margin-top">
+                <label for="productSubtype5">Chọn loại con:</label>
+                <select id="productSubtype5">
+                    <option value="hoodie">Hoodie</option>
+                    <option value="sweater">Sweater</option>
+                    <option value="tshirt">T-shirt</option>
+                    <option value="cosplay">Cosplay</option>
+                </select>
+            </div>
+            <div class="cart-total"></div>
+            <div class="w3-container w3-border-top w3-padding-24">
+                <button class="w3-button w3-red w3-transparent w3-left" onclick="openModal('deleteModal5')">Xóa sản phẩm</button>
+                <button class="w3-button w3-red w3-transparent w3-right" onclick="saveChangesAndRedirect()">Save</button>
+                <div id="deleteModal5" class="modal">
+                    <div class="modal-content">
+                        <span onclick="closeModal('deleteModal5')" style="float: right; cursor: pointer;">&times;</span>
+                        <p>Bạn có chắc chắn muốn xóa sản phẩm này?</p>
+                        <div class="modal-buttons">
+                            <button onclick="confirmDeleteProduct(5)">Xóa sản phẩm</button>
+                            <button onclick="closeModal('deleteModal5')">Hủy bỏ</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </div>
       <!---->
 
       <div class="w3-col l3 s6">
@@ -324,7 +320,7 @@
             <div class="w3-display-middle w3-display-hover">
               <a href="javascript:void(0)" class="w3-bar-item  w3-right w3-white"
                 onclick="w3_open(), document.getElementById('detail6').style.display='block'">
-                <button class="w3-button w3-black"> Detail <i class=" fa fa-info-circle"></i></button>
+                <button class="w3-button w3-black"> Edit <i class=" fa fa-info-circle"></i></button>
               </a>
             </div>
           </div>
@@ -334,63 +330,66 @@
       <!--BXD - ALEX OVERPRINT TEES/BLACK detail-->
       <div id="detail6" class="w3-modal">
         <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width: 900px">
-      
-          <div class="w3-container w3-padding-16 w3-light-grey">
-            <span id="productNameHeader6" class="cart-header" onclick="editProductName('productNameHeader6')">BXD - ALEX OVERPRINT TEES/BLACK</span>
-            <span onclick="document.getElementById('detail6').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
-          </div>
-      
-          <div class="cart-row w3-container">
-            <span class="cart-item cart-header cart-column">Image</span>
-            <span class="cart-price cart-header cart-column">Price</span>
-            <span class="cart-quantity cart-header cart-column">Info</span>
-          </div>
-      
-          <div class="cart-row w3-container">
-            <div class="cart-item cart-column">
-              <label for="fileInput2">
-                <img class="cart-item-image1" id="image6" src="WEB1/T-SHIRT/6.2.jpg" width="100" height="100" onclick="changeImage('image6')">
-              </label>
-              <input type="file" id="fileInput6" style="display:none" onchange="updateImage(event, 'image6')">
-              <button onclick="deleteImage('image2')">Xóa ảnh</button>
+          
+            <div class="w3-container w3-padding-16 w3-light-grey">
+                <span id="productNameHeader6" class="cart-header" onclick="editProductName('productNameHeader6')">BXD - ALEX OVERPRINT TEES/BLACK</span>
+                <span onclick="document.getElementById('detail6').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
             </div>
-            <input type="text" class="cart-price cart-column" style="margin-right: 80px" required>
-            <input type="text" class="cart-price cart-column" style="margin-right: 100px" required>
-          </div>
-      
-          <div class="w3-container w3-margin-top">
-            <label for="productType">Chọn loại sản phẩm:</label>
-            <select id="productType" onchange="showSubtypes('6')">
-              <option value="shirt">Shirt</option>
-              <option value="item">Item</option>
-              <option value="pant">Pant</option>
-            </select>
-          </div>
-      
-          <div id="subtypeDiv" style="display: none;" class="w3-container w3-margin-top">
-            <label for="productSubtype6">Chọn loại con:</label>
-            <select id="productSubtype6"></select>
-          </div>
-      
-          <div class="cart-total"></div>
-      
-          <div class="w3-container w3-border-top w3-padding-24">
-            <button class="w3-button w3-red w3-transparent w3-left" onclick="openModal('deleteModal6')">Xóa sản phẩm</button>
-            <button class="w3-button w3-red w3-transparent w3-right" onclick="redirectToEdit()"> Save</button>
-            <div id="deleteModal6" class="modal">
-              <div class="modal-content">
-                <span onclick="closeModal('deleteModal6')" style="float: right; cursor: pointer;">&times;</span>
-                <p>Bạn có chắc chắn muốn xóa sản phẩm này?</p>
-                <div class="modal-buttons">
-                  <button onclick="redirectToEdit()">Xóa sản phẩm</button>
-                  <button onclick="closeModal('deleteModal6')">Hủy bỏ</button>
+          
+            <div class="cart-row w3-container">
+                <span class="cart-item cart-header cart-column">Image</span>
+                <span class="cart-price cart-header cart-column">Price</span>
+                <span class="cart-quantity cart-header cart-column">Info</span>
+            </div>
+          
+            <div class="cart-row w3-container">
+                <div class="cart-item cart-column">
+                    <label for="fileInput6">
+                        <img class="cart-item-image1" id="image6" src="WEB1/T-SHIRT/6.2.jpg" width="100" height="100" onclick="changeImage('image6')">
+                    </label>
+                    <input type="file" id="fileInput6" style="display:none" onchange="updateImage(event, 'image6')">
+                    <button onclick="deleteImage('image6')">Xóa ảnh</button>
                 </div>
-              </div>
+                <input type="text" class="cart-price cart-column" style="margin-right: 80px" required>
+                <input type="text" class="cart-price cart-column" style="margin-right: 100px" required>
             </div>
-          </div>
-      
+          
+            <div class="w3-container w3-margin-top">
+                <label for="productType6">Chọn loại sản phẩm:</label>
+                <select id="productType6" onchange="showSubtypes('6')">
+                    <option value="shirt">Shirt</option>
+                </select>
+            </div>
+          
+            <div id="subtypeDiv6" class="w3-container w3-margin-top">
+                <label for="productSubtype6">Chọn loại con:</label>
+                <select id="productSubtype6">
+                    <option value="hoodie">Hoodie</option>
+                    <option value="sweater">Sweater</option>
+                    <option value="tshirt">T-shirt</option>
+                    <option value="cosplay">Cosplay</option>
+                </select>
+            </div>
+          
+            <div class="cart-total"></div>
+          
+            <div class="w3-container w3-border-top w3-padding-24">
+                <button class="w3-button w3-red w3-transparent w3-left" onclick="openModal('deleteModal6')">Xóa sản phẩm</button>
+                <button class="w3-button w3-red w3-transparent w3-right" onclick="saveChangesAndRedirect()">Save</button>
+                <div id="deleteModal6" class="modal">
+                    <div class="modal-content">
+                        <span onclick="closeModal('deleteModal6')" style="float: right; cursor: pointer;">&times;</span>
+                        <p>Bạn có chắc chắn muốn xóa sản phẩm này?</p>
+                        <div class="modal-buttons">
+                            <button onclick="confirmDeleteProduct(6)">Xóa sản phẩm</button>
+                            <button onclick="closeModal('deleteModal6')">Hủy bỏ</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
         </div>
-      </div>
+    </div>
 
       <!---->
 
@@ -402,7 +401,7 @@
             <div class="w3-display-middle w3-display-hover">
               <a href="javascript:void(0)" class="w3-bar-item  w3-right w3-white"
                 onclick="w3_open(), document.getElementById('detail7').style.display='block'">
-                <button class="w3-button w3-black"> Detail <i class=" fa fa-info-circle"></i></button>
+                <button class="w3-button w3-black"> Edit <i class=" fa fa-info-circle"></i></button>
               </a>
             </div>
           </div>
@@ -412,64 +411,67 @@
       <!--BXD - ALEX OVERPRINT TEES/BLACK detail-->
       <div id="detail7" class="w3-modal">
         <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width: 900px">
-      
-          <div class="w3-container w3-padding-16 w3-light-grey">
-            <span class="cart-header" onclick="editProductName('productNameHeader7')">BXD - ALEX OVERPRINT TEES/BLACK</span>
-            <span onclick="document.getElementById('detail7').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
-          </div>
-      
-          <div class="cart-row w3-container">
-            <span class="cart-item cart-header cart-column">Items</span>
-            <span class="cart-price cart-header cart-column">Price</span>
-            <span class="cart-quantity cart-header cart-column">Info</span>
-          </div>
-      
-          <div class="cart-items w3-container">
-            <div class="cart-row">
-              <div class="cart-item cart-column">
-                <label for="fileInput3">
-                  <img class="cart-item-image1" id="image7" src="WEB1/T-SHIRT/7.2.jpg" width="100" height="100" onclick="changeImage('image7')">
-                </label>
-                <input type="file" id="fileInput7" style="display:none" onchange="updateImage(event, 'image7')">
-                <button onclick="deleteImage('image7')">Xóa ảnh</button>
-              </div>
-              <input type="text" class="cart-price cart-column" style="margin-right: 80px" required>
-              <input type="text" class="cart-price cart-column" style="margin-right: 100px" required>
+          
+            <div class="w3-container w3-padding-16 w3-light-grey">
+                <span id="productNameHeader7" class="cart-header" onclick="editProductName('productNameHeader7')">BXD - ALEX OVERPRINT TEES/BLACK</span>
+                <span onclick="document.getElementById('detail7').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
             </div>
-      
-            <div class="w3-container w3-margin-top">
-              <label for="productType">Chọn loại sản phẩm:</label>
-              <select id="productType" onchange="showSubtypes('7')">
-                <option value="shirt">Shirt</option>
-                <option value="item">Item</option>
-                <option value="pant">Pant</option>
-              </select>
+          
+            <div class="cart-row w3-container">
+                <span class="cart-item cart-header cart-column">Items</span>
+                <span class="cart-price cart-header cart-column">Price</span>
+                <span class="cart-quantity cart-header cart-column">Info</span>
             </div>
-      
-            <div id="subtypeDiv" style="display: none;" class="w3-container w3-margin-top">
-              <label for="productSubtype7">Chọn loại con:</label>
-              <select id="productSubtype7"></select>
-            </div>
-      
-            <div class="cart-total"></div>
-          </div>
-      
-          <div class="w3-container w3-border-top w3-padding-24">
-            <button class="w3-button w3-red w3-transparent w3-left" onclick="openModal('deleteModal7')">Xóa sản phẩm</button>
-            <button class="w3-button w3-red w3-transparent w3-right" onclick="redirectToEdit()"> Save</button>
-            <div id="deleteModal7" class="modal">
-              <div class="modal-content">
-                <span onclick="closeModal('deleteModal7')" style="float: right; cursor: pointer;">&times;</span>
-                <p>Bạn có chắc chắn muốn xóa sản phẩm này?</p>
-                <div class="modal-buttons">
-                  <button onclick="redirectToEdit()">Xóa sản phẩm</button>
-                  <button onclick="closeModal('deleteModal7')">Hủy bỏ</button>
+          
+            <div class="cart-items w3-container">
+                <div class="cart-row">
+                    <div class="cart-item cart-column">
+                        <label for="fileInput7">
+                            <img class="cart-item-image1" id="image7" src="WEB1/T-SHIRT/7.2.jpg" width="100" height="100" onclick="changeImage('image7')">
+                        </label>
+                        <input type="file" id="fileInput7" style="display:none" onchange="updateImage(event, 'image7')">
+                        <button onclick="deleteImage('image7')">Xóa ảnh</button>
+                    </div>
+                    <input type="text" class="cart-price cart-column" style="margin-right: 80px" required>
+                    <input type="text" class="cart-price cart-column" style="margin-right: 100px" required>
                 </div>
-              </div>
+          
+                <div class="w3-container w3-margin-top">
+                    <label for="productType7">Chọn loại sản phẩm:</label>
+                    <select id="productType7" onchange="showSubtypes('7')">
+                      <option value="shirt">Shirt</option>
+                    </select>
+                </div>
+          
+                <div id="subtypeDiv7" style="display: none;" class="w3-container w3-margin-top">
+                    <label for="productSubtype7">Chọn loại con:</label>
+                    <select id="productSubtype7">
+                      <option value="hoodie">Hoodie</option>
+                    <option value="sweater">Sweater</option>
+                    <option value="tshirt">T-shirt</option>
+                    <option value="cosplay">Cosplay</option>
+                    </select>
+                </div>
+          
+                <div class="cart-total"></div>
             </div>
-          </div>
+          
+            <div class="w3-container w3-border-top w3-padding-24">
+                <button class="w3-button w3-red w3-transparent w3-left" onclick="openModal('deleteModal7')">Xóa sản phẩm</button>
+                <button class="w3-button w3-red w3-transparent w3-right" onclick="saveChangesAndRedirect('7')"> Save</button>
+                <div id="deleteModal7" class="modal">
+                    <div class="modal-content">
+                        <span onclick="closeModal('deleteModal7')" style="float: right; cursor: pointer;">&times;</span>
+                        <p>Bạn có chắc chắn muốn xóa sản phẩm này?</p>
+                        <div class="modal-buttons">
+                            <button onclick="confirmDeleteProduct('7')">Xóa sản phẩm</button>
+                            <button onclick="closeModal('deleteModal7')">Hủy bỏ</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </div>
       
 
       <!---->
@@ -482,7 +484,7 @@
             <div class="w3-display-middle w3-display-hover">
               <a href="javascript:void(0)" class="w3-bar-item  w3-right w3-white"
                 onclick="w3_open(), document.getElementById('detail8').style.display='block'">
-                <button class="w3-button w3-black"> Detail <i class=" fa fa-info-circle"></i></button>
+                <button class="w3-button w3-black"> Edit <i class=" fa fa-info-circle"></i></button>
               </a>
             </div>
           </div>
@@ -492,55 +494,64 @@
       <!--BXD - ALEX OVERPRINT TEES/BLACK detail-->
       <div id="detail8" class="w3-modal">
         <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width: 900px">
-          <div class="w3-container w3-padding-16 w3-light-grey">
-            <span id="productNameHeader8" class="cart-header" onclick="editProductName('productNameHeader8')">BXD - ALEX OVERPRINT TEES/BLACK</span>
-            <span onclick="document.getElementById('detail8').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
-          </div>
-          <div class="cart-row w3-container">
-            <span class="cart-item cart-header cart-column">Image</span>
-            <span class="cart-price cart-header cart-column">Price</span>
-            <span class="cart-quantity cart-header cart-column">Info</span>
-          </div>
-          <div class="cart-row w3-container">
-            <div class="cart-item cart-column">
-              <label for="fileInput4">
-                <img class="cart-item-image1" id="image8" src="WEB1/T-SHIRT/8.2.jpg" width="100" height="100" onclick="changeImage('image8')">
-              </label>
-              <input type="file" id="fileInput8" style="display:none" onchange="updateImage(event, 'image8')">
-              <button onclick="deleteImage('image8')">Xóa ảnh</button>
+            <div class="w3-container w3-padding-16 w3-light-grey">
+                <span id="productNameHeader8" class="cart-header" onclick="editProductName('productNameHeader8')">BXD - ALEX OVERPRINT TEES/BLACK</span>
+                <span onclick="document.getElementById('detail8').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
             </div>
-            <input type="text" class="cart-price cart-column" style="margin-right: 80px" required>
-            <input type="text" class="cart-price cart-column" style="margin-right: 100px" required>
-          </div>
-          <div class="w3-container w3-margin-top">
-            <label for="productType8">Chọn loại sản phẩm:</label>
-            <select id="productType8" onchange="showSubtypes('8')">
-              <option value="shirt">Shirt</option>
-              <option value="item">Item</option>
-              <option value="pant">Pant</option>
-            </select>
-          </div>
-          <div id="subtypeDiv8" style="display: none;" class="w3-container w3-margin-top">
-            <label for="productSubtype8">Chọn loại con:</label>
-            <select id="productSubtype8"></select>
-          </div>
-          <div class="cart-total"></div>
-          <div class="w3-container w3-border-top w3-padding-24">
-            <button class="w3-button w3-red w3-transparent w3-left" onclick="openModal('deleteModal8')">Xóa sản phẩm</button>
-            <button class="w3-button w3-red w3-transparent w3-right" onclick="redirectToEdit()"> Save</button>
-            <div id="deleteModal8" class="modal">
-              <div class="modal-content">
-                <span onclick="closeModal('deleteModal8')" style="float: right; cursor: pointer;">&times;</span>
-                <p>Bạn có chắc chắn muốn xóa sản phẩm này?</p>
-                <div class="modal-buttons">
-                  <button onclick="redirectToEdit()">Xóa sản phẩm</button>
-                  <button onclick="closeModal('deleteModal8')">Hủy bỏ</button>
+            
+            <div class="cart-row w3-container">
+                <span class="cart-item cart-header cart-column">Image</span>
+                <span class="cart-price cart-header cart-column">Price</span>
+                <span class="cart-quantity cart-header cart-column">Info</span>
+            </div>
+            
+            <div class="cart-row w3-container">
+                <div class="cart-item cart-column">
+                    <label for="fileInput8">
+                        <img class="cart-item-image1" id="image8" src="WEB1/T-SHIRT/8.2.jpg" width="100" height="100" onclick="changeImage('image8')">
+                    </label>
+                    <input type="file" id="fileInput8" style="display:none" onchange="updateImage(event, 'image8')">
+                    <button onclick="deleteImage('image8')">Xóa ảnh</button>
                 </div>
-              </div>
+                <input type="text" class="cart-price cart-column" style="margin-right: 80px" required>
+                <input type="text" class="cart-price cart-column" style="margin-right: 100px" required>
             </div>
-          </div>
+            
+            <div class="w3-container w3-margin-top">
+                <label for="productType8">Chọn loại sản phẩm:</label>
+                <select id="productType8" onchange="showSubtypes('8')">
+                  <option value="shirt">Shirt</option>
+                </select>
+            </div>
+            
+            <div id="subtypeDiv8" style="display: none;" class="w3-container w3-margin-top">
+                <label for="productSubtype8">Chọn loại con:</label>
+                <select id="productSubtype8">
+                  <option value="hoodie">Hoodie</option>
+                    <option value="sweater">Sweater</option>
+                    <option value="tshirt">T-shirt</option>
+                    <option value="cosplay">Cosplay</option>
+                </select>
+            </div>
+            
+            <div class="cart-total"></div>
+            
+            <div class="w3-container w3-border-top w3-padding-24">
+                <button class="w3-button w3-red w3-transparent w3-left" onclick="openModal('deleteModal8')">Xóa sản phẩm</button>
+                <button class="w3-button w3-red w3-transparent w3-right" onclick="saveChangesAndRedirect()"> Save</button>
+                <div id="deleteModal8" class="modal">
+                    <div class="modal-content">
+                        <span onclick="closeModal('deleteModal8')" style="float: right; cursor: pointer;">&times;</span>
+                        <p>Bạn có chắc chắn muốn xóa sản phẩm này?</p>
+                        <div class="modal-buttons">
+                            <button onclick="confirmDeleteProduct(8)">Xóa sản phẩm</button>
+                            <button onclick="closeModal('deleteModal8')">Hủy bỏ</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </div>
 
       <div class="w3-col l3 s6">
         <div class="w3-container">
@@ -549,7 +560,7 @@
             <div class="w3-display-middle w3-display-hover">
               <a href="javascript:void(0)" class="w3-bar-item  w3-right w3-white"
                 onclick="w3_open(), document.getElementById('detail1').style.display='block'">
-                <button class="w3-button w3-black"> Detail <i class=" fa fa-info-circle"></i></button>
+                <button class="w3-button w3-black"> Edit <i class=" fa fa-info-circle"></i></button>
               </a>
             </div>
           </div>
@@ -559,55 +570,58 @@
       <!--BXD - ALEX OVERPRINT TEES/BLACK detail-->
       <div id="detail1" class="w3-modal">
         <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width: 900px">
-          <div class="w3-container w3-padding-16 w3-light-grey">
-            <span id="productNameHeader1" class="cart-header" onclick="editProductName('productNameHeader1')">BXD - ALEX OVERPRINT TEES/BLACK</span>
-            <span onclick="document.getElementById('detail1').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
-          </div>
-          <div class="cart-row w3-container">
-            <span class="cart-item cart-header cart-column">Image</span>
-            <span class="cart-price cart-header cart-column">Price</span>
-            <span class="cart-quantity cart-header cart-column">Info</span>
-          </div>
-          <div class="cart-row w3-container">
-            <div class="cart-item cart-column">
-              <label for="fileInput1">
-                <img class="cart-item-image1" id="image1" src="WEB1/T-SHIRT/1.2.jpg" width="100" height="100" onclick="changeImage('image1')">
-              </label>
-              <input type="file" id="fileInput1" style="display:none" onchange="updateImage(event, 'image1')">
-              <button onclick="deleteImage('image1')">Xóa ảnh</button>
+            <div class="w3-container w3-padding-16 w3-light-grey">
+                <span id="productNameHeader1" class="cart-header" onclick="editProductName('productNameHeader1')">BXD - ALEX OVERPRINT TEES/BLACK</span>
+                <span onclick="document.getElementById('detail1').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
             </div>
-            <input type="text" class="cart-price cart-column" style="margin-right: 80px" required>
-            <input type="text" class="cart-price cart-column" style="margin-right: 100px" required>
-          </div>
-          <div class="w3-container w3-margin-top">
-            <label for="productType1">Chọn loại sản phẩm:</label>
-            <select id="productType1" onchange="showSubtypes('1')">
-              <option value="shirt">Shirt</option>
-              <option value="item">Item</option>
-              <option value="pant">Pant</option>
-            </select>
-          </div>
-          <div id="subtypeDiv1" style="display: none;" class="w3-container w3-margin-top">
-            <label for="productSubtype1">Chọn loại con:</label>
-            <select id="productSubtype1"></select>
-          </div>
-          <div class="cart-total"></div>
-          <div class="w3-container w3-border-top w3-padding-24">
-            <button class="w3-button w3-red w3-transparent w3-left" onclick="openModal('deleteModal1')">Xóa sản phẩm</button>
-            <button class="w3-button w3-red w3-transparent w3-right" onclick="redirectToEdit()"> Save</button>
-            <div id="deleteModal1" class="modal">
-              <div class="modal-content">
-                <span onclick="closeModal('deleteModal1')" style="float: right; cursor: pointer;">&times;</span>
-                <p>Bạn có chắc chắn muốn xóa sản phẩm này?</p>
-                <div class="modal-buttons">
-                  <button onclick="deleteProduct(1)">Xóa sản phẩm</button>
-                  <button onclick="closeModal('deleteModal1')">Hủy bỏ</button>
+            <div class="cart-row w3-container">
+                <span class="cart-item cart-header cart-column">Image</span>
+                <span class="cart-price cart-header cart-column">Price</span>
+                <span class="cart-quantity cart-header cart-column">Info</span>
+            </div>
+            <div class="cart-row w3-container">
+                <div class="cart-item cart-column">
+                    <label for="fileInput1">
+                        <img class="cart-item-image1" id="image1" src="WEB1/T-SHIRT/1.2.jpg" width="100" height="100" onclick="changeImage('image1')">
+                    </label>
+                    <input type="file" id="fileInput1" style="display:none" onchange="updateImage(event, 'image1')">
+                    <button onclick="deleteImage('image1')">Xóa ảnh</button>
                 </div>
-              </div>
+                <input type="text" class="cart-price cart-column" style="margin-right: 80px" required>
+                <input type="text" class="cart-price cart-column" style="margin-right: 100px" required>
             </div>
-          </div>
+            <div class="w3-container w3-margin-top">
+                <label for="productType1">Chọn loại sản phẩm:</label>
+                <select id="productType1" onchange="showSubtypes('1')">
+                    <option value="shirt">Shirt</option>
+                </select>
+            </div>
+            <div id="subtypeDiv1" class="w3-container w3-margin-top">
+                <label for="productSubtype1">Chọn loại con:</label>
+                <select id="productSubtype1">
+                    <option value="hoodie">Hoodie</option>
+                    <option value="sweater">Sweater</option>
+                    <option value="tshirt">T-shirt</option>
+                    <option value="cosplay">Cosplay</option>
+                </select>
+            </div>
+            <div class="cart-total"></div>
+            <div class="w3-container w3-border-top w3-padding-24">
+                <button class="w3-button w3-red w3-transparent w3-left" onclick="deleteProductAndRedirect(1)">Xóa sản phẩm</button>
+                <button class="w3-button w3-red w3-transparent w3-right" onclick="saveChangesAndRedirect()">Save</button>
+                <div id="deleteModal1" class="modal">
+                    <div class="modal-content">
+                        <span onclick="closeModal('deleteModal1')" style="float: right; cursor: pointer;">&times;</span>
+                        <p>Bạn có chắc chắn muốn xóa sản phẩm này?</p>
+                        <div class="modal-buttons">
+                            <button onclick="confirmDeleteProduct(1)">Xóa sản phẩm</button>
+                            <button onclick="closeModal('deleteModal1')">Hủy bỏ</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </div>
 
 
       <!---->
@@ -619,7 +633,7 @@
             <div class="w3-display-middle w3-display-hover">
               <a href="javascript:void(0)" class="w3-bar-item  w3-right w3-white"
                 onclick="w3_open(), document.getElementById('detail2').style.display='block'">
-                <button class="w3-button w3-black"> Detail <i class=" fa fa-info-circle"></i></button>
+                <button class="w3-button w3-black"> Edit <i class=" fa fa-info-circle"></i></button>
               </a>
             </div>
           </div>
@@ -629,55 +643,58 @@
       <!--BXD - ALEX OVERPRINT TEES/BLACK detail-->
       <div id="detail2" class="w3-modal">
         <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width: 900px">
-          <div class="w3-container w3-padding-16 w3-light-grey">
-            <span id="productNameHeader2" class="cart-header" onclick="editProductName('productNameHeader2')">BXD - ALEX OVERPRINT TEES/BLACK</span>
-            <span onclick="document.getElementById('detail2').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
-          </div>
-          <div class="cart-row w3-container">
-            <span class="cart-item cart-header cart-column">Image</span>
-            <span class="cart-price cart-header cart-column">Price</span>
-            <span class="cart-quantity cart-header cart-column">Info</span>
-          </div>
-          <div class="cart-row w3-container">
-            <div class="cart-item cart-column">
-              <label for="fileInput2">
-                <img class="cart-item-image1" id="image2" src="WEB1/T-SHIRT/2.2.jpg" width="100" height="100" onclick="changeImage('image2')">
-              </label>
-              <input type="file" id="fileInput2" style="display:none" onchange="updateImage(event, 'image2')">
-              <button onclick="deleteImage('image2')">Xóa ảnh</button>
+            <div class="w3-container w3-padding-16 w3-light-grey">
+                <span id="productNameHeader2" class="cart-header" onclick="editProductName('productNameHeader2')">BXD - ALEX OVERPRINT TEES/BLACK</span>
+                <span onclick="document.getElementById('detail2').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
             </div>
-            <input type="text" class="cart-price cart-column" style="margin-right: 80px" required>
-            <input type="text" class="cart-price cart-column" style="margin-right: 100px" required>
-          </div>
-          <div class="w3-container w3-margin-top">
-            <label for="productType2">Chọn loại sản phẩm:</label>
-            <select id="productType2" onchange="showSubtypes('2')">
-              <option value="shirt">Shirt</option>
-              <option value="item">Item</option>
-              <option value="pant">Pant</option>
-            </select>
-          </div>
-          <div id="subtypeDiv2" style="display: none;" class="w3-container w3-margin-top">
-            <label for="productSubtype2">Chọn loại con:</label>
-            <select id="productSubtype2"></select>
-          </div>
-          <div class="cart-total"></div>
-          <div class="w3-container w3-border-top w3-padding-24">
-            <button class="w3-button w3-red w3-transparent w3-left" onclick="openModal('deleteModal2')">Xóa sản phẩm</button>
-            <button class="w3-button w3-red w3-transparent w3-right" onclick="redirectToEdit()"> Save</button>
-            <div id="deleteModal2" class="modal">
-              <div class="modal-content">
-                <span onclick="closeModal('deleteModal2')" style="float: right; cursor: pointer;">&times;</span>
-                <p>Bạn có chắc chắn muốn xóa sản phẩm này?</p>
-                <div class="modal-buttons">
-                  <button onclick="deleteProduct(2)">Xóa sản phẩm</button>
-                  <button onclick="closeModal('deleteModal2')">Hủy bỏ</button>
+            <div class="cart-row w3-container">
+                <span class="cart-item cart-header cart-column">Image</span>
+                <span class="cart-price cart-header cart-column">Price</span>
+                <span class="cart-quantity cart-header cart-column">Info</span>
+            </div>
+            <div class="cart-row w3-container">
+                <div class="cart-item cart-column">
+                    <label for="fileInput2">
+                        <img class="cart-item-image1" id="image2" src="WEB1/T-SHIRT/2.2.jpg" width="100" height="100" onclick="changeImage('image2')">
+                    </label>
+                    <input type="file" id="fileInput2" style="display:none" onchange="updateImage(event, 'image2')">
+                    <button onclick="deleteImage('image2')">Xóa ảnh</button>
                 </div>
-              </div>
+                <input type="text" class="cart-price cart-column" style="margin-right: 80px" required>
+                <input type="text" class="cart-price cart-column" style="margin-right: 100px" required>
             </div>
-          </div>
+            <div class="w3-container w3-margin-top">
+                <label for="productType2">Chọn loại sản phẩm:</label>
+                <select id="productType2" onchange="showSubtypes('2')">
+                    <option value="shirt">Shirt</option>
+                </select>
+            </div>
+            <div id="subtypeDiv2" class="w3-container w3-margin-top">
+                <label for="productSubtype2">Chọn loại con:</label>
+                <select id="productSubtype2">
+                    <option value="hoodie">Hoodie</option>
+                    <option value="sweater">Sweater</option>
+                    <option value="tshirt">T-shirt</option>
+                    <option value="cosplay">Cosplay</option>
+                </select>
+            </div>
+            <div class="cart-total"></div>
+            <div class="w3-container w3-border-top w3-padding-24">
+                <button class="w3-button w3-red w3-transparent w3-left" onclick="deleteProductAndRedirect(2)">Xóa sản phẩm</button>
+                <button class="w3-button w3-red w3-transparent w3-right" onclick="saveChangesAndRedirect()">Save</button>
+                <div id="deleteModal2" class="modal">
+                    <div class="modal-content">
+                        <span onclick="closeModal('deleteModal2')" style="float: right; cursor: pointer;">&times;</span>
+                        <p>Bạn có chắc chắn muốn xóa sản phẩm này?</p>
+                        <div class="modal-buttons">
+                            <button onclick="confirmDeleteProduct(2)">Xóa sản phẩm</button>
+                            <button onclick="closeModal('deleteModal2')">Hủy bỏ</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </div>
 
 
       <!---->
@@ -689,7 +706,7 @@
             <div class="w3-display-middle w3-display-hover">
               <a href="javascript:void(0)" class="w3-bar-item  w3-right w3-white"
                 onclick="w3_open(), document.getElementById('detail3').style.display='block'">
-                <button class="w3-button w3-black"> Detail <i class=" fa fa-info-circle"></i></button>
+                <button class="w3-button w3-black"> Edit <i class=" fa fa-info-circle"></i></button>
               </a>
             </div>
           </div>
@@ -699,55 +716,58 @@
       <!--BXD - ALEX OVERPRINT TEES/BLACK detail-->
       <div id="detail3" class="w3-modal">
         <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width: 900px">
-          <div class="w3-container w3-padding-16 w3-light-grey">
-            <span id="productNameHeader3" class="cart-header" onclick="editProductName('productNameHeader3')">BXD - ALEX OVERPRINT TEES/BLACK</span>
-            <span onclick="document.getElementById('detail3').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
-          </div>
-          <div class="cart-row w3-container">
-            <span class="cart-item cart-header cart-column">Image</span>
-            <span class="cart-price cart-header cart-column">Price</span>
-            <span class="cart-quantity cart-header cart-column">Info</span>
-          </div>
-          <div class="cart-row w3-container">
-            <div class="cart-item cart-column">
-              <label for="fileInput3">
-                <img class="cart-item-image1" id="image3" src="WEB1/T-SHIRT/3.2.jpg" width="100" height="100" onclick="changeImage('image3')">
-              </label>
-              <input type="file" id="fileInput3" style="display:none" onchange="updateImage(event, 'image3')">
-              <button onclick="deleteImage('image3')">Xóa ảnh</button>
+            <div class="w3-container w3-padding-16 w3-light-grey">
+                <span id="productNameHeader3" class="cart-header" onclick="editProductName('productNameHeader3')">BXD - ALEX OVERPRINT TEES/BLACK</span>
+                <span onclick="document.getElementById('detail3').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
             </div>
-            <input type="text" class="cart-price cart-column" style="margin-right: 80px" required>
-            <input type="text" class="cart-price cart-column" style="margin-right: 100px" required>
-          </div>
-          <div class="w3-container w3-margin-top">
-            <label for="productType3">Chọn loại sản phẩm:</label>
-            <select id="productType3" onchange="showSubtypes('3')">
-              <option value="shirt">Shirt</option>
-              <option value="item">Item</option>
-              <option value="pant">Pant</option>
-            </select>
-          </div>
-          <div id="subtypeDiv3" style="display: none;" class="w3-container w3-margin-top">
-            <label for="productSubtype3">Chọn loại con:</label>
-            <select id="productSubtype3"></select>
-          </div>
-          <div class="cart-total"></div>
-          <div class="w3-container w3-border-top w3-padding-24">
-            <button class="w3-button w3-red w3-transparent w3-left" onclick="openModal('deleteModal3')">Xóa sản phẩm</button>
-            <button class="w3-button w3-red w3-transparent w3-right" onclick="redirectToEdit()"> Save</button>
-            <div id="deleteModal3" class="modal">
-              <div class="modal-content">
-                <span onclick="closeModal('deleteModal3')" style="float: right; cursor: pointer;">&times;</span>
-                <p>Bạn có chắc chắn muốn xóa sản phẩm này?</p>
-                <div class="modal-buttons">
-                  <button onclick="deleteProduct(3)">Xóa sản phẩm</button>
-                  <button onclick="closeModal('deleteModal3')">Hủy bỏ</button>
+            <div class="cart-row w3-container">
+                <span class="cart-item cart-header cart-column">Image</span>
+                <span class="cart-price cart-header cart-column">Price</span>
+                <span class="cart-quantity cart-header cart-column">Info</span>
+            </div>
+            <div class="cart-row w3-container">
+                <div class="cart-item cart-column">
+                    <label for="fileInput3">
+                        <img class="cart-item-image1" id="image3" src="WEB1/T-SHIRT/3.2.jpg" width="100" height="100" onclick="changeImage('image3')">
+                    </label>
+                    <input type="file" id="fileInput3" style="display:none" onchange="updateImage(event, 'image3')">
+                    <button onclick="deleteImage('image3')">Xóa ảnh</button>
                 </div>
-              </div>
+                <input type="text" class="cart-price cart-column" style="margin-right: 80px" required>
+                <input type="text" class="cart-price cart-column" style="margin-right: 100px" required>
             </div>
-          </div>
+            <div class="w3-container w3-margin-top">
+                <label for="productType3">Chọn loại sản phẩm:</label>
+                <select id="productType3" onchange="showSubtypes('3')">
+                    <option value="shirt">Shirt</option>
+                </select>
+            </div>
+            <div id="subtypeDiv3" class="w3-container w3-margin-top">
+                <label for="productSubtype3">Chọn loại con:</label>
+                <select id="productSubtype3">
+                    <option value="hoodie">Hoodie</option>
+                    <option value="sweater">Sweater</option>
+                    <option value="tshirt">T-shirt</option>
+                    <option value="cosplay">Cosplay</option>
+                </select>
+            </div>
+            <div class="cart-total"></div>
+            <div class="w3-container w3-border-top w3-padding-24">
+                <button class="w3-button w3-red w3-transparent w3-left" onclick="deleteProductAndRedirect(3)">Xóa sản phẩm</button>
+                <button class="w3-button w3-red w3-transparent w3-right" onclick="saveChangesAndRedirect()">Save</button>
+                <div id="deleteModal3" class="modal">
+                    <div class="modal-content">
+                        <span onclick="closeModal('deleteModal3')" style="float: right; cursor: pointer;">&times;</span>
+                        <p>Bạn có chắc chắn muốn xóa sản phẩm này?</p>
+                        <div class="modal-buttons">
+                            <button onclick="confirmDeleteProduct(3)">Xóa sản phẩm</button>
+                            <button onclick="closeModal('deleteModal3')">Hủy bỏ</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </div>
 
 
       <!---->
@@ -759,7 +779,7 @@
             <div class="w3-display-middle w3-display-hover">
               <a href="javascript:void(0)" class="w3-bar-item  w3-right w3-white"
                 onclick="w3_open(), document.getElementById('detail4').style.display='block'">
-                <button class="w3-button w3-black"> Detail <i class=" fa fa-info-circle"></i></button>
+                <button class="w3-button w3-black"> Edit <i class=" fa fa-info-circle"></i></button>
               </a>
             </div>
           </div>
@@ -769,55 +789,58 @@
       <!--BXD - ALEX OVERPRINT TEES/BLACK detail-->
       <div id="detail4" class="w3-modal">
         <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width: 900px">
-          <div class="w3-container w3-padding-16 w3-light-grey">
-            <span id="productNameHeader4" class="cart-header" onclick="editProductName('productNameHeader4')">BXD - ALEX OVERPRINT TEES/BLACK</span>
-            <span onclick="document.getElementById('detail4').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
-          </div>
-          <div class="cart-row w3-container">
-            <span class="cart-item cart-header cart-column">Items</span>
-            <span class="cart-price cart-header cart-column">Price</span>
-            <span class="cart-quantity cart-header cart-column">Info</span>
-          </div>
-          <div class="cart-row w3-container">
-            <div class="cart-item cart-column">
-              <label for="fileInput4">
-                <img class="cart-item-image1" id="image4" src="WEB1/T-SHIRT/4.2.jpg" width="100" height="100" onclick="changeImage('image4')">
-              </label>
-              <input type="file" id="fileInput4" style="display:none" onchange="updateImage(event, 'image4')">
-              <button onclick="deleteImage('image4')">Xóa ảnh</button>
+            <div class="w3-container w3-padding-16 w3-light-grey">
+                <span id="productNameHeader4" class="cart-header" onclick="editProductName('productNameHeader4')">BXD - ALEX OVERPRINT TEES/BLACK</span>
+                <span onclick="document.getElementById('detail4').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
             </div>
-            <input type="text" class="cart-price cart-column" style="margin-right: 80px" required>
-            <input type="text" class="cart-price cart-column" style="margin-right: 100px" required>
-          </div>
-          <div class="w3-container w3-margin-top">
-            <label for="productType4">Chọn loại sản phẩm:</label>
-            <select id="productType4" onchange="showSubtypes('4')">
-              <option value="shirt">Shirt</option>
-              <option value="item">Item</option>
-              <option value="pant">Pant</option>
-            </select>
-          </div>
-          <div id="subtypeDiv4" style="display: none;" class="w3-container w3-margin-top">
-            <label for="productSubtype4">Chọn loại con:</label>
-            <select id="productSubtype4"></select>
-          </div>
-          <div class="cart-total"></div>
-          <div class="w3-container w3-border-top w3-padding-24">
-            <button class="w3-button w3-red w3-transparent w3-left" onclick="openModal('deleteModal4')">Xóa sản phẩm</button>
-            <button class="w3-button w3-red w3-transparent w3-right" onclick="redirectToEdit()"> Save</button>
-            <div id="deleteModal4" class="modal">
-              <div class="modal-content">
-                <span onclick="closeModal('deleteModal4')" style="float: right; cursor: pointer;">&times;</span>
-                <p>Bạn có chắc chắn muốn xóa sản phẩm này?</p>
-                <div class="modal-buttons">
-                  <button onclick="deleteProduct('4')">Xóa sản phẩm</button>
-                  <button onclick="closeModal('deleteModal4')">Hủy bỏ</button>
+            <div class="cart-row w3-container">
+                <span class="cart-item cart-header cart-column">Items</span>
+                <span class="cart-price cart-header cart-column">Price</span>
+                <span class="cart-quantity cart-header cart-column">Info</span>
+            </div>
+            <div class="cart-row w3-container">
+                <div class="cart-item cart-column">
+                    <label for="fileInput4">
+                        <img class="cart-item-image1" id="image4" src="WEB1/T-SHIRT/4.2.jpg" width="100" height="100" onclick="changeImage('image4')">
+                    </label>
+                    <input type="file" id="fileInput4" style="display:none" onchange="updateImage(event, 'image4')">
+                    <button onclick="deleteImage('image4')">Xóa ảnh</button>
                 </div>
-              </div>
+                <input type="text" class="cart-price cart-column" style="margin-right: 80px" required>
+                <input type="text" class="cart-price cart-column" style="margin-right: 100px" required>
             </div>
-          </div>
+            <div class="w3-container w3-margin-top">
+                <label for="productType4">Chọn loại sản phẩm:</label>
+                <select id="productType4" onchange="showSubtypes('4')">
+                    <option value="shirt">Shirt</option>
+                </select>
+            </div>
+            <div id="subtypeDiv4" class="w3-container w3-margin-top">
+                <label for="productSubtype4">Chọn loại con:</label>
+                <select id="productSubtype4">
+                    <option value="hoodie">Hoodie</option>
+                    <option value="sweater">Sweater</option>
+                    <option value="tshirt">T-shirt</option>
+                    <option value="cosplay">Cosplay</option>
+                </select>
+            </div>
+            <div class="cart-total"></div>
+            <div class="w3-container w3-border-top w3-padding-24">
+                <button class="w3-button w3-red w3-transparent w3-left" onclick="deleteProductAndRedirect(4)">Xóa sản phẩm</button>
+                <button class="w3-button w3-red w3-transparent w3-right" onclick="saveChangesAndRedirect()">Save</button>
+                <div id="deleteModal4" class="modal">
+                    <div class="modal-content">
+                        <span onclick="closeModal('deleteModal4')" style="float: right; cursor: pointer;">&times;</span>
+                        <p>Bạn có chắc chắn muốn xóa sản phẩm này?</p>
+                        <div class="modal-buttons">
+                            <button onclick="confirmDeleteProduct(4)">Xóa sản phẩm</button>
+                            <button onclick="closeModal('deleteModal4')">Hủy bỏ</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </div>
 
   <!-- Newsletter Modal -->
   <div id="newsletter" class="w3-modal">
@@ -869,87 +892,114 @@
       document.getElementById("myOverlay").style.display = "none";
     }
     function editProductName(productNameId) {
-    var productNameHeader = document.getElementById(productNameId);
-    var newProductName = prompt("Nhập tên sản phẩm mới:", productNameHeader.innerText);
-    if (newProductName !== null) {
-      productNameHeader.innerText = newProductName;
+        var productNameHeader = document.getElementById(productNameId);
+        var newProductName = prompt("Nhập tên sản phẩm mới:", productNameHeader.innerText);
+        if (newProductName !== null) {
+            productNameHeader.innerText = newProductName;
+        }
     }
-  }
 
-  function changeImage(imageId) {
-    var fileInput = document.getElementById("fileInput4");
-    fileInput.click();
-  }
-
-  function updateImage(event, imageId) {
-    var image = document.getElementById(imageId);
-    var file = event.target.files[0];
-    var reader = new FileReader();
-
-    reader.onload = function () {
-      image.src = reader.result;
-    };
-
-    if (file) {
-      reader.readAsDataURL(file);
+    function changeImage(imageId) {
+        var fileInput = document.getElementById("fileInput1");
+        fileInput.click();
     }
-  }
 
-  function deleteImage(imageId) {
-    var image = document.getElementById(imageId);
-    image.src = ""; // Clear the image
-  }
+    function updateImage(event, imageId) {
+        var image = document.getElementById(imageId);
+        var file = event.target.files[0];
+        var reader = new FileReader();
 
-  function showSubtypes(modalNumber) {
-  var productType = document.getElementById("productType" + modalNumber).value;
-  var subtypeDiv = document.getElementById("subtypeDiv" + modalNumber);
-  var subtypeSelect = document.getElementById("productSubtype" + modalNumber);
+        reader.onload = function () {
+            image.src = reader.result;
+        };
 
-  // Clear previous options
-  subtypeSelect.innerHTML = "";
-
-  if (productType === "shirt") {
-    var shirtSubtypes = ["hoodie", "T-shirt", "sweater", "jacket"];
-    shirtSubtypes.forEach(function (subtype) {
-      var option = document.createElement("option");
-      option.value = subtype;
-      option.text = subtype;
-      subtypeSelect.add(option);
-    });
-  } else if (productType === "item") {
-    var itemSubtypes = ["chain", "shock", "wallet"];
-    itemSubtypes.forEach(function (subtype) {
-      var option = document.createElement("option");
-      option.value = subtype;
-      option.text = subtype;
-      subtypeSelect.add(option);
-    });
-  } else if (productType === "pant") {
-    // Add pant subtypes if any
-  }
-
-  // Display subtype dropdown if there are options
-  subtypeDiv.style.display = subtypeSelect.options.length > 0 ? "block" : "none";
-}
-
-
-  function deleteProduct(modalNumber) {
-    // Logic to delete the product
-    closeModal('deleteModal' + modalNumber);
-  }
-      
-        function openModal(modalId) {
-          document.getElementById(modalId).style.display = 'block';
+        if (file) {
+            reader.readAsDataURL(file);
         }
-      
-        function closeModal(modalId) {
-          document.getElementById(modalId).style.display = 'none';
+    }
+
+    function deleteImage(imageId) {
+        var image = document.getElementById(imageId);
+        image.src = ""; // Clear the image
+    }
+
+    function showSubtypes(modalNumber) {
+        var productType = document.getElementById("productType" + modalNumber).value;
+        var subtypeDiv = document.getElementById("subtypeDiv" + modalNumber);
+        var subtypeSelect = document.getElementById("productSubtype" + modalNumber);
+        // Clear previous options
+        subtypeSelect.innerHTML = "";
+
+        if (productType(modalNumber) === "shirt") {
+            var shirtSubtypes = ["hoodie", "sweater", "T-shirt", "cosplay"];
+            shirtSubtypes.forEach(function (subtype) {
+                var option = document.createElement("option");
+                option.value = subtype;
+                option.text = subtype;
+                subtypeSelect.add(option);
+            });
+        } else if (productType(modalNumber) === "item") {
+            var itemSubtypes = ["chain", "shock", "wallet"];
+            itemSubtypes.forEach(function (subtype) {
+                var option = document.createElement("option");
+                option.value = subtype;
+                option.text = subtype;
+                subtypeSelect.add(option);
+            });
+        } else if (productType(modalNumber) === "pant") {
+            // Add pant subtypes if any
         }
-      
-        function redirectToEdit() {
-          // Thêm logic của bạn để chuyển hướng đến trang chỉnh sửa
-          alert("Chuyển hướng đến trang chỉnh sửa...");
+
+        // Display subtype dropdown if there are options
+        subtypeDiv.style.display = subtypeSelect.options.length > 0 ? "block" : "none";
+    }
+
+    function deleteProduct(modalNumber) {
+        // Implement logic to delete the product
+        // You can add an AJAX request or any other mechanism here
+        // For now, let's just close the modal
+        closeModal("deleteModal" + modalNumber);
+    }
+
+    function redirectToEdit() {
+        // Implement logic to save changes and redirect
+        // You can add an AJAX request or any other mechanism here
+        // For now, let's just close the modal
+        alert("Changes saved!");
+    }
+
+    function openModal(modalId) {
+        document.getElementById(modalId).style.display = "block";
+    }
+
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = "none";
+    }
+    function saveChangesAndRedirect() {
+        // Thêm thông báo "Thay đổi thành công"
+        alert("Thay đổi thành công");
+
+        // Chuyển đến trang edit_products.html
+        window.location.href = "edit_products.html";
+    }
+
+    function deleteProductAndRedirect(modalNumber) {
+        openModal('deleteModal' + modalNumber);
+    }
+
+    function confirmDeleteProduct(modalNumber) {
+        // Thêm xác nhận xóa sản phẩm nếu cần
+        var confirmDelete = confirm("Xóa sản phẩm thành công bấm ok để chuyển về lại trang edit còn bấm cancel để hoãn tác");
+        if (confirmDelete) {
+            // Xóa sản phẩm và chuyển đến trang edit_products.html
+            deleteProduct(modalNumber);
+            window.location.href = "edit_products.html";
         }
+    }
+    function redirectToEdit() {
+        window.location.href = "edit_products.html";
+    }
+
   </script>
 
   <script src="IMGDEMO/jquery-2.1.4.min.js"></script>
