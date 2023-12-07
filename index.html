@@ -47,7 +47,13 @@
   .cart-item {
     width: 45%;
   }
-
+  .login-icon {
+  display: inline-block;
+  padding: 6px 10px;
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+  background-color: #ffffff;
+}
   .cart-price {
     width: 20%;
     font-size: 1.2em;
@@ -174,7 +180,7 @@
       <a href="Hoodie.html" class="w3-bar-item w3-button">Hoodie</a>
       <a href="Sweater.html" class="w3-bar-item w3-button">Sweater</a>
       <a href="Tshirt.html" class="w3-bar-item w3-button">T-Shirt</a>
-      <a href="Jackets.html" class="w3-bar-item w3-button">Jackets</a>
+      <a href="Cosplay.html" class="w3-bar-item w3-button">Cosplay</a>
     </div>
     <a onclick="myAccFunc1()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" >
 
@@ -503,13 +509,11 @@
             </div>
 
           </div>
-
           <div class="w3-container w3-border-top w3-padding-24 ">
-            <button class="w3-button w3-red w3-transparent w3-right">Add to cart <i
+            <button class="w3-button w3-red w3-transparent w3-right" onclick="addtocard()">Add to cart <i
                 class="fa fa-shopping-cart"></i></button>
           </div>
-
-        </div>
+          </div>
       </div>
 
        <!---->
@@ -570,7 +574,7 @@
           </div>
 
           <div class="w3-container w3-border-top w3-padding-24 ">
-            <button class="w3-button w3-red w3-transparent w3-right">Add to cart <i
+            <button class="w3-button w3-red w3-transparent w3-right" onclick="addtocard()">Add to cart <i
                 class="fa fa-shopping-cart"></i></button>
           </div>
 
@@ -635,7 +639,7 @@
           </div>
 
           <div class="w3-container w3-border-top w3-padding-24 ">
-            <button class="w3-button w3-red w3-transparent w3-right">Add to cart <i
+            <button class="w3-button w3-red w3-transparent w3-right" onclick="addtocard()">Add to cart <i
                 class="fa fa-shopping-cart"></i></button>
           </div>
 
@@ -702,7 +706,7 @@
         </div>
 
         <div class="w3-container w3-border-top w3-padding-24 ">
-          <button class="w3-button w3-red w3-transparent w3-right">Add to cart <i
+          <button class="w3-button w3-red w3-transparent w3-right" onclick="addtocard()">Add to cart <i
               class="fa fa-shopping-cart"></i></button>
         </div>
 
@@ -764,7 +768,7 @@
         </div>
 
         <div class="w3-container w3-border-top w3-padding-24 ">
-          <button class="w3-button w3-red w3-transparent w3-right">Add to cart <i
+          <button class="w3-button w3-red w3-transparent w3-right" onclick="addtocard()">Add to cart <i
               class="fa fa-shopping-cart"></i></button>
         </div>
 
@@ -829,7 +833,7 @@
           </div>
 
           <div class="w3-container w3-border-top w3-padding-24 ">
-            <button class="w3-button w3-red w3-transparent w3-right">Add to cart <i
+            <button class="w3-button w3-red w3-transparent w3-right" onclick="addtocard()">Add to cart <i
                 class="fa fa-shopping-cart"></i></button>
           </div>
 
@@ -895,7 +899,7 @@
           </div>
 
           <div class="w3-container w3-border-top w3-padding-24 ">
-            <button class="w3-button w3-red w3-transparent w3-right">Add to cart <i
+            <button class="w3-button w3-red w3-transparent w3-right" onclick="addtocard()">Add to cart <i
                 class="fa fa-shopping-cart"></i></button>
           </div>
 
@@ -959,7 +963,7 @@
           </div>
 
           <div class="w3-container w3-border-top w3-padding-24 ">
-            <button class="w3-button w3-red w3-transparent w3-right">Add to cart <i
+            <button class="w3-button w3-red w3-transparent w3-right" onclick="addtocard()">Add to cart <i
                 class="fa fa-shopping-cart"></i></button>
           </div>
 
@@ -999,65 +1003,11 @@
           }
       }
   </script>
-    <script>
-      var cartItems = [];
-  
-      function addToCart(productName, price) {
-          var product = {
-              name: productName,
-              price: price
-          };
-          cartItems.push(product);
-          updateCartDisplay();
-      }
-  
-      function updateCartDisplay() {
-          var cartItemsContainer = document.querySelector('.cart-items');
-  
-          // Xóa nội dung hiện tại của giỏ hàng
-          cartItemsContainer.innerHTML = '';
-  
-          // Thêm sản phẩm vào giỏ hàng
-          cartItems.forEach(function (product) {
-              var cartRow = document.createElement('div');
-              cartRow.classList.add('cart-row');
-              var cartRowContents = `
-                  <div class="cart-item cart-column">
-                      <span class="cart-item-title">${product.name}</span>
-                  </div>
-                  <span class="cart-price cart-column">${product.price}$</span>
-                  <div class="cart-quantity cart-column">
-                      <input class="cart-quantity-input" type="number" value="1">
-                      <button class="btn btn-danger" type="button" onclick="deleteCartItem(this)">Delete</button>
-                  </div>
-              `;
-              cartRow.innerHTML = cartRowContents;
-              cartItemsContainer.appendChild(cartRow);
-          });
-  
-          // Update total
-          var totalPrice = cartItems.reduce(function (total, product) {
-              return total + product.price;
-          }, 0);
-          document.querySelector('.cart-total-price').textContent = totalPrice.toFixed(2) + '$';
-      }
-  
-      function deleteCartItem(button) {
-          var cartRow = button.parentElement.parentElement;
-          var productName = cartRow.querySelector('.cart-item-title').textContent;
-  
-          // Tìm sản phẩm cần xóa trong danh sách giỏ hàng và loại bỏ nó
-          for (var i = 0; i < cartItems.length; i++) {
-              if (cartItems[i].name === productName) {
-                  cartItems.splice(i, 1);
-                  break;
-              }
-          }
-  
-          // Cập nhật hiển thị giỏ hàng sau khi xóa sản phẩm
-          updateCartDisplay();
-      }
-  </script>
+   <script>
+    function addtocard() {
+      alert("vui lòng đăng nhập để mua hàng");
+    }
+    </script>
     
     <!-- Subscribe section -->
     <div class="w3-container w3-black w3-padding-32">
