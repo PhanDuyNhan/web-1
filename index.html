@@ -220,17 +220,23 @@
         <a href="javascript:void(0)" class="w3-bar-item w3-button  w3-right" onclick="addtocard()">
           <i onclick="document.getElementById('addtocard').style.display='block'" class="fa fa-shopping-cart "></i>
             <!-- Find icon -->
-            <a href="javascript:void(0)" class="w3-bar-item w3-button  w3-right" onclick="w3_open()">
+            <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right" onclick="w3_open()">
               <i onclick="document.getElementById('findcart').style.display='block'" class="fa fa-search"></i>
               <!-- Bottom Bar Start -->
               <div class="w3-bar-item bottom-bar">
                 <div id="findcart" class="w3-modal-find">
-                  <div class="search" class="w3-container w3-padding-16 ">
+                  <div class="search" class="w3-container w3-padding-16">
                     <input type="text" id="searchInput" placeholder="Search" oninput="searchProducts()">
+                    <select id="category" onchange="searchProducts()">
+                      <option value="all">All</option>
+                      <option value="shirts">Shirts</option>
+                      <option value="pants">Pants</option>
+                      <option value="shoes">Shoes</option>
+                    </select>
                     <select id="priceCategory" onchange="searchProducts()">
                       <option value="all">ALL</option>
-                      <option value="below-350"> Less 350.000</option>
-                      <option value="above-500"> More 500.000</option>
+                      <option value="below-350">Less 350.000</option>
+                      <option value="above-500">More 500.000</option>
                     </select>
                     <span onclick="document.getElementById('findcart').style.display='none'"
                       class="w3-button w3-xlarge w3-transparent w3-display-container" title="Close Modal">×</span>
