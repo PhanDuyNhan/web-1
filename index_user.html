@@ -292,54 +292,13 @@
 
               </div>
 
-              <div class="w3-container w3-border-top w3-padding-24">
-                <button type="button" onclick="checkout()" class="w3-button w3-red w3-transparent w3-right">Buy</button>
+              <div>
+                <button type="button" onclick="checkout()">Buy</button>
             </div>
-        
-            <div id="checkoutPage" style="display:none;" class="w3-container">
-                <h2>Thông Tin Đặt Hàng</h2>
-                <form id="orderForm">
-                    <label for="fullName">Họ Tên:</label>
-                    <input type="text" id="fullName" name="fullName" required>
-        
-                    <br><label for="address">Địa Chỉ:</label>
-                    <input type="text" id="address" name="address" required>
-        
-                    <br><label for="phoneNumber">Số Điện Thoại:</label>
-                    <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{10}" required>
-        
-                    <br><button type="button" onclick="submitOrder()" class="w3-button w3-red w3-transparent">Đặt Hàng</button>
-                </form>
-            </div>
-        
-            <div class="success-message" style="display:none;" class="w3-container">
-                <h2>Đặt Hàng Thành Công!</h2>
-                <p>Cảm ơn bạn đã đặt hàng</p>
-            </div>
-        
+      
             <script>
                 function checkout() {
-                    // Ẩn giỏ hàng và hiển thị trang thông tin đặt hàng
-                    document.getElementById('checkoutPage').style.display = 'block';
-                }
-        
-                function submitOrder() {
-                    var fullName = document.getElementById('fullName').value;
-                    var address = document.getElementById('address').value;
-                    var phoneNumber = document.getElementById('phoneNumber').value;
-        
-                    if (fullName === "" || address === "" || phoneNumber === "") {
-                        alert('Vui lòng điền đầy đủ thông tin.');
-                    } else {
-                        // Ẩn trang thông tin đặt hàng và hiển thị thông báo đặt hàng thành công
-                        document.getElementById('checkoutPage').style.display = 'none';
-                        document.querySelector('.success-message').style.display = 'block';
-        
-                        // Hiển thị thông tin đặt hàng
-                        document.getElementById('customerName').innerText = fullName;
-                        document.getElementById('customerAddress').innerText = address;
-                        document.getElementById('customerPhone').innerText = phoneNumber;
-                    }
+                    window.location.href = "http://127.0.0.1:5501/nhap.html";
                 }
             </script>
 
