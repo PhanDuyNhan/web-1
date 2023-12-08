@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trang Đặt Hàng</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    form {
+      max-width: 400px;
+      margin: auto;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+    .order-form, .success-message {
+      max-width: 400px;
+      margin: auto;
+    }
+
+    .success-message {
+      display: none;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <form id="orderForm">
+    <h1>THÔNG TIN ĐẶT HÀNG</h1>
+    <label for="fullName">Họ và Tên:</label>
+    <input type="text" id="fullName" name="fullName" required>
+    <label for="phoneNumber">Số Điện Thoại:</label>
+    <input type="tel" id="phoneNumber" name="phoneNumber" required>
+    <label for="address">Địa Chỉ:</label>
+    <input type="text" id="address" name="address" required>
+    <button type="button" onclick="submitOrder()">Mua</button>
+  </form>
+  <div id="successMessage" class="success-message">
+    <h2>ĐẶT HÀNG THÀNH CÔNG!</h2>
+    <p>Cảm ơn bạn đã đặt hàng. Chúng tôi sẽ liên hệ với bạn sớm nhất.</p>
+    <div id="return" class="Return">
+        <a href="https://github.com/PhanDuyNhan/web-1/blob/main/index_user.html" onclick="return">Trở lại trang chủ</a>
+      </div>
+  </div>
+  <script>
+    function submitOrder() {
+      // Lấy giá trị từ các trường nhập liệu
+      var fullName = document.getElementById("fullName").value;
+      var phoneNumber = document.getElementById("phoneNumber").value;
+      var address = document.getElementById("address").value;
+      if (fullName && phoneNumber && address) {
+        console.log("Đã đặt hàng:\nHọ và Tên: " + fullName + "\nSố Điện Thoại: " + phoneNumber + "\nĐịa Chỉ: " + address);
+        document.getElementById("orderForm").style.display = "none";
+        document.getElementById("successMessage").style.display = "block";
+      } else {
+        alert("Vui lòng nhập đầy đủ thông tin đặt hàng.");
+      }
+    }
+  </script>
+
+</body>
+</html>
