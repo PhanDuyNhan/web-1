@@ -65,8 +65,14 @@
     <h2>ĐẶT HÀNG THÀNH CÔNG!</h2>
     <p>Cảm ơn bạn đã đặt hàng. Chúng tôi sẽ liên hệ với bạn sớm nhất.</p>
     <div id="return" class="Return">
-        <a href="http://127.0.0.1:5501/index_user.html" onclick="return">Trở lại trang chủ</a>
-      </div>
+    <a href="http://127.0.0.1:5501/index_user.html" onclick="goToHomePage()">Trở lại trang chủ</a>
+</div>
+
+<script>
+    function goToHomePage() {
+        window.location.href = "http://127.0.0.1:5501/index_user.html";
+    }
+</script>
   </div>
   <script>
     function submitOrder() {
