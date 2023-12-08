@@ -298,7 +298,7 @@
       
             <script>
                 function checkout() {
-                    window.location.href = "http://127.0.0.1:5501/nhap.html";
+                    window.location.href = "thongtindathang.html";
                 }
             </script>
 
@@ -488,6 +488,7 @@
             <button id="addToCartBtn1" class="w3-button w3-red w3-transparent w3-right" 
             data-product-name="BXD - ALEX OVERPRINT TEES/BLACK"
             data-product-price="700.000đ"
+            onclick="addtocard()"
             onclick="addToCart(productName, price)">Add to cart <i
                 class="fa fa-shopping-cart"></i></button>
           </div>
@@ -554,8 +555,9 @@
 
           <div class="w3-container w3-border-top w3-padding-24 ">
             <button id="addToCartBtn2" class="w3-button w3-red w3-transparent w3-right" 
-            data-product-name="BXD - ALEX OVERPRINT TEES/BLACK"
+            data-product-name="BXD - CHECKERBOARD GREEN SHIRT"
             data-product-price="800.000đ"
+            onclick="addtocard()"
             onclick="addToCart(productName, price)">Add to cart <i
                 class="fa fa-shopping-cart"></i></button>
           </div>
@@ -622,8 +624,9 @@
 
           <div class="w3-container w3-border-top w3-padding-24 ">
             <button id="addToCartBtn3" class="w3-button w3-red w3-transparent w3-right" 
-            data-product-name="BXD - ALEX OVERPRINT TEES/BLACK"
+            data-product-name="BXD - LOGO TEES/BLACK"
             data-product-price="300.000đ"
+            onclick="addtocard()"
             onclick="addToCart(thproductName, priceis)">Add to cart <i
                 class="fa fa-shopping-cart"></i></button>
           </div>
@@ -694,6 +697,7 @@
           <button id="addToCartBtn4" class="w3-button w3-red w3-transparent w3-right"
           data-product-name="BXD - MONOGRAM SHIRT/BLACK"
             data-product-price="400.000đ"
+            onclick="addtocard()"
             onclick="addToCart(productName, price)">Add to cart <i
               class="fa fa-shopping-cart"></i></button>
         </div>
@@ -759,6 +763,7 @@
           <button id="addToCartBtn5" class="w3-button w3-red w3-transparent w3-right"
           data-product-name="BOBUI BALLOON - TEE/PINK"
             data-product-price="250.000đ"
+            onclick="addtocard()"
             onclick="addToCart(productName, price)">Add to cart <i
               class="fa fa-shopping-cart"></i></button>
         </div>
@@ -827,6 +832,7 @@
             <button id="addToCartBtn6" class="w3-button w3-red w3-transparent w3-right"
             data-product-name="BOBUI BALLOON - TEE/RED"
             data-product-price="250.000đ"
+            onclick="addtocard()"
             onclick="addToCart(productName, price)">Add to cart <i
                 class="fa fa-shopping-cart"></i></button>
           </div>
@@ -963,6 +969,7 @@
             <button id="addToCartBtn8" class="w3-button w3-red w3-transparent w3-right"
             data-product-name="BOBUI BALLOON - TEE/WHITE"
             data-product-price="250.000đ"
+            onclick="addtocard()"
             onclick="addToCart(productName, price)">Add to cart <i
                 class="fa fa-shopping-cart"></i></button>
           </div>
@@ -1234,6 +1241,11 @@
   </script>
 
   <script src="IMGDEMO/jquery-2.1.4.min.js"></script>
+  <script>
+    function addtocard() {
+      alert("thêm vào giỏ hàng thành công");
+    }
+    </script>
 </body>
 
 </html>
