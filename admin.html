@@ -177,27 +177,29 @@
 <div id="themsp" class="w3-modal">
   <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width: 650px; margin-left: 40%;">
     <div class="w3-container w3-padding-16 w3-light-grey">
-      <span onclick="document.getElementById('themsp').style.display='none'" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
+      <span onclick="closeModal()" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>
       <h2>Add Product</h2>
-      <form id="productForm">
+      <form id="productForm" onsubmit="addProduct(); return false;">
         <label for="productName">Product Name:</label>
         <input type="text" id="productName" required>
         <label for="productPrice">Price:</label>
         <input type="number" id="productPrice" required>
 
-        <div>
-          <label for="productType">Product Type:</label>
-          <select id="productType" onchange="showSubtypes()">
-            <option value="shirt">Shirt</option>
-            <option value="item">Item</option>
-            <option value="pant">Pant</option>
+        <div class="w3-container w3-margin-top">
+          <label for="productType5">Chọn loại sản phẩm:</label>
+          <select id="productType5" onchange="showSubtypes('5')">
+              <option value="shirt">Shirt</option>
           </select>
-        </div>
-
-        <div id="subtypeDiv" style="display: none;">
-          <label for="productSubtype">Subtype:</label>
-          <select id="productSubtype"></select>
-        </div>
+      </div>
+      <div id="subtypeDiv5" class="w3-container w3-margin-top">
+          <label for="productSubtype5">Chọn loại con:</label>
+          <select id="productSubtype5">
+              <option value="hoodie">Hoodie</option>
+              <option value="sweater">Sweater</option>
+              <option value="tshirt">T-shirt</option>
+              <option value="cosplay">Cosplay</option>
+          </select>
+      </div>
 
         <div>
           <label for="productContent">Info:</label>
@@ -211,6 +213,7 @@
     </div>
   </div>
 </div>
+
 
 
 </div>
@@ -231,20 +234,9 @@
         <a href="Hoodie.html" class="w3-bar-item w3-button">Hoodie</a>
         <a href="Sweater.html" class="w3-bar-item w3-button">Sweater</a>
         <a href="T-shirt.html" class="w3-bar-item w3-button">T-Shirt</a>
-        <a href="Jackets.html" class="w3-bar-item w3-button">Jackets</a>
+        <a href="Jackets.html" class="w3-bar-item w3-button">Cosplay</a>
       </div>
-
-      <a onclick="myAccFunc1()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align">
-        Item <i class="fa fa-caret-down"></i>
-      </a>
-      <div id="demoAcc1" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-        <a href="#" class="w3-bar-item w3-button">Chain</a>
-        <a href="#" class="w3-bar-item w3-button">Socks</a>
-        <a href="#" class="w3-bar-item w3-button">Wallet</a>
       </div>
-
-      <a href="#" class="w3-bar-item w3-white w3-button ">Pants</a>
-
     </div>
     <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a>
     <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding"
@@ -596,8 +588,8 @@
       }
     }
 
-    // Click on the "Jeans" link on page load to open the accordion for demo purposes
-    document.getElementById("myBtn").click();
+  // Click on the "Jeans" link on page load to open the accordion for demo purposes
+  document.getElementById("myBtn").click();
   // nút add product
   document.getElementById("addProduct").addEventListener("click", function() {
     document.getElementById('themsp').style.display = 'block';
@@ -618,34 +610,26 @@
   }
   // them sp
   function showSubtypes() {
-    var productType = document.getElementById("productType").value;
-    var subtypeDiv = document.getElementById("subtypeDiv");
-    var subtypeSelect = document.getElementById("productSubtype");
+  var productType = document.getElementById("productType").value;
+  var subtypeDiv = document.getElementById("subtypeDiv");
 
-    // Clear previous options
-    subtypeSelect.innerHTML = "";
-
-    if (productType === "shirt") {
-      var shirtSubtypes = ["Hoodie", "T-shirt", "Sweater", "Jacket"];
-      populateSubtypes(shirtSubtypes);
-    } else if (productType === "item") {
-      var itemSubtypes = ["Chain", "Shock", "Wallet"];
-      populateSubtypes(itemSubtypes);
-    }
-
-    // Display or hide the subtypeDiv based on the product type
-    subtypeDiv.style.display = productType === "pant" ? "none" : "block";
+  if (productType === "shirt") {
+    subtypeDiv.style.display = "block";
+  } else {
+    subtypeDiv.style.display = "none";
   }
+}
 
-  function populateSubtypes(subtypes) {
-    var subtypeSelect = document.getElementById("productSubtype");
-    for (var i = 0; i < subtypes.length; i++) {
-      var option = document.createElement("option");
-      option.value = subtypes[i];
-      option.text = subtypes[i];
-      subtypeSelect.add(option);
-    }
-  }
+function closeModal() {
+  document.getElementById('themsp').style.display = 'none';
+}
+
+function addProduct() {
+  // Thêm logic xử lý khi bấm nút Save ở đây
+  // Sau khi thêm thành công, hiển thị thông báo "Đã thêm thành công"
+  alert("Đã thêm thành công");
+  closeModal();
+}
 </script>
 
   <script src="IMGDEMO/jquery-2.1.4.min.js"></script>
