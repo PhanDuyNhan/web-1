@@ -39,6 +39,7 @@
     button:hover {
       background-color: #45a049;
     }
+
     .order-form, .success-message {
       max-width: 400px;
       margin: auto;
@@ -48,47 +49,116 @@
       display: none;
       text-align: center;
     }
+
+    /* Chỉnh lại style cho radio buttons */
+    input[type="radio"] {
+      margin-right: 5px;
+    }
+
+    /* Dùng flexbox để căn giữa các radio buttons */
+    .radio-options {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    #newInfo, #existingInfo {
+      margin-bottom: 16px;
+    }
   </style>
 </head>
 <body>
   <form id="orderForm">
     <h1>THÔNG TIN ĐẶT HÀNG</h1>
-    <label for="fullName">Họ và Tên:</label>
-    <input type="text" id="fullName" name="fullName" required>
-    <label for="phoneNumber">Số Điện Thoại:</label>
-    <input type="tel" id="phoneNumber" name="phoneNumber" required>
-    <label for="address">Địa Chỉ:</label>
-    <input type="text" id="address" name="address" required>
+
+    <div class="radio-options">
+      <label>
+        <input type="radio" name="infoType" value="new" checked onclick="showInfo('new')"> Thông Tin Mới
+      </label>
+
+      <label>
+        <input type="radio" name="infoType" value="existing" onclick="showInfo('existing')"> Thông Tin Cũ
+      </label>
+    </div>
+
+    <div id="newInfo">
+      <label for="fullName">Họ và Tên:</label>
+      <input type="text" id="fullName" name="fullName" required>
+
+      <label for="phoneNumber">Số Điện Thoại:</label>
+      <input type="tel" id="phoneNumber" name="phoneNumber" required>
+
+      <label for="address">Địa Chỉ:</label>
+      <input type="text" id="address" name="address" required>
+    </div>
+
+    <div id="existingInfo" style="display: none;">
+      <label for="existingFullName">Họ và Tên:</label>
+      <input type="text" id="existingFullName" name="existingFullName" value="THE ROCK" readonly>
+
+      <label for="existingPhoneNumber">Số Điện Thoại:</label>
+      <input type="tel" id="existingPhoneNumber" name="existingPhoneNumber" value="0123456789" readonly>
+
+      <label for="existingAddress">Địa Chỉ:</label>
+      <input type="text" id="existingAddress" name="existingAddress" value="TP.HCM" readonly>
+    </div>
+
     <button type="button" onclick="submitOrder()">Mua</button>
   </form>
+  
   <div id="successMessage" class="success-message">
     <h2>ĐẶT HÀNG THÀNH CÔNG!</h2>
     <p>Cảm ơn bạn đã đặt hàng. Chúng tôi sẽ liên hệ với bạn sớm nhất.</p>
     <div id="return" class="Return">
-    <a href="http://127.0.0.1:5501/index_user.html" onclick="goToHomePage()">Trở lại trang chủ</a>
-</div>
+        <a href="index_user.html" onclick="goToHomePage()">Trở lại trang chủ</a>
+    </div>
+    
+    <script>
+        function goToHomePage() {
+            window.location.href = "index_user.html";
+        }
+    </script>
 
-<script>
-    function goToHomePage() {
-        window.location.href = "http://127.0.0.1:5501/index_user.html";
-    }
-</script>
-  </div>
+
+
   <script>
+    function showInfo(type) {
+      var newInfo = document.getElementById('newInfo');
+      var existingInfo = document.getElementById('existingInfo');
+
+      if (type === 'new') {
+        newInfo.style.display = 'block';
+        existingInfo.style.display = 'none';
+      } else if (type === 'existing') {
+        newInfo.style.display = 'none';
+        existingInfo.style.display = 'block';
+      }
+    }
+
     function submitOrder() {
-      // Lấy giá trị từ các trường nhập liệu
-      var fullName = document.getElementById("fullName").value;
-      var phoneNumber = document.getElementById("phoneNumber").value;
-      var address = document.getElementById("address").value;
-      if (fullName && phoneNumber && address) {
-        console.log("Đã đặt hàng:\nHọ và Tên: " + fullName + "\nSố Điện Thoại: " + phoneNumber + "\nĐịa Chỉ: " + address);
+      var infoType = document.querySelector('input[name="infoType"]:checked').value;
+
+      if (infoType === "new") {
+        var fullName = document.getElementById("fullName").value;
+        var phoneNumber = document.getElementById("phoneNumber").value;
+        var address = document.getElementById("address").value;
+
+        if (fullName && phoneNumber && address) {
+          console.log("Đã đặt hàng:\nHọ và Tên: " + fullName + "\nSố Điện Thoại: " + phoneNumber + "\nĐịa Chỉ: " + address);
+
+          document.getElementById("orderForm").style.display = "none";
+          document.getElementById("successMessage").style.display = "block";
+        } else {
+          alert("Vui lòng nhập đầy đủ thông tin đặt hàng.");
+        }
+      } else if (infoType === "existing") {
+        // Xử lý thông tin đặt hàng cho thông tin cũ
+        // ...
+
         document.getElementById("orderForm").style.display = "none";
         document.getElementById("successMessage").style.display = "block";
-      } else {
-        alert("Vui lòng nhập đầy đủ thông tin đặt hàng.");
       }
     }
   </script>
-
 </body>
 </html>
