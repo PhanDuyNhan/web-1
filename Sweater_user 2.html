@@ -213,11 +213,18 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
               <div id="findcart" class="w3-modal-find">
                 <div class="search" class="w3-container w3-padding-16 ">
                   <input type="text" id="searchInput" placeholder="Search" oninput="searchProducts()">
-                  <select id="priceCategory" onchange="searchProducts()">
-                    <option value="all">ALL</option>
-                    <option value="below-350"> Less 350.000</option>
-                    <option value="above-500"> More 500.000</option>
-                  </select>
+                  <select id="category" onchange="searchProducts()">
+                      <option value="all">All</option>
+                      <option value="hoodie">Hoodie</option>
+                      <option value="sweater">Sweater</option>
+                      <option value="tshirt">T-Shirt</option>
+                      <option value="cosplay">Cosplay</option>
+                    </select>
+                    <select id="priceCategory" onchange="searchProducts()">
+                      <option value="all">ALL</option>
+                      <option value="below-350">Less 350.000</option>
+                      <option value="above-500">More 500.000</option>
+                    </select>
                   <span onclick="document.getElementById('findcart').style.display='none'"
                     class="w3-button w3-xlarge w3-transparent w3-display-container" title="Close Modal">×</span>
                 </div>
